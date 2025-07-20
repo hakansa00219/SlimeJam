@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b7aa4f90012742dd846189e332e02239, type: 3}
-  m_Name: New Level
+  m_Name: Level1
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -35,13 +35,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
       Data: 0
-    - Name: y
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 20
     - Name: 
       Entry: 8
       Data: 
@@ -49,6 +49,9 @@ MonoBehaviour:
       Entry: 3
       Data: 0
     - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
       Entry: 3
       Data: 0
     - Name: 
@@ -59,133 +62,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
       Data: 0
     - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
       Entry: 3
-      Data: 0
-    - Name: ElementType
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 0
-    - Name: ElementType
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 0
-    - Name: ElementType
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 0
-    - Name: ElementType
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 0
-    - Name: ElementType
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
+      Data: 19
     - Name: 
       Entry: 8
       Data: 
@@ -195,6 +78,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -203,13 +89,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
       Data: 0
-    - Name: y
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 18
     - Name: 
       Entry: 8
       Data: 
@@ -219,6 +105,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -227,13 +116,202 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
       Data: 0
-    - Name: y
+    - Name: 
+      Entry: 3
+      Data: 17
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 2
+    - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 3
+      Data: 16
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 2
+    - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 3
+      Data: 15
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 2
+    - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 3
+      Data: 14
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 2
+    - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 3
+      Data: 13
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 2
+    - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 3
+      Data: 12
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 2
+    - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 3
+      Data: 11
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 2
+    - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 3
+      Data: 10
     - Name: 
       Entry: 8
       Data: 
@@ -243,28 +321,7 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 0
-    - Name: ElementType
+    - Name: InteractableType
       Entry: 3
       Data: 0
     - Name: 
@@ -275,37 +332,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
       Data: 0
     - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
       Entry: 3
-      Data: 0
-    - Name: ElementType
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
+      Data: 9
     - Name: 
       Entry: 8
       Data: 
@@ -315,6 +348,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -323,13 +359,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
       Data: 0
-    - Name: y
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 8
     - Name: 
       Entry: 8
       Data: 
@@ -339,6 +375,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -347,13 +386,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
       Data: 0
-    - Name: y
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 7
     - Name: 
       Entry: 8
       Data: 
@@ -363,6 +402,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -371,13 +413,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
       Data: 0
-    - Name: y
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 6
     - Name: 
       Entry: 8
       Data: 
@@ -387,6 +429,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -395,13 +440,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
       Data: 0
-    - Name: y
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 5
     - Name: 
       Entry: 8
       Data: 
@@ -411,6 +456,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -419,13 +467,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
       Data: 0
-    - Name: y
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 4
     - Name: 
       Entry: 8
       Data: 
@@ -435,6 +483,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -443,13 +494,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
       Data: 0
-    - Name: y
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 3
     - Name: 
       Entry: 8
       Data: 
@@ -459,6 +510,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -467,13 +521,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
       Data: 0
-    - Name: y
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: 
       Entry: 8
       Data: 
@@ -483,6 +537,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -491,13 +548,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
       Data: 0
-    - Name: y
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -507,6 +564,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -515,13 +575,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 1
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 20
     - Name: 
       Entry: 8
       Data: 
@@ -531,6 +591,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -539,13 +602,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 1
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 19
     - Name: 
       Entry: 8
       Data: 
@@ -555,6 +618,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 5
     - Name: 
       Entry: 8
       Data: 
@@ -563,13 +629,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 1
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 18
     - Name: 
       Entry: 8
       Data: 
@@ -579,6 +645,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -587,13 +656,40 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 3
+      Data: 17
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 2
+    - Name: ElementType
+      Entry: 3
+      Data: 2
+    - Name: InteractableType
       Entry: 3
       Data: 0
-    - Name: y
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 1
+    - Name: 
+      Entry: 3
+      Data: 16
     - Name: 
       Entry: 8
       Data: 
@@ -603,6 +699,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -611,13 +710,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 1
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 15
     - Name: 
       Entry: 8
       Data: 
@@ -627,6 +726,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -635,13 +737,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 1
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 14
     - Name: 
       Entry: 8
       Data: 
@@ -651,6 +753,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -659,13 +764,40 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 3
+      Data: 13
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
       Entry: 3
       Data: 0
-    - Name: y
+    - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 5
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 3
+      Data: 12
     - Name: 
       Entry: 8
       Data: 
@@ -675,6 +807,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -683,13 +818,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 1
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 11
     - Name: 
       Entry: 8
       Data: 
@@ -699,6 +834,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -707,13 +845,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 1
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 10
     - Name: 
       Entry: 8
       Data: 
@@ -723,28 +861,7 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 0
-    - Name: ElementType
+    - Name: InteractableType
       Entry: 3
       Data: 0
     - Name: 
@@ -755,37 +872,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
     - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
       Entry: 3
-      Data: 0
-    - Name: ElementType
-      Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
       Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
+      Data: 9
     - Name: 
       Entry: 8
       Data: 
@@ -795,6 +888,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -803,13 +899,67 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 3
+      Data: 8
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 3
+    - Name: ElementType
+      Entry: 3
+      Data: 2
+    - Name: InteractableType
       Entry: 3
       Data: 0
-    - Name: y
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 3
+      Data: 7
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 3
+    - Name: ElementType
+      Entry: 3
+      Data: 2
+    - Name: InteractableType
       Entry: 3
       Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 3
+      Data: 6
     - Name: 
       Entry: 8
       Data: 
@@ -819,6 +969,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -827,13 +980,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 1
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 5
     - Name: 
       Entry: 8
       Data: 
@@ -843,28 +996,7 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 3
-    - Name: ElementType
+    - Name: InteractableType
       Entry: 3
       Data: 0
     - Name: 
@@ -875,37 +1007,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
     - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
       Entry: 3
-      Data: 3
-    - Name: ElementType
-      Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
       Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
+      Data: 4
     - Name: 
       Entry: 8
       Data: 
@@ -915,6 +1023,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -923,13 +1034,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 1
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 3
     - Name: 
       Entry: 8
       Data: 
@@ -939,6 +1050,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -947,13 +1061,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 1
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: 
       Entry: 8
       Data: 
@@ -963,6 +1077,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -971,13 +1088,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 1
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -987,6 +1104,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -995,13 +1115,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 2
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 20
     - Name: 
       Entry: 8
       Data: 
@@ -1011,6 +1131,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -1019,13 +1142,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 2
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 19
     - Name: 
       Entry: 8
       Data: 
@@ -1035,6 +1158,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -1043,13 +1169,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 2
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 18
     - Name: 
       Entry: 8
       Data: 
@@ -1059,6 +1185,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -1067,13 +1196,40 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 17
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 2
+    - Name: ElementType
+      Entry: 3
+      Data: 2
+    - Name: InteractableType
       Entry: 3
       Data: 0
-    - Name: y
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 16
     - Name: 
       Entry: 8
       Data: 
@@ -1083,6 +1239,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -1091,13 +1250,94 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 15
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
       Entry: 3
       Data: 0
-    - Name: y
+    - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 14
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 0
+    - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 13
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 0
+    - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 12
     - Name: 
       Entry: 8
       Data: 
@@ -1107,6 +1347,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -1115,13 +1358,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 2
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 11
     - Name: 
       Entry: 8
       Data: 
@@ -1131,6 +1374,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -1139,13 +1385,40 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 10
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
       Entry: 3
       Data: 0
-    - Name: y
+    - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 9
     - Name: 
       Entry: 8
       Data: 
@@ -1154,6 +1427,9 @@ MonoBehaviour:
       Data: 2
     - Name: ElementType
       Entry: 3
+      Data: 1
+    - Name: InteractableType
+      Entry: 3
       Data: 0
     - Name: 
       Entry: 8
@@ -1163,13 +1439,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 2
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 8
     - Name: 
       Entry: 8
       Data: 
@@ -1178,29 +1454,8 @@ MonoBehaviour:
       Data: 2
     - Name: ElementType
       Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 0
-    - Name: ElementType
+      Data: 1
+    - Name: InteractableType
       Entry: 3
       Data: 0
     - Name: 
@@ -1211,61 +1466,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
     - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
       Entry: 3
-      Data: 0
-    - Name: ElementType
-      Entry: 3
-      Data: 0
+      Data: 2
     - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
       Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 0
-    - Name: ElementType
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
+      Data: 7
     - Name: 
       Entry: 8
       Data: 
@@ -1274,6 +1481,9 @@ MonoBehaviour:
       Data: 2
     - Name: ElementType
       Entry: 3
+      Data: 1
+    - Name: InteractableType
+      Entry: 3
       Data: 0
     - Name: 
       Entry: 8
@@ -1283,20 +1493,23 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
     - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
       Entry: 3
       Data: 2
+    - Name: 
+      Entry: 3
+      Data: 6
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 0
     - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
       Entry: 3
       Data: 0
     - Name: 
@@ -1307,61 +1520,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
     - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
       Entry: 3
       Data: 2
-    - Name: ElementType
-      Entry: 3
-      Data: 0
     - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
       Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 0
-    - Name: ElementType
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
+      Data: 5
     - Name: 
       Entry: 8
       Data: 
@@ -1371,6 +1536,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -1379,13 +1547,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 2
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 4
     - Name: 
       Entry: 8
       Data: 
@@ -1395,6 +1563,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -1403,13 +1574,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 2
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 3
     - Name: 
       Entry: 8
       Data: 
@@ -1419,6 +1590,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -1427,13 +1601,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 2
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: 
       Entry: 8
       Data: 
@@ -1443,6 +1617,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -1451,13 +1628,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 2
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -1467,6 +1644,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -1475,13 +1655,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 3
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 20
     - Name: 
       Entry: 8
       Data: 
@@ -1491,6 +1671,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -1499,13 +1682,202 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 3
+    - Name: 
+      Entry: 3
+      Data: 19
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 2
+    - Name: ElementType
+      Entry: 3
+      Data: 2
+    - Name: InteractableType
       Entry: 3
       Data: 0
-    - Name: y
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 3
+    - Name: 
+      Entry: 3
+      Data: 18
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 2
+    - Name: ElementType
+      Entry: 3
+      Data: 2
+    - Name: InteractableType
       Entry: 3
       Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 3
+    - Name: 
+      Entry: 3
+      Data: 17
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 2
+    - Name: ElementType
+      Entry: 3
+      Data: 2
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 3
+    - Name: 
+      Entry: 3
+      Data: 16
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 0
+    - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 3
+    - Name: 
+      Entry: 3
+      Data: 15
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 0
+    - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 3
+    - Name: 
+      Entry: 3
+      Data: 14
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 0
+    - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 3
+    - Name: 
+      Entry: 3
+      Data: 13
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 0
+    - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 3
+    - Name: 
+      Entry: 3
+      Data: 12
     - Name: 
       Entry: 8
       Data: 
@@ -1515,6 +1887,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -1523,13 +1898,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 3
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 11
     - Name: 
       Entry: 8
       Data: 
@@ -1539,6 +1914,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -1547,13 +1925,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 3
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 10
     - Name: 
       Entry: 8
       Data: 
@@ -1563,6 +1941,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 4
     - Name: 
       Entry: 8
       Data: 
@@ -1571,13 +1952,256 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 3
+    - Name: 
+      Entry: 3
+      Data: 9
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 2
+    - Name: ElementType
+      Entry: 3
+      Data: 1
+    - Name: InteractableType
       Entry: 3
       Data: 0
-    - Name: y
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 3
+    - Name: 
+      Entry: 3
+      Data: 8
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 2
+    - Name: ElementType
+      Entry: 3
+      Data: 255
+    - Name: InteractableType
       Entry: 3
       Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 3
+    - Name: 
+      Entry: 3
+      Data: 7
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 2
+    - Name: ElementType
+      Entry: 3
+      Data: 1
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 3
+    - Name: 
+      Entry: 3
+      Data: 6
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 0
+    - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 3
+    - Name: 
+      Entry: 3
+      Data: 5
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 0
+    - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 3
+    - Name: 
+      Entry: 3
+      Data: 4
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 0
+    - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 3
+    - Name: 
+      Entry: 3
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 3
+    - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 3
+    - Name: 
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 3
+    - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 3
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 1
+    - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 4
+    - Name: 
+      Entry: 3
+      Data: 20
     - Name: 
       Entry: 8
       Data: 
@@ -1587,28 +2211,7 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 2
-    - Name: ElementType
+    - Name: InteractableType
       Entry: 3
       Data: 0
     - Name: 
@@ -1619,13 +2222,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 4
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 19
     - Name: 
       Entry: 8
       Data: 
@@ -1635,28 +2238,7 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 2
-    - Name: ElementType
+    - Name: InteractableType
       Entry: 3
       Data: 0
     - Name: 
@@ -1667,13 +2249,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 4
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 18
     - Name: 
       Entry: 8
       Data: 
@@ -1683,28 +2265,7 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 2
-    - Name: ElementType
+    - Name: InteractableType
       Entry: 3
       Data: 0
     - Name: 
@@ -1715,109 +2276,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
     - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
       Entry: 3
-      Data: 2
-    - Name: ElementType
-      Entry: 3
-      Data: 0
+      Data: 4
     - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
       Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 2
-    - Name: ElementType
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 2
-    - Name: ElementType
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 2
-    - Name: ElementType
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
+      Data: 17
     - Name: 
       Entry: 8
       Data: 
@@ -1827,6 +2292,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -1835,13 +2303,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 4
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 16
     - Name: 
       Entry: 8
       Data: 
@@ -1851,6 +2319,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -1859,13 +2330,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 4
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 15
     - Name: 
       Entry: 8
       Data: 
@@ -1875,6 +2346,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -1883,20 +2357,23 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 4
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 14
     - Name: 
       Entry: 8
       Data: 
     - Name: Type
       Entry: 3
-      Data: 3
+      Data: 0
     - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
       Entry: 3
       Data: 0
     - Name: 
@@ -1907,20 +2384,23 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 4
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 13
     - Name: 
       Entry: 8
       Data: 
     - Name: Type
       Entry: 3
-      Data: 3
+      Data: 0
     - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
       Entry: 3
       Data: 0
     - Name: 
@@ -1931,20 +2411,23 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 4
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 12
     - Name: 
       Entry: 8
       Data: 
     - Name: Type
       Entry: 3
-      Data: 1
+      Data: 0
     - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
       Entry: 3
       Data: 0
     - Name: 
@@ -1955,13 +2438,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 4
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 11
     - Name: 
       Entry: 8
       Data: 
@@ -1971,28 +2454,7 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 2
-    - Name: ElementType
+    - Name: InteractableType
       Entry: 3
       Data: 0
     - Name: 
@@ -2003,13 +2465,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 4
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 10
     - Name: 
       Entry: 8
       Data: 
@@ -2019,6 +2481,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -2027,20 +2492,23 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 4
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 9
     - Name: 
       Entry: 8
       Data: 
     - Name: Type
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: ElementType
+      Entry: 3
+      Data: 1
+    - Name: InteractableType
       Entry: 3
       Data: 0
     - Name: 
@@ -2051,20 +2519,23 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 4
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 8
     - Name: 
       Entry: 8
       Data: 
     - Name: Type
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: ElementType
+      Entry: 3
+      Data: 1
+    - Name: InteractableType
       Entry: 3
       Data: 0
     - Name: 
@@ -2075,20 +2546,23 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 4
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 7
     - Name: 
       Entry: 8
       Data: 
     - Name: Type
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: ElementType
+      Entry: 3
+      Data: 1
+    - Name: InteractableType
       Entry: 3
       Data: 0
     - Name: 
@@ -2099,109 +2573,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
     - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
       Entry: 3
-      Data: 0
-    - Name: ElementType
-      Entry: 3
-      Data: 0
+      Data: 4
     - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
       Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 0
-    - Name: ElementType
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 0
-    - Name: ElementType
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 0
-    - Name: ElementType
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
+      Data: 6
     - Name: 
       Entry: 8
       Data: 
@@ -2211,28 +2589,7 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 2
-    - Name: ElementType
+    - Name: InteractableType
       Entry: 3
       Data: 0
     - Name: 
@@ -2243,13 +2600,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 4
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 5
     - Name: 
       Entry: 8
       Data: 
@@ -2259,28 +2616,7 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 2
-    - Name: ElementType
+    - Name: InteractableType
       Entry: 3
       Data: 0
     - Name: 
@@ -2291,13 +2627,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 4
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 4
     - Name: 
       Entry: 8
       Data: 
@@ -2307,6 +2643,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -2315,13 +2654,94 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 4
+    - Name: 
+      Entry: 3
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 3
+    - Name: ElementType
       Entry: 3
       Data: 0
-    - Name: y
+    - Name: InteractableType
       Entry: 3
       Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 4
+    - Name: 
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 3
+    - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 4
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 1
+    - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 5
+    - Name: 
+      Entry: 3
+      Data: 20
     - Name: 
       Entry: 8
       Data: 
@@ -2331,28 +2751,7 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 2
-    - Name: ElementType
+    - Name: InteractableType
       Entry: 3
       Data: 0
     - Name: 
@@ -2363,85 +2762,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
     - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
       Entry: 3
-      Data: 3
-    - Name: ElementType
-      Entry: 3
-      Data: 0
+      Data: 5
     - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
       Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 3
-    - Name: ElementType
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 1
-    - Name: ElementType
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
+      Data: 19
     - Name: 
       Entry: 8
       Data: 
@@ -2451,6 +2778,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -2459,13 +2789,499 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 5
+    - Name: 
+      Entry: 3
+      Data: 18
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
       Entry: 3
       Data: 0
-    - Name: y
+    - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 5
+    - Name: 
+      Entry: 3
+      Data: 17
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 0
+    - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 5
+    - Name: 
+      Entry: 3
+      Data: 16
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 0
+    - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 5
+    - Name: 
+      Entry: 3
+      Data: 15
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 0
+    - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 5
+    - Name: 
+      Entry: 3
+      Data: 14
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 0
+    - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 5
+    - Name: 
+      Entry: 3
+      Data: 13
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 3
+    - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 5
+    - Name: 
+      Entry: 3
+      Data: 12
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 0
+    - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 5
+    - Name: 
+      Entry: 3
+      Data: 11
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 0
+    - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 5
+    - Name: 
+      Entry: 3
+      Data: 10
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 0
+    - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 5
+    - Name: 
+      Entry: 3
+      Data: 9
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 0
+    - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 5
+    - Name: 
+      Entry: 3
+      Data: 8
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 0
+    - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 5
+    - Name: 
+      Entry: 3
+      Data: 7
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 0
+    - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 5
+    - Name: 
+      Entry: 3
+      Data: 6
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 0
+    - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 5
+    - Name: 
+      Entry: 3
+      Data: 5
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 0
+    - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 5
+    - Name: 
+      Entry: 3
+      Data: 4
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 0
+    - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 5
+    - Name: 
+      Entry: 3
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 3
+    - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 5
+    - Name: 
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 3
+    - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 5
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 1
+    - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 6
+    - Name: 
+      Entry: 3
+      Data: 20
     - Name: 
       Entry: 8
       Data: 
@@ -2475,28 +3291,7 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 0
-    - Name: ElementType
+    - Name: InteractableType
       Entry: 3
       Data: 0
     - Name: 
@@ -2507,421 +3302,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
     - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
       Entry: 3
-      Data: 0
-    - Name: ElementType
-      Entry: 3
-      Data: 0
+      Data: 6
     - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
       Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 0
-    - Name: ElementType
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 0
-    - Name: ElementType
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 0
-    - Name: ElementType
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 0
-    - Name: ElementType
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 0
-    - Name: ElementType
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 0
-    - Name: ElementType
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 0
-    - Name: ElementType
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 0
-    - Name: ElementType
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 0
-    - Name: ElementType
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 0
-    - Name: ElementType
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 0
-    - Name: ElementType
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 0
-    - Name: ElementType
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 0
-    - Name: ElementType
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 3
-    - Name: ElementType
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 3
-    - Name: ElementType
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 1
-    - Name: ElementType
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
+      Data: 19
     - Name: 
       Entry: 8
       Data: 
@@ -2931,6 +3318,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -2939,13 +3329,175 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 6
+    - Name: 
+      Entry: 3
+      Data: 18
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
       Entry: 3
       Data: 0
-    - Name: y
+    - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 6
+    - Name: 
+      Entry: 3
+      Data: 17
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 0
+    - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 6
+    - Name: 
+      Entry: 3
+      Data: 16
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 0
+    - Name: ElementType
+      Entry: 3
+      Data: 2
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 6
+    - Name: 
+      Entry: 3
+      Data: 15
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 0
+    - Name: ElementType
+      Entry: 3
+      Data: 2
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 6
+    - Name: 
+      Entry: 3
+      Data: 14
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 0
+    - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 6
+    - Name: 
+      Entry: 3
+      Data: 13
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 3
+    - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 6
+    - Name: 
+      Entry: 3
+      Data: 12
     - Name: 
       Entry: 8
       Data: 
@@ -2955,28 +3507,7 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 0
-    - Name: ElementType
+    - Name: InteractableType
       Entry: 3
       Data: 0
     - Name: 
@@ -2987,421 +3518,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
     - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
       Entry: 3
-      Data: 0
-    - Name: ElementType
-      Entry: 3
-      Data: 0
+      Data: 6
     - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
       Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 0
-    - Name: ElementType
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 0
-    - Name: ElementType
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 0
-    - Name: ElementType
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 0
-    - Name: ElementType
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 0
-    - Name: ElementType
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 0
-    - Name: ElementType
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 0
-    - Name: ElementType
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 0
-    - Name: ElementType
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 0
-    - Name: ElementType
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 0
-    - Name: ElementType
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 0
-    - Name: ElementType
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 0
-    - Name: ElementType
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 3
-    - Name: ElementType
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 3
-    - Name: ElementType
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 1
-    - Name: ElementType
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 1
-    - Name: ElementType
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
+      Data: 11
     - Name: 
       Entry: 8
       Data: 
@@ -3411,6 +3534,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -3419,13 +3545,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 6
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 10
     - Name: 
       Entry: 8
       Data: 
@@ -3435,6 +3561,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -3443,13 +3572,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 6
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 9
     - Name: 
       Entry: 8
       Data: 
@@ -3459,6 +3588,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 2
     - Name: 
       Entry: 8
       Data: 
@@ -3467,13 +3599,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 6
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 8
     - Name: 
       Entry: 8
       Data: 
@@ -3483,6 +3615,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -3491,13 +3626,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 6
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 7
     - Name: 
       Entry: 8
       Data: 
@@ -3507,6 +3642,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -3515,20 +3653,23 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 6
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 6
     - Name: 
       Entry: 8
       Data: 
     - Name: Type
       Entry: 3
-      Data: 3
+      Data: 0
     - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
       Entry: 3
       Data: 0
     - Name: 
@@ -3539,20 +3680,23 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 6
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 5
     - Name: 
       Entry: 8
       Data: 
     - Name: Type
       Entry: 3
-      Data: 3
+      Data: 0
     - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
       Entry: 3
       Data: 0
     - Name: 
@@ -3563,37 +3707,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
     - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
       Entry: 3
-      Data: 3
-    - Name: ElementType
-      Entry: 3
-      Data: 0
+      Data: 6
     - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
       Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
+      Data: 4
     - Name: 
       Entry: 8
       Data: 
@@ -3603,6 +3723,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -3611,13 +3734,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 6
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 3
     - Name: 
       Entry: 8
       Data: 
@@ -3627,6 +3750,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -3635,13 +3761,229 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 6
+    - Name: 
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 1
+    - Name: ElementType
       Entry: 3
       Data: 0
-    - Name: y
+    - Name: InteractableType
       Entry: 3
       Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 6
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 1
+    - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 7
+    - Name: 
+      Entry: 3
+      Data: 20
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 2
+    - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 7
+    - Name: 
+      Entry: 3
+      Data: 19
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 0
+    - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 5
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 7
+    - Name: 
+      Entry: 3
+      Data: 18
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 0
+    - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 7
+    - Name: 
+      Entry: 3
+      Data: 17
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 0
+    - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 7
+    - Name: 
+      Entry: 3
+      Data: 16
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 0
+    - Name: ElementType
+      Entry: 3
+      Data: 2
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 7
+    - Name: 
+      Entry: 3
+      Data: 15
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 3
+    - Name: ElementType
+      Entry: 3
+      Data: 2
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 7
+    - Name: 
+      Entry: 3
+      Data: 14
     - Name: 
       Entry: 8
       Data: 
@@ -3651,6 +3993,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -3659,13 +4004,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 7
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 13
     - Name: 
       Entry: 8
       Data: 
@@ -3675,6 +4020,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -3683,13 +4031,67 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 7
+    - Name: 
+      Entry: 3
+      Data: 12
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 2
+    - Name: ElementType
       Entry: 3
       Data: 0
-    - Name: y
+    - Name: InteractableType
       Entry: 3
       Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 7
+    - Name: 
+      Entry: 3
+      Data: 11
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 2
+    - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 7
+    - Name: 
+      Entry: 3
+      Data: 10
     - Name: 
       Entry: 8
       Data: 
@@ -3699,6 +4101,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -3707,13 +4112,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 7
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 9
     - Name: 
       Entry: 8
       Data: 
@@ -3723,6 +4128,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -3731,13 +4139,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 7
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 8
     - Name: 
       Entry: 8
       Data: 
@@ -3747,6 +4155,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -3755,13 +4166,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 7
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 7
     - Name: 
       Entry: 8
       Data: 
@@ -3771,6 +4182,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -3779,13 +4193,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 7
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 6
     - Name: 
       Entry: 8
       Data: 
@@ -3795,6 +4209,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -3803,13 +4220,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 7
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 5
     - Name: 
       Entry: 8
       Data: 
@@ -3819,28 +4236,7 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 1
-    - Name: ElementType
+    - Name: InteractableType
       Entry: 3
       Data: 0
     - Name: 
@@ -3851,37 +4247,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
     - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
       Entry: 3
-      Data: 1
-    - Name: ElementType
-      Entry: 3
-      Data: 0
+      Data: 7
     - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
       Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
+      Data: 4
     - Name: 
       Entry: 8
       Data: 
@@ -3891,6 +4263,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -3899,13 +4274,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 7
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 3
     - Name: 
       Entry: 8
       Data: 
@@ -3915,6 +4290,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -3923,13 +4301,67 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 7
+    - Name: 
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 1
+    - Name: ElementType
       Entry: 3
       Data: 0
-    - Name: y
+    - Name: InteractableType
       Entry: 3
       Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 7
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 1
+    - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 8
+    - Name: 
+      Entry: 3
+      Data: 20
     - Name: 
       Entry: 8
       Data: 
@@ -3939,6 +4371,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -3947,13 +4382,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 8
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 19
     - Name: 
       Entry: 8
       Data: 
@@ -3963,6 +4398,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -3971,13 +4409,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 8
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 18
     - Name: 
       Entry: 8
       Data: 
@@ -3987,6 +4425,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -3995,13 +4436,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 8
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 17
     - Name: 
       Entry: 8
       Data: 
@@ -4011,6 +4452,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -4019,13 +4463,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 8
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 16
     - Name: 
       Entry: 8
       Data: 
@@ -4035,6 +4479,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -4043,13 +4490,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 8
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 15
     - Name: 
       Entry: 8
       Data: 
@@ -4059,28 +4506,7 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 1
-    - Name: ElementType
+    - Name: InteractableType
       Entry: 3
       Data: 0
     - Name: 
@@ -4091,13 +4517,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 8
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 14
     - Name: 
       Entry: 8
       Data: 
@@ -4107,6 +4533,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -4115,13 +4544,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 8
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 13
     - Name: 
       Entry: 8
       Data: 
@@ -4131,6 +4560,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -4139,13 +4571,67 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 8
+    - Name: 
+      Entry: 3
+      Data: 12
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 2
+    - Name: ElementType
       Entry: 3
       Data: 0
-    - Name: y
+    - Name: InteractableType
       Entry: 3
       Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 8
+    - Name: 
+      Entry: 3
+      Data: 11
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 1
+    - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 8
+    - Name: 
+      Entry: 3
+      Data: 10
     - Name: 
       Entry: 8
       Data: 
@@ -4155,6 +4641,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -4163,13 +4652,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 8
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 9
     - Name: 
       Entry: 8
       Data: 
@@ -4179,28 +4668,7 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 1
-    - Name: ElementType
+    - Name: InteractableType
       Entry: 3
       Data: 0
     - Name: 
@@ -4211,13 +4679,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 8
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 8
     - Name: 
       Entry: 8
       Data: 
@@ -4227,28 +4695,7 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Grid.CellData, Assembly-CSharp
-    - Name: Position
-      Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
-      Entry: 3
-      Data: 0
-    - Name: y
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 1
-    - Name: ElementType
+    - Name: InteractableType
       Entry: 3
       Data: 0
     - Name: 
@@ -4259,13 +4706,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 8
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 7
     - Name: 
       Entry: 8
       Data: 
@@ -4273,6 +4720,9 @@ MonoBehaviour:
       Entry: 3
       Data: 1
     - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
       Entry: 3
       Data: 0
     - Name: 
@@ -4283,20 +4733,23 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 8
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 6
     - Name: 
       Entry: 8
       Data: 
     - Name: Type
       Entry: 3
-      Data: 1
+      Data: 3
     - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
       Entry: 3
       Data: 0
     - Name: 
@@ -4307,13 +4760,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 8
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 5
     - Name: 
       Entry: 8
       Data: 
@@ -4321,6 +4774,9 @@ MonoBehaviour:
       Entry: 3
       Data: 1
     - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
       Entry: 3
       Data: 0
     - Name: 
@@ -4331,13 +4787,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 8
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 4
     - Name: 
       Entry: 8
       Data: 
@@ -4345,6 +4801,9 @@ MonoBehaviour:
       Entry: 3
       Data: 1
     - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
       Entry: 3
       Data: 0
     - Name: 
@@ -4355,13 +4814,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 8
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 3
     - Name: 
       Entry: 8
       Data: 
@@ -4369,6 +4828,9 @@ MonoBehaviour:
       Entry: 3
       Data: 1
     - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
       Entry: 3
       Data: 0
     - Name: 
@@ -4379,13 +4841,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 8
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: 
       Entry: 8
       Data: 
@@ -4393,6 +4855,9 @@ MonoBehaviour:
       Entry: 3
       Data: 1
     - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
       Entry: 3
       Data: 0
     - Name: 
@@ -4403,13 +4868,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 8
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -4417,6 +4882,9 @@ MonoBehaviour:
       Entry: 3
       Data: 1
     - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
       Entry: 3
       Data: 0
     - Name: 
@@ -4427,13 +4895,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 9
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 20
     - Name: 
       Entry: 8
       Data: 
@@ -4441,6 +4909,9 @@ MonoBehaviour:
       Entry: 3
       Data: 1
     - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
       Entry: 3
       Data: 0
     - Name: 
@@ -4451,13 +4922,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 9
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 19
     - Name: 
       Entry: 8
       Data: 
@@ -4465,6 +4936,9 @@ MonoBehaviour:
       Entry: 3
       Data: 1
     - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
       Entry: 3
       Data: 0
     - Name: 
@@ -4475,13 +4949,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 9
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 18
     - Name: 
       Entry: 8
       Data: 
@@ -4489,6 +4963,9 @@ MonoBehaviour:
       Entry: 3
       Data: 1
     - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
       Entry: 3
       Data: 0
     - Name: 
@@ -4499,13 +4976,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 9
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 17
     - Name: 
       Entry: 8
       Data: 
@@ -4513,6 +4990,9 @@ MonoBehaviour:
       Entry: 3
       Data: 1
     - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
       Entry: 3
       Data: 0
     - Name: 
@@ -4523,13 +5003,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 9
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 16
     - Name: 
       Entry: 8
       Data: 
@@ -4537,6 +5017,9 @@ MonoBehaviour:
       Entry: 3
       Data: 1
     - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
       Entry: 3
       Data: 0
     - Name: 
@@ -4547,13 +5030,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 9
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 15
     - Name: 
       Entry: 8
       Data: 
@@ -4561,6 +5044,9 @@ MonoBehaviour:
       Entry: 3
       Data: 1
     - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
       Entry: 3
       Data: 0
     - Name: 
@@ -4571,13 +5057,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 9
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 14
     - Name: 
       Entry: 8
       Data: 
@@ -4585,6 +5071,9 @@ MonoBehaviour:
       Entry: 3
       Data: 1
     - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
       Entry: 3
       Data: 0
     - Name: 
@@ -4595,13 +5084,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 9
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 13
     - Name: 
       Entry: 8
       Data: 
@@ -4609,6 +5098,9 @@ MonoBehaviour:
       Entry: 3
       Data: 1
     - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
       Entry: 3
       Data: 0
     - Name: 
@@ -4619,13 +5111,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 9
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 12
     - Name: 
       Entry: 8
       Data: 
@@ -4633,6 +5125,9 @@ MonoBehaviour:
       Entry: 3
       Data: 1
     - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
       Entry: 3
       Data: 0
     - Name: 
@@ -4643,13 +5138,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 9
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 11
     - Name: 
       Entry: 8
       Data: 
@@ -4657,6 +5152,9 @@ MonoBehaviour:
       Entry: 3
       Data: 1
     - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
       Entry: 3
       Data: 0
     - Name: 
@@ -4667,13 +5165,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 9
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 10
     - Name: 
       Entry: 8
       Data: 
@@ -4681,6 +5179,9 @@ MonoBehaviour:
       Entry: 3
       Data: 1
     - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
       Entry: 3
       Data: 0
     - Name: 
@@ -4691,13 +5192,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 9
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 9
     - Name: 
       Entry: 8
       Data: 
@@ -4705,6 +5206,9 @@ MonoBehaviour:
       Entry: 3
       Data: 1
     - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
       Entry: 3
       Data: 0
     - Name: 
@@ -4715,13 +5219,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 9
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 8
     - Name: 
       Entry: 8
       Data: 
@@ -4729,6 +5233,9 @@ MonoBehaviour:
       Entry: 3
       Data: 1
     - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
       Entry: 3
       Data: 0
     - Name: 
@@ -4739,13 +5246,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 9
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 7
     - Name: 
       Entry: 8
       Data: 
@@ -4753,6 +5260,9 @@ MonoBehaviour:
       Entry: 3
       Data: 1
     - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
       Entry: 3
       Data: 0
     - Name: 
@@ -4763,13 +5273,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 9
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 6
     - Name: 
       Entry: 8
       Data: 
@@ -4777,6 +5287,9 @@ MonoBehaviour:
       Entry: 3
       Data: 1
     - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
       Entry: 3
       Data: 0
     - Name: 
@@ -4787,13 +5300,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 9
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 5
     - Name: 
       Entry: 8
       Data: 
@@ -4801,6 +5314,9 @@ MonoBehaviour:
       Entry: 3
       Data: 1
     - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
       Entry: 3
       Data: 0
     - Name: 
@@ -4811,13 +5327,13 @@ MonoBehaviour:
       Data: Grid.CellData, Assembly-CSharp
     - Name: Position
       Entry: 7
-      Data: Unity.Mathematics.int2, Unity.Mathematics
-    - Name: x
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 0
-    - Name: y
+      Data: 9
+    - Name: 
       Entry: 3
-      Data: 0
+      Data: 4
     - Name: 
       Entry: 8
       Data: 
@@ -4825,6 +5341,90 @@ MonoBehaviour:
       Entry: 3
       Data: 1
     - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 9
+    - Name: 
+      Entry: 3
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 1
+    - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 9
+    - Name: 
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 1
+    - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Grid.CellData, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 9
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 1
+    - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: InteractableType
       Entry: 3
       Data: 0
     - Name: 
@@ -4836,9 +5436,23 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: StartTile
+      Entry: 7
+      Data: System.ValueTuple`2[[System.Int32, mscorlib],[System.Int32, mscorlib]],
+        mscorlib
+    - Name: Item1
+      Entry: 3
+      Data: 2
+    - Name: Item2
+      Entry: 3
+      Data: 11
+    - Name: 
+      Entry: 8
+      Data: 
   width: 10
-  heigth: 20
+  height: 20
   isEditable: 1
-  editType: 0
+  editType: 1
   selectedBaseTileType: 2
-  selectedElementTileType: 0
+  selectedElementTileType: 1
+  selectedInteractableTileType: 4

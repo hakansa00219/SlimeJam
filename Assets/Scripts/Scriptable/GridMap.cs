@@ -3,7 +3,6 @@ using Grid;
 using Map.Tiles;
 using Sirenix.OdinInspector;
 using Sirenix.Utilities;
-using UnityEditor;
 using UnityEngine;
 
 namespace Scriptable
@@ -12,27 +11,60 @@ namespace Scriptable
     public class GridMap : SerializedScriptableObject
     {
         [VerticalGroup("MapSettings")]
-        public int width;
+        [SerializeField]
+        private int width;
         [VerticalGroup("MapSettings")]
-        public int heigth;
+        [SerializeField]
+        private int height;
 
         [VerticalGroup("MapSettings")]
         [Button("Create Map")]
-        public void CreateMap()
+        private void CreateMap()
         {
-            Cells = new CellData[width, heigth];
+            Cells = new CellData[width, height];
+
+            for (var x = 0; x < Cells.GetLength(0); x++)
+            {
+                for (int y = 0; y < Cells.GetLength(1); y++)
+                {
+                    Cells[x, y].Position = new Vector2Int(x, y);
+                }
+            }
+        }
+
+        [VerticalGroup("MapSettings")]
+        [Button("Set Positions")]
+        private void SetPositions()
+        {
+            for (var x = 0; x < Cells.GetLength(0); x++)
+            {
+                for (int y = 0; y < Cells.GetLength(1); y++)
+                {
+                    int actualYPos = Cells.GetLength(1) - y;
+                    Cells[x, y].Position = new Vector2Int(x, actualYPos);
+                }
+            }
         }
         
         [TableMatrix(DrawElementMethod = "DrawCells", SquareCells = true, HorizontalTitle = "X", VerticalTitle = "Y")]
         public CellData[,] Cells;
 
-        public bool isEditable = false;
+        public (int X, int Y) StartTile;
+
+        [SerializeField]
+        private bool isEditable = false;
+        [SerializeField]
         [ShowIf(nameof(isEditable))]
-        public EditType editType;
+        private EditType editType;
+        [SerializeField]
         [ShowIf("@isEditable == true && editType == EditType.BaseTile")]
-        public BaseTileType selectedBaseTileType;
+        private BaseTileType selectedBaseTileType;
+        [SerializeField]
         [ShowIf("@isEditable == true && editType == EditType.ElementTile")]
-        public TileElementType selectedElementTileType;
+        private TileElementType selectedElementTileType;
+        [SerializeField]
+        [ShowIf("@isEditable == true && editType == EditType.InteractableTile")]
+        private InteractableTileType selectedInteractableTileType;
         
         private static CellData DrawCells(Rect rect, CellData value, int x, int y, GridMap map, CellData[,] cells)
         {
@@ -46,11 +78,19 @@ namespace Scriptable
                 {
                     currentCell.Type = map.selectedBaseTileType;
                     currentCell.ElementType = currentCell.ElementType; // Keep the existing element type
+                    currentCell.InteractableType = currentCell.InteractableType; // Keep the existing interactable type
                 }
                 else if (map.editType == EditType.ElementTile)
                 {
                     currentCell.Type = currentCell.Type; // Keep the existing base tile type
                     currentCell.ElementType = map.selectedElementTileType;
+                    currentCell.InteractableType = currentCell.InteractableType; 
+                }
+                else if (map.editType == EditType.InteractableTile)
+                {
+                    currentCell.Type = currentCell.Type; // Keep the existing base tile type
+                    currentCell.ElementType = currentCell.ElementType; // Keep the existing element type
+                    currentCell.InteractableType = map.selectedInteractableTileType;
                 }
                 else
                 {
@@ -67,8 +107,28 @@ namespace Scriptable
                 BaseTileType.Sand => new Color(1f,0.7f,0f,1f),
                 _ => throw new ArgumentOutOfRangeException()
             };
+            string text = currentCell.ElementType switch
+            {
+                TileElementType.Empty => "O",
+                TileElementType.Road => "Road",
+                TileElementType.Rock => "Rock",
+                TileElementType.Main => "Base",
+                _ => throw new ArgumentOutOfRangeException()
+            };
+            string text2 = currentCell.InteractableType switch
+            {
+                InteractableTileType.Empty => "O",
+                InteractableTileType.Wood => "Wood",
+                InteractableTileType.Metal => "Metal",
+                InteractableTileType.Berry => "Berry",
+                InteractableTileType.Slime => "Slime",
+                InteractableTileType.Flag => "Flag",
+                _ => throw new ArgumentOutOfRangeException()
+            };
 
             EditorGUI.DrawRect(rect.Padding(1), renderColor);
+            EditorGUI.TextArea(rect.Padding(4), text + "\n" + text2);
+     
 
             cells[x, y] = currentCell;
             
@@ -76,10 +136,11 @@ namespace Scriptable
         }
 
 
-        public enum EditType
+        private enum EditType
         {
             BaseTile = 0,
-            ElementTile = 1
+            ElementTile = 1,
+            InteractableTile = 2,
         }
         
     }

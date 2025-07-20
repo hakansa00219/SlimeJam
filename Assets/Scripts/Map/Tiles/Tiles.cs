@@ -12,11 +12,26 @@ namespace Map.Tiles
     {
         Empty = 0,
         Road = 1,
-        Flag = 2,
-        Rock = 3,
+        Rock = 2,
+        Main = 255,
+    }
+    
+    public enum InteractableTileType : byte
+    {
+        Empty = 0,
+        Wood = 1,
+        Metal = 2,
+        Berry = 3,
         Slime = 4,
-        Metal = 5,
-        Wood = 6,
-        Berry = 7,
+        Flag = 5,
+    }
+
+    public enum StructureTileType : byte
+    {
+        Empty = 0,
+        House = 1,
+        Barracks = 2,
+        Blacksmith = 3,
+        Gym = 4,
     }
 }
