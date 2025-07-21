@@ -9,6 +9,8 @@ namespace Worker
     [RequireComponent(typeof(Worker))]
     public class WorkerMovement : TickActionBehaviour
     {
+        protected override int TickDelay => 3;
+        
         private Worker _worker;
         private readonly HashSet<Vector3Int> _visitedTiles = new HashSet<Vector3Int>();
         private Vector2Int _startTilePosition;
@@ -19,7 +21,7 @@ namespace Worker
             _worker = GetComponent<Worker>();
             _startTilePosition = GridUtilities.WorldPositionToGridPosition(transform.position);
         }
-
+        
         protected override void OnTick()
         {
             // If you are in the start tile, reset the visited tiles
