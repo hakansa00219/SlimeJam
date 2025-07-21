@@ -1,12 +1,15 @@
+using System;
 using UnityEngine;
+using Utility;
 
 namespace Entity
 {
-    public class EntitySpawner : ISpawner
+    public class EntitySpawner : Spawner, ISpawner
     {
         public void Spawn(Transform prefab, int x, int y)
         {
-            
+            Vector3 worldPosition = GridUtilities.GridPositionToWorldPosition(new Vector2Int(x, y));
+            Instantiate(prefab, worldPosition, Quaternion.identity, container);
         }
     }
 

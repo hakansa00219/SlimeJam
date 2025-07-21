@@ -3,6 +3,7 @@ using Grid;
 using Map.Tiles;
 using Sirenix.OdinInspector;
 using Sirenix.Utilities;
+using UnityEditor;
 using UnityEngine;
 
 namespace Scriptable
@@ -27,7 +28,8 @@ namespace Scriptable
             {
                 for (int y = 0; y < Cells.GetLength(1); y++)
                 {
-                    Cells[x, y].Position = new Vector2Int(x, y);
+                    int actualYPos = Cells.GetLength(1) - y - 1;
+                    Cells[x, y].Position = new Vector2Int(x, actualYPos);
                 }
             }
         }
@@ -40,7 +42,7 @@ namespace Scriptable
             {
                 for (int y = 0; y < Cells.GetLength(1); y++)
                 {
-                    int actualYPos = Cells.GetLength(1) - y;
+                    int actualYPos = Cells.GetLength(1) - y - 1;
                     Cells[x, y].Position = new Vector2Int(x, actualYPos);
                 }
             }
@@ -48,9 +50,10 @@ namespace Scriptable
         
         [TableMatrix(DrawElementMethod = "DrawCells", SquareCells = true, HorizontalTitle = "X", VerticalTitle = "Y")]
         public CellData[,] Cells;
-
-        public (int X, int Y) StartTile;
-
+        [SerializeField]
+        private (int X, int Y) _startTile;
+        [ReadOnly]
+        public (int X, int Y) StartTile => (_startTile.X, height - 1 - _startTile.Y);
         [SerializeField]
         private bool isEditable = false;
         [SerializeField]
@@ -125,10 +128,10 @@ namespace Scriptable
                 InteractableTileType.Flag => "Flag",
                 _ => throw new ArgumentOutOfRangeException()
             };
-
+#if UNITY_EDITOR
             EditorGUI.DrawRect(rect.Padding(1), renderColor);
             EditorGUI.TextArea(rect.Padding(4), text + "\n" + text2);
-     
+#endif
 
             cells[x, y] = currentCell;
             

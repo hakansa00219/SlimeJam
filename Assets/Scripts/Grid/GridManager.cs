@@ -1,7 +1,9 @@
 using System;
 using Entity;
+using Map.Tiles;
 using Scriptable;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.Tilemaps;
 
 namespace Grid
@@ -13,24 +15,24 @@ namespace Grid
         [SerializeField] private Tilemap overlayTilemap;
         [SerializeField] private TileTextures tileTextures;
         [SerializeField] private Entities entities;
+        [SerializeField] private EntitySpawner entitySpawner;
         
         private CellData[,] _cells;
         private int _width;
         private int _height;
         
-        private EntitySpawner _entitySpawner;
         
         private void Awake()
         {
-            _entitySpawner = new EntitySpawner();
-            
             _cells = level1.Cells;
             _width = _cells.GetLength(0);
             _height = _cells.GetLength(1);
             
             CreateTilemaps();
             RenderTilemaps();
+            CreateEntities();
         }
+        
         private void CreateTilemaps()
         {
             baseTilemap.ClearAllTiles();
@@ -48,7 +50,7 @@ namespace Grid
         {
             for (int x = 0; x < _width; x++)
             {
-                for (int y = 0; y < _height; y++)
+                for (int y = _height - 1; y >= 0; y--)
                 {
                     Tile tile = ScriptableObject.CreateInstance<Tile>();
                     tile.color = Color.white;
@@ -62,7 +64,7 @@ namespace Grid
         {
             for (int x = 0; x < _width; x++)
             {
-                for (int y = 0; y < _height; y++)
+                for (int y = _height - 1; y >= 0; y--)
                 {
                     Tile tile = ScriptableObject.CreateInstance<Tile>();
                     tile.color = Color.white;
@@ -70,15 +72,32 @@ namespace Grid
                     Vector3Int tilePosition = new Vector3Int(_cells[x, y].Position.x, _cells[x, y].Position.y, 0);
                     overlayTilemap.SetTile(tilePosition, tile);
                 }
-            }throw new NotImplementedException();
+            }
+        }
+        
+        private void CreateEntities()
+        {
+            CreateWorker();
+            CreateInteractables();
         }
 
-        private void Start()
+        private void CreateWorker()
         {
             (int x, int y) workerStartTile = level1.StartTile;
             
             //Spawn the worker at the start tile position
-            _entitySpawner.Spawn(entities.workerEntity, workerStartTile.x, workerStartTile.y);
+            entitySpawner.Spawn(entities.workerEntity, workerStartTile.x, workerStartTile.y);
         }
+        private void CreateInteractables()
+        {
+            foreach (var cellData in _cells)
+            {
+                if(cellData.InteractableType is InteractableTileType.Empty) continue;
+                // Spawn interactable entities based on the cell data
+                entitySpawner.Spawn(entities.interactableEntities[cellData.InteractableType], cellData.Position.x,
+                    cellData.Position.y);
+            }
+        }
+
     }
 }
