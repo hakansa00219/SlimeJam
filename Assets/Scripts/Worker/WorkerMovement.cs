@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Engine;
 using Map.Tiles;
@@ -11,8 +10,9 @@ namespace Worker
     public class WorkerMovement : TickActionBehaviour
     {
         private Worker _worker;
-        private HashSet<Vector3Int> _visitedTiles = new HashSet<Vector3Int>();
+        private readonly HashSet<Vector3Int> _visitedTiles = new HashSet<Vector3Int>();
         private Vector2Int _startTilePosition;
+        private Vector3Int _lastTilePosition;
 
         private void Awake()
         {
@@ -22,15 +22,13 @@ namespace Worker
 
         protected override void OnTick()
         {
-            Debug.Log("Move");
-            
             // If you are in the start tile, reset the visited tiles
             if (_worker.GridPositionX == _startTilePosition.x && _worker.GridPositionY == _startTilePosition.y)
             {
                 _visitedTiles.Clear();
             }
             
-            //Check neighbour tiles and 
+            //Check neighbour tiles and move to the first valid tile
             Vector3Int rightTilePosition = new Vector3Int(_worker.GridPositionX + 1, _worker.GridPositionY, 0);
             Vector3Int downTilePosition = new Vector3Int(_worker.GridPositionX, _worker.GridPositionY - 1, 0);
             Vector3Int leftTilePosition = new Vector3Int(_worker.GridPositionX - 1, _worker.GridPositionY, 0);
@@ -61,9 +59,15 @@ namespace Worker
             else
             {
                 Debug.LogError("No valid tile to move to.");
+                // Go back once
+                _worker.transform.position = GridUtilities.GridPositionToWorldPosition(new Vector2Int(_lastTilePosition.x, _lastTilePosition.y));
+                _visitedTiles.Add(_lastTilePosition);
+                _worker.GridPositionX = _lastTilePosition.x;
+                _worker.GridPositionY = _lastTilePosition.y;
                 return;
             }
 
+            _lastTilePosition = new Vector3Int(_worker.GridPositionX, _worker.GridPositionY, 0);
             _worker.transform.position = GridUtilities.GridPositionToWorldPosition(new Vector2Int(nextTilePosition.x, nextTilePosition.y));
             _visitedTiles.Add(nextTilePosition);
             _worker.GridPositionX = nextTilePosition.x;
