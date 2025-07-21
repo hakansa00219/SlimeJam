@@ -27,5 +27,10 @@ namespace Utility
         {
             return new Vector3(gridPosition.x + 0.5f, gridPosition.y + 0.5f, 0);
         }
+        
+        public static Vector2Int WorldPositionToGridPosition(Vector3 worldPosition)
+        {
+            return new Vector2Int((int)worldPosition.x, (int)worldPosition.y);
+        }
     }
 }

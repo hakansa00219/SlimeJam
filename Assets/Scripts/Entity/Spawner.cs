@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 namespace Entity
 {
@@ -6,5 +7,7 @@ namespace Entity
     {
         [SerializeField]
         protected Transform container;
+        [SerializeField]
+        protected Tilemap overlayTilemap;
     }
 }

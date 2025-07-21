@@ -55,6 +55,7 @@ namespace Grid
                     Tile tile = ScriptableObject.CreateInstance<Tile>();
                     tile.color = Color.white;
                     tile.sprite = tileTextures.baseTiles[_cells[x, y].Type];
+                    tile.name = _cells[x, y].Type.ToString();
                     Vector3Int tilePosition = new Vector3Int(_cells[x, y].Position.x, _cells[x, y].Position.y, 0);
                     baseTilemap.SetTile(tilePosition, tile);
                 }
@@ -69,6 +70,7 @@ namespace Grid
                     Tile tile = ScriptableObject.CreateInstance<Tile>();
                     tile.color = Color.white;
                     tile.sprite = tileTextures.overlayTiles[_cells[x, y].ElementType];
+                    tile.name = _cells[x, y].ElementType.ToString();
                     Vector3Int tilePosition = new Vector3Int(_cells[x, y].Position.x, _cells[x, y].Position.y, 0);
                     overlayTilemap.SetTile(tilePosition, tile);
                 }
