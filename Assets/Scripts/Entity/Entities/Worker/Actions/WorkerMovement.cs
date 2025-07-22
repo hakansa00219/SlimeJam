@@ -76,7 +76,7 @@ namespace Entity.Entities.Worker.Actions
             _worker.GridPositionX = nextTilePosition.x;
             _worker.GridPositionY = nextTilePosition.y;
             
-            _worker.OnActionDone(this);
+            _worker.OnMovementActionDone(this);
         }
     }
 }

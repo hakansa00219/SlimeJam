@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1210155108596305757}
   - component: {fileID: 7703131046293229001}
+  - component: {fileID: 1110951866600998254}
   - component: {fileID: 1941769288560287374}
   m_Layer: 0
   m_Name: Slime
@@ -88,6 +89,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1110951866600998254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6065415650682541756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06b3580596dd42da9ba49e7f292162a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1941769288560287374
 MonoBehaviour:
   m_ObjectHideFlags: 0

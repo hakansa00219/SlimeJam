@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Entity.Entities;
 using UnityEngine;
 using Utility;
 
@@ -6,8 +7,6 @@ namespace Entity
 {
     public class EntitySpawner : Spawner, ISpawner
     {
-        public Dictionary<Vector2Int, IGatherable> gatherables = new Dictionary<Vector2Int, IGatherable>(); 
-        
         public void Spawn(Transform prefab, int x, int y)
         {
             Vector2Int gridPosition = new Vector2Int(x, y);
@@ -22,7 +21,7 @@ namespace Entity
             IGatherable gatherable = obj.GetComponent<IGatherable>();
             if (gatherable != null)
             {
-                gatherables.TryAdd(gridPosition, gatherable);
+                EntityContainer.gatherables.TryAdd(gridPosition, gatherable);
                 gatherable.Initialize(this, x, y);
             }
             

@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using Engine;
+using Entity.Entities.Worker.Actions;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -10,8 +12,7 @@ namespace Entity.Entities.Worker
         public int GridPositionX { get; set; }
         public int GridPositionY { get; set; }
         public Tilemap OverlayTilemap { get; private set; }
- 
-
+        
         public void Initialize(Tilemap overlayTilemap, int x, int y)
         {
             OverlayTilemap = overlayTilemap;
@@ -19,11 +20,11 @@ namespace Entity.Entities.Worker
             GridPositionY = y;
         }
 
-        public void OnActionDone(TickActionBehaviour action)
+        public void OnMovementActionDone(WorkerMovement movement)
         {
-            action.isActive = false;
+            movement.isActive = false;
             // Action logic is done. Check other tiles except roads for resources or tasks.
-            
+            Debug.Log("Waiting for next tick... " + System.DateTime.Now.ToString("HH:mm:ss.fff"));
             Queue<TickActionBehaviour> actionQueue = new Queue<TickActionBehaviour>();
             
             Vector3Int rightTilePosition = new Vector3Int(GridPositionX + 1, GridPositionY, 0);
@@ -36,31 +37,35 @@ namespace Entity.Entities.Worker
             CheckTile(ref actionQueue, leftTilePosition);
             CheckTile(ref actionQueue, upTilePosition);
             // Depending to that continue to next movement or stop until next task is done.
+
+            if (actionQueue.Count > 0)
+                QueueActions(actionQueue, movement);
+            else
+                movement.isActive = true;
+        }
+
+        private async UniTaskVoid QueueActions(Queue<TickActionBehaviour> actionQueue, WorkerMovement movement)
+        {
+            await TickSystem.WaitForNextTickAsync();
+            Debug.Log("Tick occurred! " + System.DateTime.Now.ToString("HH:mm:ss.fff"));
+            await UniTask.SwitchToMainThread();
+            while (actionQueue.Count > 0)
+            {
+                var action = actionQueue.Dequeue();
+                action.isActive = true;
+
+                await UniTask.WaitUntil(() => action.isActionDone);
+                await UniTask.Yield();
+            }
+            movement.isActive = true;
         }
 
         private void CheckTile(ref Queue<TickActionBehaviour> actionQueue, Vector3Int rightTilePosition)
         {
+            Vector2Int gridPosition = new Vector2Int(rightTilePosition.x, rightTilePosition.y);
+            if (!EntityContainer.gatherables.TryGetValue(gridPosition, out IGatherable gatherable)) return;
             
-            string tileName = InteractableTilemap.GetTile(rightTilePosition).name;
-            switch (tileName)
-            {
-                case "Slime":
-                    // Do slime action 
-                    actionQueue.Enqueue(spaw);
-                    break;
-                case "Wood":
-                    // Do wood action
-                    break;
-                case "Metal":
-                    // Do metal action
-                    break;
-                case "Berry":
-                    // Do berry action
-                    break;
-                case "Flag":
-                    // Do flag action
-                    break;
-            }
+            actionQueue.Enqueue(gatherable.GatheringBehaviour());
         }
     }
 }

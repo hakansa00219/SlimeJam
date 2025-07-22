@@ -15,7 +15,7 @@ namespace Worker.Actions
         private Entities _entities;
         private int _slimeTilePositionX;
         private int _slimeTilePositionY;
-
+        
         public void Initialize(EntitySpawner spawner, Entities entities, int slimeTilePositionX, int slimeTilePositionY)
         {
             _spawner = spawner;
@@ -40,7 +40,7 @@ namespace Worker.Actions
             };
             
             var winner = possibleSpawnPositions[Random.Range(0, possibleSpawnPositions.Length - 1)];
-            
+            Debug.Log("Slime Gathered! " + System.DateTime.Now.ToString("HH:mm:ss.fff"));
             _spawner.Spawn(_entities.materialsEntities[InteractableTileType.Slime], winner.x, winner.y);
         }
     }
