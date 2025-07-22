@@ -9,6 +9,7 @@ namespace Scriptable
     public class Entities : SerializedScriptableObject
     {
         public Dictionary<InteractableTileType, Transform> interactableEntities = new Dictionary<InteractableTileType, Transform>();
+        public Dictionary<InteractableTileType, Transform> materialsEntities = new Dictionary<InteractableTileType, Transform>();
         public Transform workerEntity;
     }
 }

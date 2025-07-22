@@ -21,6 +21,7 @@ MonoBehaviour:
     - {fileID: 6684178589876063377, guid: 93452961706b75c40ab725f62b156e36, type: 3}
     - {fileID: 1210155108596305757, guid: 32cfdecea1accbd4f8eee6062e2bb1de, type: 3}
     - {fileID: 5491811431037087768, guid: 400bd90b4f03be341925bf99e37e439c, type: 3}
+    - {fileID: 904463331479442015, guid: b86d1062b8153f74891a9e4dd8837062, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -115,6 +116,44 @@ MonoBehaviour:
     - Name: $v
       Entry: 10
       Data: 4
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: materialsEntities
+      Entry: 7
+      Data: 2|System.Collections.Generic.Dictionary`2[[Map.Tiles.InteractableTileType,
+        Assembly-CSharp],[UnityEngine.Transform, UnityEngine.CoreModule]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 3|System.Collections.Generic.EnumEqualityComparer`1[[Map.Tiles.InteractableTileType,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 4
+    - Name: $v
+      Entry: 10
+      Data: 5
     - Name: 
       Entry: 8
       Data: 

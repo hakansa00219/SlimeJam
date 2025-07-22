@@ -6,6 +6,7 @@ namespace Engine
     {
         protected abstract int TickDelay { get; }
         private int _tickCounter = 0;
+        public bool isActive = false;
         
         private void OnEnable()
         {
@@ -19,6 +20,8 @@ namespace Engine
         
         private void OnTickAction()
         {
+            if (!isActive) return;
+            
             _tickCounter++;
             if (_tickCounter != TickDelay) return;
             

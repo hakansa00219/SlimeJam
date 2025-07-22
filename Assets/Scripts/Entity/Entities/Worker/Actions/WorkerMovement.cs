@@ -4,7 +4,7 @@ using Map.Tiles;
 using UnityEngine;
 using Utility;
 
-namespace Worker
+namespace Entity.Entities.Worker.Actions
 {
     [RequireComponent(typeof(Worker))]
     public class WorkerMovement : TickActionBehaviour
@@ -20,6 +20,7 @@ namespace Worker
         {
             _worker = GetComponent<Worker>();
             _startTilePosition = GridUtilities.WorldPositionToGridPosition(transform.position);
+            isActive = true;
         }
         
         protected override void OnTick()
@@ -74,6 +75,8 @@ namespace Worker
             _visitedTiles.Add(nextTilePosition);
             _worker.GridPositionX = nextTilePosition.x;
             _worker.GridPositionY = nextTilePosition.y;
+            
+            _worker.OnActionDone(this);
         }
     }
 }
