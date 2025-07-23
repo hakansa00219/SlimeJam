@@ -25,7 +25,7 @@ namespace Entity.Entities.Worker
             movement.isActive = false;
             // Action logic is done. Check other tiles except roads for resources or tasks.
             Debug.Log("Waiting for next tick... " + System.DateTime.Now.ToString("HH:mm:ss.fff"));
-            Queue<TickActionBehaviour> actionQueue = new Queue<TickActionBehaviour>();
+            Queue<IGatherable> actionQueue = new Queue<IGatherable>();
             
             Vector3Int rightTilePosition = new Vector3Int(GridPositionX + 1, GridPositionY, 0);
             Vector3Int downTilePosition = new Vector3Int(GridPositionX, GridPositionY - 1, 0);
@@ -44,7 +44,7 @@ namespace Entity.Entities.Worker
                 movement.isActive = true;
         }
 
-        private async UniTaskVoid QueueActions(Queue<TickActionBehaviour> actionQueue, WorkerMovement movement)
+        private async UniTaskVoid QueueActions(Queue<IGatherable> actionQueue, WorkerMovement movement)
         {
             await TickSystem.WaitForNextTickAsync();
             Debug.Log("Tick occurred! " + System.DateTime.Now.ToString("HH:mm:ss.fff"));
@@ -52,22 +52,33 @@ namespace Entity.Entities.Worker
             while (actionQueue.Count > 0)
             {
                 var action = actionQueue.Dequeue();
-                action.isActive = true;
+                TickActionBehaviour actionBehaviour = action.GatheringBehaviour();
+                actionBehaviour.isActive = true;
 
-                await UniTask.WaitUntil(() => action.isActionDone);
-                action.isActive = false;
-                action.isActionDone = false;
+                await UniTask.WaitUntil(() => actionBehaviour.isActionDone);
+                actionBehaviour.isActive = false;
+                actionBehaviour.isActionDone = false;
+                action.isGathered = true;
                 await UniTask.Yield();
             }
             movement.isActive = true;
         }
 
-        private void CheckTile(ref Queue<TickActionBehaviour> actionQueue, Vector3Int rightTilePosition)
+        private void CheckTile(ref Queue<IGatherable> actionQueue, Vector3Int rightTilePosition)
         {
             Vector2Int gridPosition = new Vector2Int(rightTilePosition.x, rightTilePosition.y);
             if (!EntityContainer.gatherables.TryGetValue(gridPosition, out IGatherable gatherable)) return;
             
-            actionQueue.Enqueue(gatherable.GatheringBehaviour());
+            if (!gatherable.isGathered)
+                actionQueue.Enqueue(gatherable);
+        }
+
+        public void LoopReset()
+        {
+            foreach (var (_, value) in EntityContainer.gatherables)
+            {
+                value.isGathered = false;
+            }
         }
     }
 }

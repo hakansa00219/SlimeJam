@@ -1,21 +1,19 @@
-using System;
 using Engine;
+using Entity.Entities.Worker.Actions;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 using Worker.Actions;
 
-namespace Entity.Entities.Slime
+namespace Entity.Entities.Tree
 {
-    [RequireComponent(typeof(SlimeGathering))]
-    public class Slime : MonoBehaviour, IGatherable
+    public class Tree : MonoBehaviour, IGatherable
     {
         private EntitySpawner _entitySpawner;
-        private SlimeGathering _slimeGathering;
+        private WoodGathering _woodGathering;
         private Scriptable.Entities _entities;
         private int _gridPositionX;
         private int _gridPositionY;
         
-        public TickActionBehaviour GatheringBehaviour() => _slimeGathering;
+        public TickActionBehaviour GatheringBehaviour() => _woodGathering;
 
         public bool isGathered { get; set; } = false;
 
@@ -33,14 +31,12 @@ namespace Entity.Entities.Slime
                 Debug.LogError("Entities scriptable object not found. Ensure it is correctly set up in Resources/Data/Entities/Entities.asset");
             }
             
-            _slimeGathering = GetComponent<SlimeGathering>();
+            _woodGathering = GetComponent<WoodGathering>();
 
-            if (_slimeGathering != null)
+            if (_woodGathering != null)
             {
-                _slimeGathering.Initialize(_entitySpawner, _entities, _gridPositionX, _gridPositionY);
+                _woodGathering.Initialize(_entitySpawner, _entities, _gridPositionX, _gridPositionY);
             }
         }
-
-       
     }
 }

@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Engine;
 using Entity;
 using Map.Tiles;
@@ -39,7 +38,7 @@ namespace Worker.Actions
                 (_slimeTilePositionX, _slimeTilePositionY + 1)
             };
             
-            var winner = possibleSpawnPositions[Random.Range(0, possibleSpawnPositions.Length - 1)];
+            var winner = possibleSpawnPositions[Random.Range(0, possibleSpawnPositions.Length)];
             Debug.Log("Slime Gathered! " + System.DateTime.Now.ToString("HH:mm:ss.fff"));
             _spawner.Spawn(_entities.materialsEntities[InteractableTileType.Slime], winner.x, winner.y);
         }

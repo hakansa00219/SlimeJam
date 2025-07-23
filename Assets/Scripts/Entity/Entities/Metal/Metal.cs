@@ -1,21 +1,18 @@
-using System;
 using Engine;
+using Entity.Entities.Worker.Actions;
 using UnityEngine;
-using UnityEngine.Tilemaps;
-using Worker.Actions;
 
-namespace Entity.Entities.Slime
+namespace Entity.Entities.Metal
 {
-    [RequireComponent(typeof(SlimeGathering))]
-    public class Slime : MonoBehaviour, IGatherable
+    public class Metal : MonoBehaviour, IGatherable
     {
         private EntitySpawner _entitySpawner;
-        private SlimeGathering _slimeGathering;
+        private MetalGathering _metalGathering;
         private Scriptable.Entities _entities;
         private int _gridPositionX;
         private int _gridPositionY;
         
-        public TickActionBehaviour GatheringBehaviour() => _slimeGathering;
+        public TickActionBehaviour GatheringBehaviour() => _metalGathering;
 
         public bool isGathered { get; set; } = false;
 
@@ -33,14 +30,12 @@ namespace Entity.Entities.Slime
                 Debug.LogError("Entities scriptable object not found. Ensure it is correctly set up in Resources/Data/Entities/Entities.asset");
             }
             
-            _slimeGathering = GetComponent<SlimeGathering>();
+            _metalGathering = GetComponent<MetalGathering>();
 
-            if (_slimeGathering != null)
+            if (_metalGathering != null)
             {
-                _slimeGathering.Initialize(_entitySpawner, _entities, _gridPositionX, _gridPositionY);
+                _metalGathering.Initialize(_entitySpawner, _entities, _gridPositionX, _gridPositionY);
             }
         }
-
-       
     }
 }

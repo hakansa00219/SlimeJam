@@ -1,22 +1,20 @@
-using System;
 using Engine;
+using Entity.Entities.Worker.Actions;
 using UnityEngine;
-using UnityEngine.Tilemaps;
-using Worker.Actions;
+using UnityEngine.Serialization;
 
-namespace Entity.Entities.Slime
+namespace Entity.Entities.Berry
 {
-    [RequireComponent(typeof(SlimeGathering))]
-    public class Slime : MonoBehaviour, IGatherable
+    public class Berry : MonoBehaviour, IGatherable
     {
         private EntitySpawner _entitySpawner;
-        private SlimeGathering _slimeGathering;
+        private BerryGathering _berryGathering;
         private Scriptable.Entities _entities;
         private int _gridPositionX;
         private int _gridPositionY;
         
-        public TickActionBehaviour GatheringBehaviour() => _slimeGathering;
-
+        public TickActionBehaviour GatheringBehaviour() => _berryGathering;
+        
         public bool isGathered { get; set; } = false;
 
         public void Initialize(EntitySpawner spawner, int x, int y)
@@ -33,14 +31,12 @@ namespace Entity.Entities.Slime
                 Debug.LogError("Entities scriptable object not found. Ensure it is correctly set up in Resources/Data/Entities/Entities.asset");
             }
             
-            _slimeGathering = GetComponent<SlimeGathering>();
+            _berryGathering = GetComponent<BerryGathering>();
 
-            if (_slimeGathering != null)
+            if (_berryGathering != null)
             {
-                _slimeGathering.Initialize(_entitySpawner, _entities, _gridPositionX, _gridPositionY);
+                _berryGathering.Initialize(_entitySpawner, _entities, _gridPositionX, _gridPositionY);
             }
         }
-
-       
     }
 }

@@ -29,6 +29,7 @@ namespace Entity.Entities.Worker.Actions
             if (_worker.GridPositionX == _startTilePosition.x && _worker.GridPositionY == _startTilePosition.y)
             {
                 _visitedTiles.Clear();
+                _worker.LoopReset();
             }
             
             //Check neighbour tiles and move to the first valid tile
@@ -61,7 +62,7 @@ namespace Entity.Entities.Worker.Actions
             }
             else
             {
-                Debug.LogError("No valid tile to move to.");
+                Debug.LogWarning("No valid tile to move to. Backing up to last tile.");
                 // Go back once
                 _worker.transform.position = GridUtilities.GridPositionToWorldPosition(new Vector2Int(_lastTilePosition.x, _lastTilePosition.y));
                 _visitedTiles.Add(_lastTilePosition);

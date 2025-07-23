@@ -35,12 +35,6 @@ namespace Engine
             isActionDone = true;
         }
 
-        private void LoopReset()
-        {
-            isActive = false;
-            isActionDone = false;
-        }
-
         protected abstract void OnTick();
     }
 }
