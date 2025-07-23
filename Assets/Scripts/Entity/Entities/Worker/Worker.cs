@@ -13,7 +13,7 @@ namespace Entity.Entities.Worker
         public int GridPositionY { get; set; }
         public Tilemap OverlayTilemap { get; private set; }
 
-        public IStorage.StorageInfo CurrentInfo { get; set; } = new IStorage.StorageInfo(0, 0, 0, 0);
+        public IStorage.StorageInfo CurrentInfo { get; } = new IStorage.StorageInfo(0, 0, 0, 0);
         public IStorage.StorageCapacity Capacity { get; set; } = new IStorage.StorageCapacity(4, 2, 2, 2, 2);
         
         public void Initialize(Tilemap overlayTilemap, int x, int y)
@@ -25,10 +25,11 @@ namespace Entity.Entities.Worker
 
         public async UniTaskVoid OnMovementActionDone(WorkerMovement movement)
         {
+            movement.isActive = false;
+            
             await UniTask.SwitchToMainThread();
             await TickSystem.WaitForNextTickAsync();
             
-            movement.isActive = false;
             // Action logic is done. Check other tiles except roads for resources or tasks.
             Debug.Log("Waiting for next tick... " + System.DateTime.Now.ToString("HH:mm:ss.fff"));
             Queue<IGatherable> actionQueue = new Queue<IGatherable>();
@@ -63,7 +64,7 @@ namespace Entity.Entities.Worker
                 await UniTask.WaitUntil(() => actionBehaviour.isActionDone);
                 actionBehaviour.isActive = false;
                 actionBehaviour.isActionDone = false;
-                action.isGathered = true;
+                action.IsGathered = true;
                 await UniTask.Yield();
             }
             movement.isActive = true;
@@ -74,7 +75,7 @@ namespace Entity.Entities.Worker
             Vector2Int gridPosition = new Vector2Int(rightTilePosition.x, rightTilePosition.y);
             if (!EntityContainer.gatherables.TryGetValue(gridPosition, out IGatherable gatherable)) return;
             
-            if (!gatherable.isGathered)
+            if (!gatherable.IsGathered)
                 actionQueue.Enqueue(gatherable);
         }
 
@@ -82,7 +83,7 @@ namespace Entity.Entities.Worker
         {
             foreach (var (_, value) in EntityContainer.gatherables)
             {
-                value.isGathered = false;
+                value.IsGathered = false;
             }
         }
         

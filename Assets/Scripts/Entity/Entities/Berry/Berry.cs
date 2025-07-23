@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Engine;
 using Entity.Entities.Worker.Actions;
+using Map.Tiles;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -17,7 +18,8 @@ namespace Entity.Entities.Berry
         public TickActionBehaviour GatheringBehaviour() => _berryGathering;
         public Queue<IMaterial> SpawnedMaterials { get; set; } = new Queue<IMaterial>();
 
-        public bool isGathered { get; set; } = false;
+        public bool IsGathered { get; set; } = false;
+        public InteractableTileType Type => InteractableTileType.Berry;
 
         public void Initialize(EntitySpawner spawner, int x, int y)
         {

@@ -7,6 +7,7 @@ namespace Entity
         
         public struct StorageInfo
         {
+            public int Total => Wood + Metal + Slime + Berry;
             public int Wood;
             public int Metal;
             public int Slime;

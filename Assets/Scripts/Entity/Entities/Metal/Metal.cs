@@ -15,7 +15,7 @@ namespace Entity.Entities.Metal
         
         public TickActionBehaviour GatheringBehaviour() => _metalGathering;
 
-        public bool isGathered { get; set; } = false;
+        public bool IsGathered { get; set; } = false;
         public Queue<IMaterial> SpawnedMaterials { get; set; } = new Queue<IMaterial>();
 
         public void Initialize(EntitySpawner spawner, int x, int y)
