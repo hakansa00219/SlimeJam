@@ -1,6 +1,7 @@
 using Engine;
 using Entity.Entities.Worker.Actions;
 using UnityEngine;
+using UnityEngine.UI;
 using Worker.Actions;
 
 namespace Entity.Entities.Tree

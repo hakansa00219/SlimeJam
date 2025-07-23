@@ -1,12 +1,17 @@
+using Cysharp.Threading.Tasks;
 using UnityEngine;
-using Worker.Actions;
+using UnityEngine.UI;
 
 namespace Engine
 {
     public abstract class TickActionBehaviour : MonoBehaviour
     {
         protected abstract int TickDelay { get; }
-        private int _tickCounter = 0;
+        protected int TickCounter = 0;
+        
+        [SerializeField]
+        private Image progressBar;
+        
         public bool isActive = false;
         public bool isActionDone = false;
         
@@ -25,14 +30,25 @@ namespace Engine
             if (!isActive) return;
 
             
+            TickCounter++;
+            if(progressBar != null)
+                progressBar.fillAmount = (float)TickCounter / TickDelay;
             
-            _tickCounter++;
-            Debug.Log($"Tick counter started! {_tickCounter} - " + System.DateTime.Now.ToString("HH:mm:ss.fff"));
-            if (_tickCounter != TickDelay) return;
+            Debug.Log($"Tick counter started! {TickCounter} - " + System.DateTime.Now.ToString("HH:mm:ss.fff"));
+            if (TickCounter != TickDelay) return;
             
-            _tickCounter = 0;
+            TickCounter = 0;
             OnTick();
             isActionDone = true;
+
+            if (progressBar != null) 
+                ProgressBarReset();
+        }
+
+        private async UniTaskVoid ProgressBarReset()
+        {
+            await TickSystem.WaitForNextTickAsync();
+            progressBar.fillAmount = 0;
         }
 
         protected abstract void OnTick();
