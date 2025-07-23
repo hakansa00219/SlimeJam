@@ -55,6 +55,8 @@ namespace Entity.Entities.Worker
                 action.isActive = true;
 
                 await UniTask.WaitUntil(() => action.isActionDone);
+                action.isActive = false;
+                action.isActionDone = false;
                 await UniTask.Yield();
             }
             movement.isActive = true;

@@ -9,7 +9,5 @@ namespace Entity
         protected Transform container;
         [SerializeField]
         protected Tilemap overlayTilemap;
-        [SerializeField]
-        protected Tilemap interactableTilemap;
     }
 }
