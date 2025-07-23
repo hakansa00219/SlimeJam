@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3264466136046227683}
   - component: {fileID: 6391988670464938109}
+  - component: {fileID: 3181138724933705926}
   m_Layer: 0
   m_Name: Berry_mat
   m_TagString: Untagged
@@ -87,3 +88,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3181138724933705926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 333003065030344146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38e3e28e0e5442c687a1c486218f6646, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

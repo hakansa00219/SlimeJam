@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Engine;
 using Entity.Entities.Worker.Actions;
 using UnityEngine;
@@ -17,6 +18,7 @@ namespace Entity.Entities.Tree
         public TickActionBehaviour GatheringBehaviour() => _woodGathering;
 
         public bool isGathered { get; set; } = false;
+        public Queue<IMaterial> SpawnedMaterials { get; set; } = new Queue<IMaterial>();
 
         public void Initialize(EntitySpawner spawner, int x, int y)
         {
@@ -36,7 +38,7 @@ namespace Entity.Entities.Tree
 
             if (_woodGathering != null)
             {
-                _woodGathering.Initialize(_entitySpawner, _entities, _gridPositionX, _gridPositionY);
+                _woodGathering.Initialize(_entitySpawner, _entities, SpawnedMaterials, _gridPositionX, _gridPositionY);
             }
         }
     }

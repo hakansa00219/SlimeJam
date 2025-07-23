@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Engine;
 using Entity;
 using Map.Tiles;
@@ -14,11 +15,13 @@ namespace Worker.Actions
         private Entities _entities;
         private int _slimeTilePositionX;
         private int _slimeTilePositionY;
+        private Queue<IMaterial> _spawnedMaterials;
         
-        public void Initialize(EntitySpawner spawner, Entities entities, int slimeTilePositionX, int slimeTilePositionY)
+        public void Initialize(EntitySpawner spawner, Entities entities, Queue<IMaterial> spawnedMaterials, int slimeTilePositionX, int slimeTilePositionY)
         {
             _spawner = spawner;
             _entities = entities;
+            _spawnedMaterials = spawnedMaterials;
             _slimeTilePositionX = slimeTilePositionX;
             _slimeTilePositionY = slimeTilePositionY;
         }
@@ -40,7 +43,12 @@ namespace Worker.Actions
             
             var winner = possibleSpawnPositions[Random.Range(0, possibleSpawnPositions.Length)];
             Debug.Log("Slime Gathered! " + System.DateTime.Now.ToString("HH:mm:ss.fff"));
-            _spawner.Spawn(_entities.materialsEntities[InteractableTileType.Slime], winner.x, winner.y);
+            Transform spawnedObj = _spawner.Spawn(_entities.materialsEntities[InteractableTileType.Slime], winner.x, winner.y);
+            
+            if (spawnedObj != null && spawnedObj.TryGetComponent<IMaterial>(out var spawnedMaterial))
+            {
+                _spawnedMaterials.Enqueue(spawnedMaterial);
+            }
         }
     }
 }

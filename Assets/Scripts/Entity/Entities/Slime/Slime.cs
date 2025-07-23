@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Engine;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -18,6 +19,7 @@ namespace Entity.Entities.Slime
         public TickActionBehaviour GatheringBehaviour() => _slimeGathering;
 
         public bool isGathered { get; set; } = false;
+        public Queue<IMaterial> SpawnedMaterials { get; set; } = new Queue<IMaterial>();
 
         public void Initialize(EntitySpawner spawner, int x, int y)
         {
@@ -37,7 +39,7 @@ namespace Entity.Entities.Slime
 
             if (_slimeGathering != null)
             {
-                _slimeGathering.Initialize(_entitySpawner, _entities, _gridPositionX, _gridPositionY);
+                _slimeGathering.Initialize(_entitySpawner, _entities, SpawnedMaterials, _gridPositionX, _gridPositionY);
             }
         }
 

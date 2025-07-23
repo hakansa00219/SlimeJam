@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Engine;
 using Map.Tiles;
 using UnityEngine;
@@ -12,11 +13,13 @@ namespace Entity.Entities.Worker.Actions
         private Scriptable.Entities _entities;
         private int _metalTilePositionX;
         private int _metalTilePositionY;
+        private Queue<IMaterial> _spawnedMaterials;
         
-        public void Initialize(EntitySpawner spawner, Scriptable.Entities entities, int metalTilePositionX, int metalTilePositionY)
+        public void Initialize(EntitySpawner spawner, Scriptable.Entities entities, Queue<IMaterial> spawnedMaterials, int metalTilePositionX, int metalTilePositionY)
         {
             _spawner = spawner;
             _entities = entities;
+            _spawnedMaterials = spawnedMaterials;
             _metalTilePositionX = metalTilePositionX;
             _metalTilePositionY = metalTilePositionY;
         }
@@ -38,7 +41,12 @@ namespace Entity.Entities.Worker.Actions
             
             var winner = possibleSpawnPositions[Random.Range(0, possibleSpawnPositions.Length)];
             Debug.Log("Metal Gathered! " + System.DateTime.Now.ToString("HH:mm:ss.fff"));
-            _spawner.Spawn(_entities.materialsEntities[InteractableTileType.Metal], winner.x, winner.y);
+            Transform spawnedObj = _spawner.Spawn(_entities.materialsEntities[InteractableTileType.Metal], winner.x, winner.y);
+            
+            if (spawnedObj != null && spawnedObj.TryGetComponent<IMaterial>(out var spawnedMaterial))
+            {
+                _spawnedMaterials.Enqueue(spawnedMaterial);
+            }
         }
     }
 }

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Engine;
 using Map.Tiles;
 using UnityEngine;
@@ -12,11 +13,13 @@ namespace Entity.Entities.Worker.Actions
         private Scriptable.Entities _entities;
         private int _woodTilePositionX;
         private int _woodTilePositionY;
+        private Queue<IMaterial> _spawnedMaterials;
         
-        public void Initialize(EntitySpawner spawner, Scriptable.Entities entities, int woodTilePositionX, int woodTilePositionY)
+        public void Initialize(EntitySpawner spawner, Scriptable.Entities entities, Queue<IMaterial> spawnedMaterials, int woodTilePositionX, int woodTilePositionY)
         {
             _spawner = spawner;
             _entities = entities;
+            _spawnedMaterials = spawnedMaterials;
             _woodTilePositionX = woodTilePositionX;
             _woodTilePositionY = woodTilePositionY;
         }
@@ -38,7 +41,12 @@ namespace Entity.Entities.Worker.Actions
             
             var winner = possibleSpawnPositions[Random.Range(0, possibleSpawnPositions.Length)];
             Debug.Log("Wood Gathered! " + System.DateTime.Now.ToString("HH:mm:ss.fff"));
-            _spawner.Spawn(_entities.materialsEntities[InteractableTileType.Wood], winner.x, winner.y);
+            Transform spawnedObj =  _spawner.Spawn(_entities.materialsEntities[InteractableTileType.Wood], winner.x, winner.y);
+            
+            if (spawnedObj != null && spawnedObj.TryGetComponent<IMaterial>(out var spawnedMaterial))
+            {
+                _spawnedMaterials.Enqueue(spawnedMaterial);
+            }
         }
     }
 }

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Engine;
 using Entity.Entities.Worker.Actions;
 using UnityEngine;
@@ -15,6 +16,7 @@ namespace Entity.Entities.Metal
         public TickActionBehaviour GatheringBehaviour() => _metalGathering;
 
         public bool isGathered { get; set; } = false;
+        public Queue<IMaterial> SpawnedMaterials { get; set; } = new Queue<IMaterial>();
 
         public void Initialize(EntitySpawner spawner, int x, int y)
         {
@@ -34,7 +36,7 @@ namespace Entity.Entities.Metal
 
             if (_metalGathering != null)
             {
-                _metalGathering.Initialize(_entitySpawner, _entities, _gridPositionX, _gridPositionY);
+                _metalGathering.Initialize(_entitySpawner, _entities, SpawnedMaterials, _gridPositionX, _gridPositionY);
             }
         }
     }

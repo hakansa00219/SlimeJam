@@ -7,11 +7,14 @@ using UnityEngine.Tilemaps;
 
 namespace Entity.Entities.Worker
 {
-    public class Worker : MonoBehaviour, IEntity
+    public class Worker : MonoBehaviour, IEntity, IStorage
     {
         public int GridPositionX { get; set; }
         public int GridPositionY { get; set; }
         public Tilemap OverlayTilemap { get; private set; }
+
+        public IStorage.StorageInfo CurrentInfo { get; set; } = new IStorage.StorageInfo(0, 0, 0, 0);
+        public IStorage.StorageCapacity Capacity { get; set; } = new IStorage.StorageCapacity(4, 2, 2, 2, 2);
         
         public void Initialize(Tilemap overlayTilemap, int x, int y)
         {
@@ -20,8 +23,11 @@ namespace Entity.Entities.Worker
             GridPositionY = y;
         }
 
-        public void OnMovementActionDone(WorkerMovement movement)
+        public async UniTaskVoid OnMovementActionDone(WorkerMovement movement)
         {
+            await UniTask.SwitchToMainThread();
+            await TickSystem.WaitForNextTickAsync();
+            
             movement.isActive = false;
             // Action logic is done. Check other tiles except roads for resources or tasks.
             Debug.Log("Waiting for next tick... " + System.DateTime.Now.ToString("HH:mm:ss.fff"));
@@ -39,14 +45,13 @@ namespace Entity.Entities.Worker
             // Depending to that continue to next movement or stop until next task is done.
 
             if (actionQueue.Count > 0)
-                QueueActions(actionQueue, movement);
+                await QueueActions(actionQueue, movement);
             else
                 movement.isActive = true;
         }
 
-        private async UniTaskVoid QueueActions(Queue<IGatherable> actionQueue, WorkerMovement movement)
+        private async UniTask QueueActions(Queue<IGatherable> actionQueue, WorkerMovement movement)
         {
-            await TickSystem.WaitForNextTickAsync();
             Debug.Log("Tick occurred! " + System.DateTime.Now.ToString("HH:mm:ss.fff"));
             await UniTask.SwitchToMainThread();
             while (actionQueue.Count > 0)
@@ -80,5 +85,6 @@ namespace Entity.Entities.Worker
                 value.isGathered = false;
             }
         }
+        
     }
 }

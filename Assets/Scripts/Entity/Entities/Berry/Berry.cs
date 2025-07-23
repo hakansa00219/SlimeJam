@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Engine;
 using Entity.Entities.Worker.Actions;
 using UnityEngine;
@@ -14,7 +15,8 @@ namespace Entity.Entities.Berry
         private int _gridPositionY;
         
         public TickActionBehaviour GatheringBehaviour() => _berryGathering;
-        
+        public Queue<IMaterial> SpawnedMaterials { get; set; } = new Queue<IMaterial>();
+
         public bool isGathered { get; set; } = false;
 
         public void Initialize(EntitySpawner spawner, int x, int y)
@@ -35,7 +37,7 @@ namespace Entity.Entities.Berry
 
             if (_berryGathering != null)
             {
-                _berryGathering.Initialize(_entitySpawner, _entities, _gridPositionX, _gridPositionY);
+                _berryGathering.Initialize(_entitySpawner, _entities, SpawnedMaterials, _gridPositionX, _gridPositionY);
             }
         }
     }
