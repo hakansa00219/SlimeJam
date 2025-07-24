@@ -8,7 +8,7 @@ namespace Engine
     {
         public static event Action Tick;
 
-        private const float TICK_LENGTH = 0.6f;
+        private const float TICK_LENGTH = 0.1f;
         private float _estimatedTime = 0;
 
         private bool _firstTick = false;

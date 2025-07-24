@@ -48,7 +48,8 @@ namespace Engine
         private async UniTaskVoid ProgressBarReset()
         {
             await TickSystem.WaitForNextTickAsync();
-            progressBar.fillAmount = 0;
+            if(progressBar != null)
+                progressBar.fillAmount = 0;
         }
 
         protected abstract void OnTick();

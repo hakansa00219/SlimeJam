@@ -12,7 +12,6 @@ namespace Entity.Entities.Worker.Actions
         protected override int TickDelay => 3;
         
         private Worker _worker;
-        private readonly HashSet<Vector3Int> _visitedTiles = new HashSet<Vector3Int>();
         private Vector2Int _startTilePosition;
         private Vector3Int _lastTilePosition;
         private Vector3Int _oneTickBeforePosition;
@@ -30,7 +29,6 @@ namespace Entity.Entities.Worker.Actions
             // If you are in the start tile, reset the visited tiles
             if (_worker.GridPositionX == _startTilePosition.x && _worker.GridPositionY == _startTilePosition.y)
             {
-                _visitedTiles.Clear();
                 _worker.LoopReset();
                 _direction = Vector2Int.right;
 
@@ -42,8 +40,9 @@ namespace Entity.Entities.Worker.Actions
             foreach (Vector2Int checkTile in checkTiles)
             {
                 Vector3Int tile = new Vector3Int(checkTile.x, checkTile.y, 0);
-                if (_worker.OverlayTilemap.GetTile(tile).name == TileElementType.Road.ToString() &&
-                    !_visitedTiles.Contains(tile))
+                var tileElement = _worker.OverlayTilemap.GetTile(tile);
+                if (tileElement != null && tileElement.name == TileElementType.Road.ToString() /*&&
+                    !_visitedTiles.Contains(tile)*/)
                 {
                     nextTilePosition = tile;
                     _direction = new Vector2Int(nextTilePosition.x - _worker.GridPositionX, nextTilePosition.y - _worker.GridPositionY);
@@ -56,7 +55,6 @@ namespace Entity.Entities.Worker.Actions
                 Debug.LogWarning("No valid tile to move to. Backing up to last tile.");
                 // Go back once
                 _worker.transform.position = GridUtilities.GridPositionToWorldPosition(new Vector2Int(_lastTilePosition.x, _lastTilePosition.y));
-                _visitedTiles.Add(_lastTilePosition);
                 _worker.GridPositionX = _lastTilePosition.x;
                 _worker.GridPositionY = _lastTilePosition.y;
                 return;
@@ -64,7 +62,6 @@ namespace Entity.Entities.Worker.Actions
            
             _lastTilePosition = new Vector3Int(_worker.GridPositionX, _worker.GridPositionY, 0);
             _worker.transform.position = GridUtilities.GridPositionToWorldPosition(new Vector2Int(nextTilePosition.x, nextTilePosition.y));
-            _visitedTiles.Add(nextTilePosition);
             _worker.GridPositionX = nextTilePosition.x;
             _worker.GridPositionY = nextTilePosition.y;
             
