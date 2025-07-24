@@ -57,6 +57,7 @@ namespace Entity.Entities.Worker
             if (pickActionQueue.Count > 0)
                 await PickingActions(pickActionQueue);
             
+            
             movement.isActive = true;
         }
 
@@ -94,7 +95,7 @@ namespace Entity.Entities.Worker
         private void CheckGatherables(ref Queue<IGatherable> gatherActionQueue, Vector3Int tilePosition)
         {
             Vector2Int gridPosition = new Vector2Int(tilePosition.x, tilePosition.y);
-            if (!EntityContainer.gatherables.TryGetValue(gridPosition, out IGatherable gatherable)) return;
+            if (!EntityContainer.Gatherables.TryGetValue(gridPosition, out IGatherable gatherable)) return;
             
             if (!gatherable.IsGathered)
                 gatherActionQueue.Enqueue(gatherable);
@@ -104,7 +105,7 @@ namespace Entity.Entities.Worker
         private void CheckPickables(ref Queue<IMaterial> pickActionQueue, Vector3Int tilePosition)
         {
             Vector2Int gridPosition = new Vector2Int(tilePosition.x, tilePosition.y);
-            if (!EntityContainer.gatherables.TryGetValue(gridPosition, out IGatherable gatherable)) return;
+            if (!EntityContainer.Gatherables.TryGetValue(gridPosition, out IGatherable gatherable)) return;
             
             if (gatherable.IsPickedUp) return;
             if (gatherable.SpawnedMaterials.Count <= 0) return;
@@ -129,7 +130,7 @@ namespace Entity.Entities.Worker
 
         public void LoopReset()
         {
-            foreach (var (_, value) in EntityContainer.gatherables)
+            foreach (var (_, value) in EntityContainer.Gatherables)
             {
                 value.IsGathered = false;
                 value.IsPickedUp = false;

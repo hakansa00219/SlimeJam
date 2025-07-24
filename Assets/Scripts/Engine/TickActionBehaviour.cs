@@ -7,7 +7,7 @@ namespace Engine
     public abstract class TickActionBehaviour : MonoBehaviour
     {
         protected abstract int TickDelay { get; }
-        protected int TickCounter = 0;
+        private int TickCounter = 0;
         
         [SerializeField]
         private Image progressBar;

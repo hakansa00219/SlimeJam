@@ -21,7 +21,7 @@ namespace Entity
             IGatherable gatherable = spawnedObj.GetComponent<IGatherable>();
             if (gatherable != null)
             {
-                EntityContainer.gatherables.TryAdd(gridPosition, gatherable);
+                EntityContainer.Gatherables.TryAdd(gridPosition, gatherable);
                 gatherable.Initialize(this, x, y);
             }
 
