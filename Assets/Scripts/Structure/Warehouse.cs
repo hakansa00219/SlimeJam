@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using Engine;
 using Entity;
 using Entity.Entities.Worker.Actions;
@@ -5,7 +6,7 @@ using UnityEngine;
 
 namespace Structure
 {
-    public class Warehouse : MonoBehaviour, IStorage, IDepositable
+    public class Warehouse : MonoBehaviour, IStorage, IDepositable, IStructure
     {
         public IStorage.StorageInfo CurrentInfo { get; set; } = new IStorage.StorageInfo(0, 0, 0, 0);
 
@@ -20,6 +21,11 @@ namespace Structure
         private void Awake()
         {
             _depositing = GetComponent<Depositing>();
+        }
+
+        public void Initialize(IStorage workerStorage)
+        {
+            _depositing.Initialize(workerStorage, this, this);
         }
     }
 }

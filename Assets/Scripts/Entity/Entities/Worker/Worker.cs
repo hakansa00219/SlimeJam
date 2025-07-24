@@ -4,6 +4,7 @@ using Cysharp.Threading.Tasks;
 using Engine;
 using Entity.Entities.Worker.Actions;
 using Map.Tiles;
+using Structure;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -127,6 +128,18 @@ namespace Entity.Entities.Worker
                 pickActionQueue.Enqueue(material);
             }
         }
+        
+        private void CheckStructures(ref Queue<IDepositable> depositActionQueue, Vector3Int tilePosition)
+        {
+            Vector2Int gridPosition = new Vector2Int(tilePosition.x, tilePosition.y);
+            if (!EntityContainer.Structures.TryGetValue(gridPosition, out IDepositable depositable)) return;
+            
+            if (depositable.IsDeposited) return;
+            if (CurrentInfo.Total <= 0) return;
+            
+            depositable.Initialize(this);
+            depositActionQueue.Enqueue(depositable);
+        }
 
         public void LoopReset()
         {
@@ -134,6 +147,11 @@ namespace Entity.Entities.Worker
             {
                 value.IsGathered = false;
                 value.IsPickedUp = false;
+            }
+
+            foreach (var (_, value) in EntityContainer.Structures)
+            {
+                value.IsDeposited = false;
             }
         }
         

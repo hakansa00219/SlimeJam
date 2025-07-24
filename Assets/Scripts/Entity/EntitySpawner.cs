@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Entity.Entities;
+using Structure;
 using UnityEngine;
 using Utility;
 
@@ -24,6 +25,9 @@ namespace Entity
                 EntityContainer.Gatherables.TryAdd(gridPosition, gatherable);
                 gatherable.Initialize(this, x, y);
             }
+            IDepositable depositable = spawnedObj.GetComponent<IDepositable>();
+            if (depositable != null)
+                EntityContainer.Structures.TryAdd(gridPosition, depositable);
 
 
             return spawnedObj;
