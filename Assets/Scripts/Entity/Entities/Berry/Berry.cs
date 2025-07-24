@@ -19,6 +19,7 @@ namespace Entity.Entities.Berry
         public Queue<IMaterial> SpawnedMaterials { get; set; } = new Queue<IMaterial>();
 
         public bool IsGathered { get; set; } = false;
+        public bool IsPickedUp { get; set; } = false;
         public InteractableTileType Type => InteractableTileType.Berry;
 
         public void Initialize(EntitySpawner spawner, int x, int y)

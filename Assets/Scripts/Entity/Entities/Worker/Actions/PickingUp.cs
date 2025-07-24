@@ -10,7 +10,7 @@ namespace Entity.Entities.Worker.Actions
         
         private IGatherable _gatherable;
         private IStorage _storage;
-        public void Initialize(IGatherable gatherable, ref IStorage storage)
+        public void Initialize(IGatherable gatherable, IStorage storage)
         {
             _gatherable = gatherable;
             _storage = storage;
@@ -19,25 +19,30 @@ namespace Entity.Entities.Worker.Actions
         {
             var material = _gatherable.SpawnedMaterials.Dequeue();
             material.Pickup();
+            
+            IStorage.StorageInfo info = _storage.CurrentInfo;
 
             switch (_gatherable.Type)
             {
                 case InteractableTileType.Wood:
-                    _storage.CurrentInfo.Wood += 1;
+                    info.Wood += 1;
                     break;
                 case InteractableTileType.Metal:
+                    info.Metal += 1;
                     break;
                 case InteractableTileType.Berry:
+                    info.Berry += 1;
                     break;
                 case InteractableTileType.Slime:
-                    break;
-                case InteractableTileType.Flag:
+                    info.Slime += 1;
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
             
-            
+            _storage.CurrentInfo = info;
+            _gatherable.IsPickedUp = true;
+
         }
     }
 }

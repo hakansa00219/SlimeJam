@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Engine;
 using Entity.Entities.Worker.Actions;
+using Map.Tiles;
 using UnityEngine;
 using UnityEngine.UI;
 using Worker.Actions;
@@ -18,7 +19,10 @@ namespace Entity.Entities.Tree
         public TickActionBehaviour GatheringBehaviour() => _woodGathering;
 
         public bool IsGathered { get; set; } = false;
+        public bool IsPickedUp { get; set; } = false;
         public Queue<IMaterial> SpawnedMaterials { get; set; } = new Queue<IMaterial>();
+
+        public InteractableTileType Type { get; } = InteractableTileType.Wood;
 
         public void Initialize(EntitySpawner spawner, int x, int y)
         {

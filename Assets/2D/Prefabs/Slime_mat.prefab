@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 904463331479442015}
   - component: {fileID: 3232252541279973943}
   - component: {fileID: 2934764175889684108}
+  - component: {fileID: 7277021279123695303}
   m_Layer: 0
   m_Name: Slime_mat
   m_TagString: Untagged
@@ -100,3 +101,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83083c1bf44b4636b76b06deb63a9ebb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7277021279123695303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3338405443229851612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a56bf2b5a634d3cbbc2a6f2976ebc8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  progressBar: {fileID: 0}
+  isActive: 0
+  isActionDone: 0

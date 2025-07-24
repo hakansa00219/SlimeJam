@@ -15,6 +15,8 @@ namespace Entity.Entities.Worker.Actions
         private readonly HashSet<Vector3Int> _visitedTiles = new HashSet<Vector3Int>();
         private Vector2Int _startTilePosition;
         private Vector3Int _lastTilePosition;
+        private Vector3Int _oneTickBeforePosition;
+        private Vector2Int _direction = Vector2Int.zero;
 
         private void Awake()
         {
@@ -30,37 +32,26 @@ namespace Entity.Entities.Worker.Actions
             {
                 _visitedTiles.Clear();
                 _worker.LoopReset();
-            }
-            
-            //Check neighbour tiles and move to the first valid tile
-            Vector3Int rightTilePosition = new Vector3Int(_worker.GridPositionX + 1, _worker.GridPositionY, 0);
-            Vector3Int downTilePosition = new Vector3Int(_worker.GridPositionX, _worker.GridPositionY - 1, 0);
-            Vector3Int leftTilePosition = new Vector3Int(_worker.GridPositionX - 1, _worker.GridPositionY, 0);
-            Vector3Int upTilePosition = new Vector3Int(_worker.GridPositionX, _worker.GridPositionY + 1, 0);
+                _direction = Vector2Int.right;
 
-            Vector3Int nextTilePosition;
+            }
+            Vector3Int nextTilePosition = new Vector3Int(-1,-1,-1);
+            Vector2Int[] checkTiles = new Vector2Int[4];
+            checkTiles = CheckTiles(_direction);
 
-            if (_worker.OverlayTilemap.GetTile(rightTilePosition).name == TileElementType.Road.ToString() &&
-                !_visitedTiles.Contains(rightTilePosition))
+            foreach (Vector2Int checkTile in checkTiles)
             {
-                nextTilePosition = rightTilePosition;
+                Vector3Int tile = new Vector3Int(checkTile.x, checkTile.y, 0);
+                if (_worker.OverlayTilemap.GetTile(tile).name == TileElementType.Road.ToString() &&
+                    !_visitedTiles.Contains(tile))
+                {
+                    nextTilePosition = tile;
+                    _direction = new Vector2Int(nextTilePosition.x - _worker.GridPositionX, nextTilePosition.y - _worker.GridPositionY);
+                    break;
+                }
             }
-            else if (_worker.OverlayTilemap.GetTile(downTilePosition).name == TileElementType.Road.ToString() &&
-                     !_visitedTiles.Contains(downTilePosition))
-            {
-                nextTilePosition = downTilePosition;
-            }
-            else if (_worker.OverlayTilemap.GetTile(leftTilePosition).name == TileElementType.Road.ToString() &&
-                     !_visitedTiles.Contains(leftTilePosition))
-            {
-                nextTilePosition = leftTilePosition;
-            }
-            else if (_worker.OverlayTilemap.GetTile(upTilePosition).name == TileElementType.Road.ToString() &&
-                     !_visitedTiles.Contains(leftTilePosition))
-            {
-                nextTilePosition = upTilePosition;
-            }
-            else
+
+            if (nextTilePosition == new Vector3Int(-1, -1, -1))
             {
                 Debug.LogWarning("No valid tile to move to. Backing up to last tile.");
                 // Go back once
@@ -70,7 +61,7 @@ namespace Entity.Entities.Worker.Actions
                 _worker.GridPositionY = _lastTilePosition.y;
                 return;
             }
-
+           
             _lastTilePosition = new Vector3Int(_worker.GridPositionX, _worker.GridPositionY, 0);
             _worker.transform.position = GridUtilities.GridPositionToWorldPosition(new Vector2Int(nextTilePosition.x, nextTilePosition.y));
             _visitedTiles.Add(nextTilePosition);
@@ -78,6 +69,45 @@ namespace Entity.Entities.Worker.Actions
             _worker.GridPositionY = nextTilePosition.y;
             
             _worker.OnMovementActionDone(this);
+        }
+
+        private Vector2Int[] CheckTiles(Vector2Int direction)
+        {
+            Vector2Int[] checkTiles = new Vector2Int[4];
+            if (direction == Vector2Int.right) // UP, RIGHT, DOWN, LEFT
+            {
+                checkTiles[0] = new Vector2Int(_worker.GridPositionX, _worker.GridPositionY + 1); 
+                checkTiles[1] = new Vector2Int(_worker.GridPositionX + 1, _worker.GridPositionY); 
+                checkTiles[2] = new Vector2Int(_worker.GridPositionX, _worker.GridPositionY - 1); 
+                checkTiles[3] = new Vector2Int(_worker.GridPositionX - 1, _worker.GridPositionY); 
+            }
+            else if (direction == Vector2Int.down) // RIGHT, DOWN, LEFT, UP
+            {
+                checkTiles[0] = new Vector2Int(_worker.GridPositionX + 1, _worker.GridPositionY); 
+                checkTiles[1] = new Vector2Int(_worker.GridPositionX, _worker.GridPositionY - 1); 
+                checkTiles[2] = new Vector2Int(_worker.GridPositionX - 1, _worker.GridPositionY); 
+                checkTiles[3] = new Vector2Int(_worker.GridPositionX, _worker.GridPositionY + 1); 
+            }
+            else if (direction == Vector2Int.left) // DOWN, LEFT, UP, RIGHT
+            {
+                checkTiles[0] = new Vector2Int(_worker.GridPositionX, _worker.GridPositionY - 1); 
+                checkTiles[1] = new Vector2Int(_worker.GridPositionX - 1, _worker.GridPositionY); 
+                checkTiles[2] = new Vector2Int(_worker.GridPositionX, _worker.GridPositionY + 1); 
+                checkTiles[3] = new Vector2Int(_worker.GridPositionX + 1, _worker.GridPositionY); 
+            }
+            else if (direction == Vector2Int.up) // LEFT, UP, RIGHT, DOWN
+            {
+                checkTiles[0] = new Vector2Int(_worker.GridPositionX - 1, _worker.GridPositionY);
+                checkTiles[1] = new Vector2Int(_worker.GridPositionX, _worker.GridPositionY + 1);
+                checkTiles[2] = new Vector2Int(_worker.GridPositionX + 1, _worker.GridPositionY);
+                checkTiles[3] = new Vector2Int(_worker.GridPositionX, _worker.GridPositionY - 1);
+            }
+            else
+            {
+                checkTiles = null;
+            }
+
+            return checkTiles;
         }
     }
 }

@@ -1,7 +1,9 @@
 using System.Collections.Generic;
+using System.Linq;
 using Cysharp.Threading.Tasks;
 using Engine;
 using Entity.Entities.Worker.Actions;
+using Map.Tiles;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -13,7 +15,7 @@ namespace Entity.Entities.Worker
         public int GridPositionY { get; set; }
         public Tilemap OverlayTilemap { get; private set; }
 
-        public IStorage.StorageInfo CurrentInfo { get; } = new IStorage.StorageInfo(0, 0, 0, 0);
+        public IStorage.StorageInfo CurrentInfo { get; set; } = new IStorage.StorageInfo(0, 0, 0, 0);
         public IStorage.StorageCapacity Capacity { get; set; } = new IStorage.StorageCapacity(4, 2, 2, 2, 2);
         
         public void Initialize(Tilemap overlayTilemap, int x, int y)
@@ -31,52 +33,98 @@ namespace Entity.Entities.Worker
             await TickSystem.WaitForNextTickAsync();
             
             // Action logic is done. Check other tiles except roads for resources or tasks.
-            Debug.Log("Waiting for next tick... " + System.DateTime.Now.ToString("HH:mm:ss.fff"));
-            Queue<IGatherable> actionQueue = new Queue<IGatherable>();
+            Queue<IGatherable> gatherActionQueue = new Queue<IGatherable>();
+            Queue<IMaterial> pickActionQueue = new Queue<IMaterial>();
             
             Vector3Int rightTilePosition = new Vector3Int(GridPositionX + 1, GridPositionY, 0);
             Vector3Int downTilePosition = new Vector3Int(GridPositionX, GridPositionY - 1, 0);
             Vector3Int leftTilePosition = new Vector3Int(GridPositionX - 1, GridPositionY, 0);
             Vector3Int upTilePosition = new Vector3Int(GridPositionX, GridPositionY + 1, 0);
 
-            CheckTile(ref actionQueue, rightTilePosition);
-            CheckTile(ref actionQueue, downTilePosition);
-            CheckTile(ref actionQueue, leftTilePosition);
-            CheckTile(ref actionQueue, upTilePosition);
-            // Depending to that continue to next movement or stop until next task is done.
-
-            if (actionQueue.Count > 0)
-                await QueueActions(actionQueue, movement);
-            else
-                movement.isActive = true;
+            //Gather stuff first
+            CheckGatherables(ref gatherActionQueue, rightTilePosition);
+            CheckGatherables(ref gatherActionQueue, downTilePosition);
+            CheckGatherables(ref gatherActionQueue, leftTilePosition);
+            CheckGatherables(ref gatherActionQueue, upTilePosition);
+            if (gatherActionQueue.Count > 0)
+                await GatherActions(gatherActionQueue);
+            
+            //Then pick up materials
+            CheckPickables(ref pickActionQueue, rightTilePosition);
+            CheckPickables(ref pickActionQueue, downTilePosition);
+            CheckPickables(ref pickActionQueue, leftTilePosition);
+            CheckPickables(ref pickActionQueue, upTilePosition);
+            if (pickActionQueue.Count > 0)
+                await PickingActions(pickActionQueue);
+            
+            movement.isActive = true;
         }
 
-        private async UniTask QueueActions(Queue<IGatherable> actionQueue, WorkerMovement movement)
+        private async UniTask GatherActions(Queue<IGatherable> gatherActionQueue)
         {
-            Debug.Log("Tick occurred! " + System.DateTime.Now.ToString("HH:mm:ss.fff"));
             await UniTask.SwitchToMainThread();
-            while (actionQueue.Count > 0)
+            while (gatherActionQueue.Count > 0)
             {
-                var action = actionQueue.Dequeue();
+                var action = gatherActionQueue.Dequeue();
                 TickActionBehaviour actionBehaviour = action.GatheringBehaviour();
                 actionBehaviour.isActive = true;
-
                 await UniTask.WaitUntil(() => actionBehaviour.isActionDone);
                 actionBehaviour.isActive = false;
                 actionBehaviour.isActionDone = false;
                 action.IsGathered = true;
                 await UniTask.Yield();
             }
-            movement.isActive = true;
+        }
+        
+        private async UniTask PickingActions(Queue<IMaterial> pickActionQueue)
+        {
+            await UniTask.SwitchToMainThread();
+            while (pickActionQueue.Count > 0)
+            {
+                var action = pickActionQueue.Dequeue();
+                PickingUp actionBehaviour = (PickingUp)action.PickingUpBehaviour();
+                actionBehaviour.isActive = true;
+                await UniTask.WaitUntil(() => actionBehaviour.isActionDone);
+                actionBehaviour.isActive = false;
+                actionBehaviour.isActionDone = false;
+                await UniTask.Yield();
+            }
         }
 
-        private void CheckTile(ref Queue<IGatherable> actionQueue, Vector3Int rightTilePosition)
+        private void CheckGatherables(ref Queue<IGatherable> gatherActionQueue, Vector3Int tilePosition)
         {
-            Vector2Int gridPosition = new Vector2Int(rightTilePosition.x, rightTilePosition.y);
+            Vector2Int gridPosition = new Vector2Int(tilePosition.x, tilePosition.y);
             if (!EntityContainer.gatherables.TryGetValue(gridPosition, out IGatherable gatherable)) return;
             
             if (!gatherable.IsGathered)
-                actionQueue.Enqueue(gatherable);
+                gatherActionQueue.Enqueue(gatherable);
+            
+        }
+
+        private void CheckPickables(ref Queue<IMaterial> pickActionQueue, Vector3Int tilePosition)
+        {
+            Vector2Int gridPosition = new Vector2Int(tilePosition.x, tilePosition.y);
+            if (!EntityContainer.gatherables.TryGetValue(gridPosition, out IGatherable gatherable)) return;
+            
+            if (gatherable.IsPickedUp) return;
+            if (gatherable.SpawnedMaterials.Count <= 0) return;
+            if (CurrentInfo.Total >= Capacity.Total) return;
+
+            var type = gatherable.Type;
+            var material = gatherable.SpawnedMaterials.First();
+            
+            if (material.PickingUpBehaviour() is PickingUp pickingUp)
+                pickingUp.Initialize(gatherable, this);
+
+            bool CanPick(InteractableTileType t, int current, int capacity) => type == t && current < capacity;
+            
+            if(CanPick(InteractableTileType.Berry, CurrentInfo.Berry, Capacity.Berry) ||
+               CanPick(InteractableTileType.Metal, CurrentInfo.Metal, Capacity.Metal) ||
+               CanPick(InteractableTileType.Slime, CurrentInfo.Slime, Capacity.Slime) ||
+               CanPick(InteractableTileType.Wood, CurrentInfo.Wood, Capacity.Wood))
+            {
+                pickActionQueue.Enqueue(material);
+            }
         }
 
         public void LoopReset()
@@ -84,6 +132,7 @@ namespace Entity.Entities.Worker
             foreach (var (_, value) in EntityContainer.gatherables)
             {
                 value.IsGathered = false;
+                value.IsPickedUp = false;
             }
         }
         

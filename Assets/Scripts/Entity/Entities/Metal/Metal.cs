@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Engine;
 using Entity.Entities.Worker.Actions;
+using Map.Tiles;
 using UnityEngine;
 
 namespace Entity.Entities.Metal
@@ -16,7 +17,10 @@ namespace Entity.Entities.Metal
         public TickActionBehaviour GatheringBehaviour() => _metalGathering;
 
         public bool IsGathered { get; set; } = false;
+        public bool IsPickedUp { get; set; } = false;
         public Queue<IMaterial> SpawnedMaterials { get; set; } = new Queue<IMaterial>();
+
+        public InteractableTileType Type { get; } = InteractableTileType.Metal;
 
         public void Initialize(EntitySpawner spawner, int x, int y)
         {

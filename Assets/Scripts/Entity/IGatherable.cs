@@ -7,6 +7,7 @@ namespace Entity
     public interface IGatherable
     {
         public bool IsGathered { get; set; }
+        public bool IsPickedUp { get; set; }
         public InteractableTileType Type { get; }
         public void Initialize(EntitySpawner spawner, int x, int y);
         public TickActionBehaviour GatheringBehaviour();

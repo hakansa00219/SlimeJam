@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Engine;
+using Map.Tiles;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using Worker.Actions;
@@ -19,7 +20,10 @@ namespace Entity.Entities.Slime
         public TickActionBehaviour GatheringBehaviour() => _slimeGathering;
 
         public bool IsGathered { get; set; } = false;
+        public bool IsPickedUp { get; set; } = false;
         public Queue<IMaterial> SpawnedMaterials { get; set; } = new Queue<IMaterial>();
+
+        public InteractableTileType Type { get; } = InteractableTileType.Slime;
 
         public void Initialize(EntitySpawner spawner, int x, int y)
         {
