@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8618022989679200262}
   - component: {fileID: 6573239626798407885}
   - component: {fileID: 1081682011356789584}
+  - component: {fileID: 3414264391554984345}
   m_Layer: 0
   m_Name: Warehouse
   m_TagString: Untagged
@@ -100,3 +101,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b472bf450fd342498bf31a47897ad8f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3414264391554984345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2093721105119058764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99eedebb104649b3a01f079608491c8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  progressBar: {fileID: 0}
+  isActive: 0
+  isActionDone: 0

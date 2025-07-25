@@ -1,5 +1,8 @@
+using System;
 using Entity;
+using Map.Tiles;
 using Sirenix.OdinInspector;
+using UI;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -9,8 +12,14 @@ namespace Structure
     {
         [SerializeField] private EntitySpawner spawner;
         [VerticalGroup("Buildings"), SerializeField] private Transform warehousePrefab;
+
+        private void Awake()
+        {
+            BuyableActions.BuildingActions.TryAdd(StructureTileType.Warehouse, BuildWarehouse);
+        }
+
         [Button]
-        public void BuildWarehouse(int x, int y)
+        public void BuildWarehouse(float x, float y)
         {
             spawner.Spawn(warehousePrefab, x, y);
         }

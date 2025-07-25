@@ -33,5 +33,6 @@ namespace Map.Tiles
         Barracks = 2,
         Blacksmith = 3,
         Gym = 4,
+        Warehouse = 5,
     }
 }

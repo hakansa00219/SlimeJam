@@ -32,5 +32,30 @@ namespace Entity
 
             return spawnedObj;
         }
+        
+        public Transform Spawn(Transform prefab, float x, float y)
+        {
+            Vector2Int gridPosition = GridUtilities.WorldPositionToGridPosition(new Vector3(x, y, 0));
+            Vector3 worldPosition = GridUtilities.GridPositionToWorldPosition(gridPosition);
+            
+            Transform spawnedObj = Instantiate(prefab, worldPosition, Quaternion.identity, container);
+            
+            IEntity entity = spawnedObj.GetComponent<IEntity>();
+            if(entity != null)
+                entity.Initialize(overlayTilemap, gridPosition.x, gridPosition.y);
+            
+            IGatherable gatherable = spawnedObj.GetComponent<IGatherable>();
+            if (gatherable != null)
+            {
+                EntityContainer.Gatherables.TryAdd(gridPosition, gatherable);
+                gatherable.Initialize(this, gridPosition.x, gridPosition.y);
+            }
+            IDepositable depositable = spawnedObj.GetComponent<IDepositable>();
+            if (depositable != null)
+                EntityContainer.Structures.TryAdd(gridPosition, depositable);
+
+
+            return spawnedObj;
+        }
     }
 }
