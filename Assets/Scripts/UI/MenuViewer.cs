@@ -8,7 +8,7 @@ namespace UI
     public abstract class MenuViewer : MonoBehaviour
     {
         protected RectTransform Panel;
-        [FormerlySerializedAs("IsActive")] public bool isActive = false;
+        public bool isActive = false;
 
         public abstract void Initialize(Vector2 worldPosition, params ButtonActionElement[] buildings);
         protected virtual void Awake()

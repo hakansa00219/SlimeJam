@@ -39,7 +39,8 @@ namespace UI
                 float x = Mathf.Cos(radians) * radius;
                 float y = Mathf.Sin(radians) * radius;
                 
-                RectTransform buildingButton = Instantiate(buttonPrefab, Panel.transform) as RectTransform;
+                RectTransform buildingButton = Instantiate(buttonPrefab, Panel.transform);
+
                 
                 if(buildingButton != null)
                     buildingButton.anchoredPosition = new Vector2(x, y);
@@ -50,12 +51,6 @@ namespace UI
             }
             
             
-        }
-
-        private struct BuildingUIData
-        {
-            public RectTransform Prefab;
-            public Action OnClickAction;
         }
     }
 }

@@ -1,9 +1,11 @@
 using System;
 using Map.Tiles;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
 using UnityEngine.Tilemaps;
 using Utility;
+using Random = UnityEngine.Random;
 
 namespace UI
 {
@@ -20,7 +22,14 @@ namespace UI
 
         private void Update()
         {
-            if (UnityEngine.Input.GetMouseButtonDown(1))
+            if (buyingPanel.isActive && (UnityEngine.Input.GetMouseButtonDown(0) || UnityEngine.Input.GetMouseButtonDown(1)))
+            {
+                // Hide the building panel when clicking on the tilemap
+                if (!EventSystem.current.IsPointerOverGameObject())
+                    buyingPanel.Hide();
+            }
+            
+            if (UnityEngine.Input.GetMouseButtonDown(0))
             {
                 Vector3 worldPos = mainCamera.ScreenToWorldPoint(UnityEngine.Input.mousePosition);
                 worldPos.z = 0;
@@ -42,20 +51,17 @@ namespace UI
                 }
                 
                 //Create array and add buildings if condition is met
-                ButtonActionElement[] buildingActions = new ButtonActionElement[1];
-                buildingActions[0] =
-                    new ButtonActionElement(BuyableActions.BuildingActions[StructureTileType.Warehouse], spawnPos.x,
-                        spawnPos.y);
-                
-                buyingPanel.Initialize(spawnPos, buildingActions);
+                int testNumber = Random.Range(1, 12);
+                ButtonActionElement[] buildingActions = new ButtonActionElement[testNumber];
+                for (int i = 0; i < testNumber; i++)
+                {
+                    buildingActions[i] =
+                        new ButtonActionElement(BuyableActions.BuildingActions[StructureTileType.Warehouse], spawnPos.x,
+                            spawnPos.y);
+                }
+                buyingPanel.Initialize(worldPos, buildingActions);
                 buyingPanel.Show();
 
-            }
-            
-            if (buyingPanel.isActive && (UnityEngine.Input.GetMouseButtonDown(0) || UnityEngine.Input.GetMouseButtonDown(1)))
-            {
-                // Hide the building panel when clicking on the tilemap
-                buyingPanel.Hide();
             }
         }
     }
