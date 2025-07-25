@@ -29,7 +29,7 @@ namespace UI
                     buyingPanel.Hide();
             }
             
-            if (UnityEngine.Input.GetMouseButtonDown(0))
+            if (!buyingPanel.isActive && UnityEngine.Input.GetMouseButtonDown(0))
             {
                 Vector3 worldPos = mainCamera.ScreenToWorldPoint(UnityEngine.Input.mousePosition);
                 worldPos.z = 0;

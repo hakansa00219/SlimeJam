@@ -133,5 +133,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e22ad19a11b443c79937d1b402a1860d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetScale: {x: 1.3, y: 1.3, z: 1.3}
+  targetScaleMultiplier: 1.3
   animationSpeed: 10

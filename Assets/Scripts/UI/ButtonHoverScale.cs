@@ -1,11 +1,12 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 
 namespace UI
 {
     public class ButtonHoverScale : MonoBehaviour , IPointerEnterHandler, IPointerExitHandler
     {
-        public Vector3 targetScale = new Vector3(1.1f, 1.1f, 1.1f);
+        public float targetScaleMultiplier = 1.1f;
         public float animationSpeed = 10f;
 
         private Vector3 originalScale;
@@ -18,7 +19,7 @@ namespace UI
 
         void Update()
         {
-            Vector3 desiredScale = isHovered ? targetScale * originalScale : originalScale;
+            Vector3 desiredScale = isHovered ? (targetScaleMultiplier * originalScale) : originalScale;
             transform.localScale = Vector3.Lerp(transform.localScale, desiredScale, Time.deltaTime * animationSpeed);
         }
 

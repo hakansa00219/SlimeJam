@@ -46,7 +46,8 @@ namespace UI
                     buildingButton.anchoredPosition = new Vector2(x, y);
                 
                 Button btn = buildingButton.GetComponent<Button>();
-                btn.onClick.AddListener(() => buildings[i].OnClickAction(x, y));
+                var index = i;
+                btn.onClick.AddListener(() => buildings[index].OnClickAction(x, y));
 
             }
             
