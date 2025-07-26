@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Map.Tiles;
 using Sirenix.OdinInspector;
@@ -11,6 +12,7 @@ namespace Scriptable
         public Dictionary<BaseTileType , Sprite> baseTiles = new Dictionary<BaseTileType, Sprite>();
         public Dictionary<TileElementType , Sprite> overlayTiles = new Dictionary<TileElementType, Sprite>();
         public Dictionary<StructureTileType , Sprite> structureTiles = new Dictionary<StructureTileType, Sprite>();
+        
     }
 
 }

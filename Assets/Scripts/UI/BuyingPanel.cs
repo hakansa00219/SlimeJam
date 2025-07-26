@@ -41,13 +41,17 @@ namespace UI
                 
                 RectTransform buildingButton = Instantiate(buttonPrefab, Panel.transform);
 
+                CircleButton circleButton = buildingButton.GetComponent<CircleButton>();
+                if(circleButton != null)
+                    circleButton.Initialize(buildings[i].ButtonIcon);
                 
                 if(buildingButton != null)
                     buildingButton.anchoredPosition = new Vector2(x, y);
                 
                 Button btn = buildingButton.GetComponent<Button>();
                 var index = i;
-                btn.onClick.AddListener(() => buildings[index].OnClickAction(x, y));
+                btn.onClick.AddListener(() =>
+                    buildings[index].OnClickAction(buildings[index].WorldPositionX, buildings[index].WorldPositionY));
 
             }
             

@@ -1,5 +1,6 @@
 using System;
 using Map.Tiles;
+using Scriptable;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
@@ -17,8 +18,10 @@ namespace UI
         private Tilemap baseTilemap;
         [SerializeField]
         private Tilemap overlayTilemap;
-        [FormerlySerializedAs("buildingPanel")] [SerializeField]
+        [SerializeField]
         private BuyingPanel buyingPanel;
+        [SerializeField]
+        private TileTextures tileTextures;
 
         private void Update()
         {
@@ -56,8 +59,13 @@ namespace UI
                 for (int i = 0; i < testNumber; i++)
                 {
                     buildingActions[i] =
-                        new ButtonActionElement(BuyableActions.BuildingActions[StructureTileType.Warehouse], spawnPos.x,
-                            spawnPos.y);
+                        new ButtonActionElement()
+                        {
+                            OnClickAction = BuyableActions.BuildingActions[StructureTileType.Warehouse],
+                            ButtonIcon = tileTextures.structureTiles[StructureTileType.Warehouse],
+                            WorldPositionX = spawnPos.x,
+                            WorldPositionY = spawnPos.y
+                        };
                 }
                 buyingPanel.Initialize(worldPos, buildingActions);
                 buyingPanel.Show();

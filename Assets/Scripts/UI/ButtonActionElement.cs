@@ -1,18 +1,13 @@
 using System;
+using UnityEngine;
 
 namespace UI
 {
     public class ButtonActionElement
     {
         public Action<float, float> OnClickAction;
+        public Sprite ButtonIcon;
         public float WorldPositionX;
         public float WorldPositionY;
-        
-        public ButtonActionElement(Action<float, float> onClickAction, float worldPositionX, float worldPositionY)
-        {
-            OnClickAction = onClickAction;
-            WorldPositionX = worldPositionX;
-            WorldPositionY = worldPositionY;
-        }
     }
 }
