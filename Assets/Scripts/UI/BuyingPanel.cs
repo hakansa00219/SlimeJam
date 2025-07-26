@@ -13,6 +13,8 @@ namespace UI
         private RectTransform buttonPrefab;
         public override void Initialize(Vector2 worldPosition, params ButtonActionElement[] buildings)
         {
+            Panel = GetComponent<RectTransform>();
+            
             Design(buildings);
             SetPanelPosition(worldPosition);
         }
@@ -51,7 +53,10 @@ namespace UI
                 Button btn = buildingButton.GetComponent<Button>();
                 var index = i;
                 btn.onClick.AddListener(() =>
-                    buildings[index].OnClickAction(buildings[index].WorldPositionX, buildings[index].WorldPositionY));
+                {
+                    buildings[index].OnClickAction(buildings[index].WorldPositionX, buildings[index].WorldPositionY);
+                    Hide();
+                });
 
             }
             

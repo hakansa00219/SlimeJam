@@ -11,10 +11,6 @@ namespace UI
         public bool isActive = false;
 
         public abstract void Initialize(Vector2 worldPosition, params ButtonActionElement[] buildings);
-        protected virtual void Awake()
-        {
-            Panel = GetComponent<RectTransform>();
-        }
 
         protected virtual void SetPanelPosition(Vector2 worldPosition)
         {

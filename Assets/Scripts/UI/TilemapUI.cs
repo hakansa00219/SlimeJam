@@ -3,7 +3,6 @@ using Map.Tiles;
 using Scriptable;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.Serialization;
 using UnityEngine.Tilemaps;
 using Utility;
 using Random = UnityEngine.Random;
@@ -12,16 +11,12 @@ namespace UI
 {
     public class TilemapUI : MonoBehaviour
     {
-        [SerializeField]
-        private Camera mainCamera;
-        [SerializeField]
-        private Tilemap baseTilemap;
-        [SerializeField]
-        private Tilemap overlayTilemap;
-        [SerializeField]
-        private BuyingPanel buyingPanel;
-        [SerializeField]
-        private TileTextures tileTextures;
+        [SerializeField] private Camera mainCamera;
+        [SerializeField] private Tilemap baseTilemap;
+        [SerializeField] private Tilemap overlayTilemap;
+        [SerializeField] private BuyingPanel buyingPanel;
+        [SerializeField] private TileTextures tileTextures;
+        [SerializeField] private GameObject outline;
 
         private void Update()
         {
@@ -29,7 +24,11 @@ namespace UI
             {
                 // Hide the building panel when clicking on the tilemap
                 if (!EventSystem.current.IsPointerOverGameObject())
+                {
                     buyingPanel.Hide();
+                    outline.SetActive(false);
+                }
+                    
             }
             
             if (!buyingPanel.isActive && UnityEngine.Input.GetMouseButtonDown(0))
@@ -40,6 +39,9 @@ namespace UI
                 Vector3 spawnPos = GridUtilities.GridPositionToWorldPosition(gridPos);
                 
                 var tile = overlayTilemap.GetTile(new Vector3Int(gridPos.x, gridPos.y, 0));
+                
+                outline.SetActive(true);
+                outline.transform.position = spawnPos;
 
                 if (tile == null)
                 {
@@ -67,7 +69,7 @@ namespace UI
                             WorldPositionY = spawnPos.y
                         };
                 }
-                buyingPanel.Initialize(worldPos, buildingActions);
+                buyingPanel.Initialize(new Vector2(spawnPos.x, spawnPos.y + 0.5f), buildingActions);
                 buyingPanel.Show();
 
             }
