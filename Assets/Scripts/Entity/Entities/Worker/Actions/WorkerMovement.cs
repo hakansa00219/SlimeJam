@@ -30,7 +30,7 @@ namespace Entity.Entities.Worker.Actions
             if (_worker.GridPositionX == _startTilePosition.x && _worker.GridPositionY == _startTilePosition.y)
             {
                 _worker.LoopReset();
-                _direction = Vector2Int.right;
+                _direction = Vector2Int.left;
 
             }
             Vector3Int nextTilePosition = new Vector3Int(-1,-1,-1);
@@ -71,32 +71,32 @@ namespace Entity.Entities.Worker.Actions
         private Vector2Int[] CheckTiles(Vector2Int direction)
         {
             Vector2Int[] checkTiles = new Vector2Int[4];
-            if (direction == Vector2Int.right) // UP, RIGHT, DOWN, LEFT
-            {
-                checkTiles[0] = new Vector2Int(_worker.GridPositionX, _worker.GridPositionY + 1); 
-                checkTiles[1] = new Vector2Int(_worker.GridPositionX + 1, _worker.GridPositionY); 
-                checkTiles[2] = new Vector2Int(_worker.GridPositionX, _worker.GridPositionY - 1); 
-                checkTiles[3] = new Vector2Int(_worker.GridPositionX - 1, _worker.GridPositionY); 
-            }
-            else if (direction == Vector2Int.down) // RIGHT, DOWN, LEFT, UP
-            {
-                checkTiles[0] = new Vector2Int(_worker.GridPositionX + 1, _worker.GridPositionY); 
-                checkTiles[1] = new Vector2Int(_worker.GridPositionX, _worker.GridPositionY - 1); 
-                checkTiles[2] = new Vector2Int(_worker.GridPositionX - 1, _worker.GridPositionY); 
-                checkTiles[3] = new Vector2Int(_worker.GridPositionX, _worker.GridPositionY + 1); 
-            }
-            else if (direction == Vector2Int.left) // DOWN, LEFT, UP, RIGHT
+            if (direction == Vector2Int.right) // DOWN, RIGHT, UP, LEFT
             {
                 checkTiles[0] = new Vector2Int(_worker.GridPositionX, _worker.GridPositionY - 1); 
-                checkTiles[1] = new Vector2Int(_worker.GridPositionX - 1, _worker.GridPositionY); 
+                checkTiles[1] = new Vector2Int(_worker.GridPositionX + 1, _worker.GridPositionY); 
                 checkTiles[2] = new Vector2Int(_worker.GridPositionX, _worker.GridPositionY + 1); 
+                checkTiles[3] = new Vector2Int(_worker.GridPositionX - 1, _worker.GridPositionY); 
+            }
+            else if (direction == Vector2Int.down) // LEFT, DOWN, RIGHT, UP
+            {
+                checkTiles[0] = new Vector2Int(_worker.GridPositionX - 1, _worker.GridPositionY); 
+                checkTiles[1] = new Vector2Int(_worker.GridPositionX, _worker.GridPositionY - 1); 
+                checkTiles[2] = new Vector2Int(_worker.GridPositionX + 1, _worker.GridPositionY); 
+                checkTiles[3] = new Vector2Int(_worker.GridPositionX, _worker.GridPositionY + 1); 
+            }
+            else if (direction == Vector2Int.left) // UP, LEFT, DOWN, RIGHT
+            {
+                checkTiles[0] = new Vector2Int(_worker.GridPositionX, _worker.GridPositionY + 1); 
+                checkTiles[1] = new Vector2Int(_worker.GridPositionX - 1, _worker.GridPositionY); 
+                checkTiles[2] = new Vector2Int(_worker.GridPositionX, _worker.GridPositionY - 1); 
                 checkTiles[3] = new Vector2Int(_worker.GridPositionX + 1, _worker.GridPositionY); 
             }
-            else if (direction == Vector2Int.up) // LEFT, UP, RIGHT, DOWN
+            else if (direction == Vector2Int.up) // RIGHT, UP, LEFT, DOWN
             {
-                checkTiles[0] = new Vector2Int(_worker.GridPositionX - 1, _worker.GridPositionY);
+                checkTiles[0] = new Vector2Int(_worker.GridPositionX + 1, _worker.GridPositionY);
                 checkTiles[1] = new Vector2Int(_worker.GridPositionX, _worker.GridPositionY + 1);
-                checkTiles[2] = new Vector2Int(_worker.GridPositionX + 1, _worker.GridPositionY);
+                checkTiles[2] = new Vector2Int(_worker.GridPositionX - 1, _worker.GridPositionY);
                 checkTiles[3] = new Vector2Int(_worker.GridPositionX, _worker.GridPositionY - 1);
             }
             else

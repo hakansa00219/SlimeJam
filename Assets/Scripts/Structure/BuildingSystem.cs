@@ -1,5 +1,6 @@
 using System;
 using Entity;
+using Grid;
 using Map.Tiles;
 using Sirenix.OdinInspector;
 using UI;
@@ -11,11 +12,13 @@ namespace Structure
     public class BuildingSystem : MonoBehaviour
     {
         [SerializeField] private EntitySpawner spawner;
+        [SerializeField] private GridManager gridManager;
         [VerticalGroup("Buildings"), SerializeField] private Transform warehousePrefab;
 
         private void Awake()
         {
-            BuyableActions.BuildingActions.TryAdd(StructureTileType.Warehouse, BuildWarehouse);
+            BuyableActions.BuildingActions.TryAdd("Warehouse", BuildWarehouse);
+            BuyableActions.BuildingActions.TryAdd("Road", BuildRoad);
         }
 
         [Button]
@@ -23,5 +26,11 @@ namespace Structure
         {
             spawner.Spawn(warehousePrefab, x, y);
         }
+        [Button]
+        public void BuildRoad(float x, float y)
+        {
+            gridManager.CreateRoad(x, y);
+        }
+
     }
 }

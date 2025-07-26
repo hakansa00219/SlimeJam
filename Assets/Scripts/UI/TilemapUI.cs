@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Map.Tiles;
 using Scriptable;
 using UnityEngine;
@@ -49,27 +50,44 @@ namespace UI
                     return;
                 }
 
-                if (tile.name == "Rock")
+                if (tile.name is "Rock" or "Main" or "Flag")
                 {
-                    Debug.LogError("Cannot built on rock tile at position: " + gridPos);
+                    Debug.LogError("Cannot built on this tile at position: " + gridPos);
                     return;
                 }
                 
-                //Create array and add buildings if condition is met
-                int testNumber = Random.Range(1, 12);
-                ButtonActionElement[] buildingActions = new ButtonActionElement[testNumber];
-                for (int i = 0; i < testNumber; i++)
+                List<ButtonActionElement> buildingActions = new List<ButtonActionElement>();
+
+                if (tile.name is "Road" or "Warehouse")
                 {
-                    buildingActions[i] =
-                        new ButtonActionElement()
-                        {
-                            OnClickAction = BuyableActions.BuildingActions[StructureTileType.Warehouse],
-                            ButtonIcon = tileTextures.structureTiles[StructureTileType.Warehouse],
-                            WorldPositionX = spawnPos.x,
-                            WorldPositionY = spawnPos.y
-                        };
+                    buildingActions.Add(new ButtonActionElement()
+                    {
+                        OnClickAction = BuyableActions.RemoveActions[tile.name],
+                        ButtonIcon = tileTextures.deleteTileSprite,
+                        WorldPositionX = spawnPos.x,
+                        WorldPositionY = spawnPos.y
+                    });
                 }
-                buyingPanel.Initialize(new Vector2(spawnPos.x, spawnPos.y + 0.5f), buildingActions);
+                
+                if (tile.name == "Empty")
+                {
+                    buildingActions.Add(new ButtonActionElement()
+                    {
+                        OnClickAction = BuyableActions.BuildingActions["Road"],
+                        ButtonIcon = tileTextures.overlayTiles[TileElementType.Road],
+                        WorldPositionX = spawnPos.x,
+                        WorldPositionY = spawnPos.y
+                    });
+                    buildingActions.Add(new ButtonActionElement()
+                    {
+                        OnClickAction = BuyableActions.BuildingActions["Warehouse"],
+                        ButtonIcon = tileTextures.structureTiles[StructureTileType.Warehouse],
+                        WorldPositionX = spawnPos.x,
+                        WorldPositionY = spawnPos.y
+                    });
+                }
+                
+                buyingPanel.Initialize(new Vector2(spawnPos.x, spawnPos.y + 0.5f), buildingActions.ToArray());
                 buyingPanel.Show();
 
             }

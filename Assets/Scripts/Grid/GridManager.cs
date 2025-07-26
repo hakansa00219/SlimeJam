@@ -5,6 +5,7 @@ using Scriptable;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.Tilemaps;
+using Utility;
 
 namespace Grid
 {
@@ -56,7 +57,7 @@ namespace Grid
                     tile.color = Color.white;
                     tile.sprite = tileTextures.baseTiles[_cells[x, y].Type];
                     tile.name = _cells[x, y].Type.ToString();
-                    Vector3Int tilePosition = new Vector3Int(_cells[x, y].Position.x, _cells[x, y].Position.y, 0);
+                    Vector3Int tilePosition = new Vector3Int(x, y, 0);
                     baseTilemap.SetTile(tilePosition, tile);
                 }
             }
@@ -71,7 +72,7 @@ namespace Grid
                     tile.color = Color.white;
                     tile.sprite = tileTextures.overlayTiles[_cells[x, y].ElementType];
                     tile.name = _cells[x, y].ElementType.ToString();
-                    Vector3Int tilePosition = new Vector3Int(_cells[x, y].Position.x, _cells[x, y].Position.y, 0);
+                    Vector3Int tilePosition = new Vector3Int(x, y, 0);
                     overlayTilemap.SetTile(tilePosition, tile);
                 }
             }
@@ -92,14 +93,30 @@ namespace Grid
         }
         private void CreateInteractables()
         {
-            foreach (var cellData in _cells)
-            {
-                if(cellData.InteractableType is InteractableTileType.Empty) continue;
-                // Spawn interactable entities based on the cell data
-                entitySpawner.Spawn(entities.interactableEntities[cellData.InteractableType], cellData.Position.x,
-                    cellData.Position.y);
-            }
+            for (var x = 0; x < _cells.GetLength(0); x++)
+                for (var y = 0; y < _cells.GetLength(1); y++)
+                {
+                    var cellData = _cells[x, y];
+                    if (cellData.InteractableType is InteractableTileType.Empty) continue;
+                    // Spawn interactable entities based on the cell data
+                    entitySpawner.Spawn(entities.interactableEntities[cellData.InteractableType], x, y);
+                }
         }
 
+        public void CreateRoad(float x, float y)
+        {
+            Vector2Int gridPosition = GridUtilities.WorldPositionToGridPosition(new Vector3(x, y, 0));
+            CellData cell = _cells[gridPosition.x, gridPosition.y];
+            int gridX = gridPosition.x;
+            int gridY = gridPosition.y;
+            Vector3Int tilePosition = new Vector3Int(gridX, gridY, 0);
+            cell.ElementType = TileElementType.Road;
+            var tile = ScriptableObject.CreateInstance<Tile>();
+            tile.color = Color.white;
+            tile.sprite = tileTextures.overlayTiles[cell.ElementType];
+            tile.name = cell.ElementType.ToString();
+            overlayTilemap.SetTile(tilePosition, tile);
+            
+        }
     }
 }

@@ -23,29 +23,6 @@ namespace Scriptable
         private void CreateMap()
         {
             Cells = new CellData[width, height];
-
-            for (var x = 0; x < Cells.GetLength(0); x++)
-            {
-                for (int y = 0; y < Cells.GetLength(1); y++)
-                {
-                    int actualYPos = Cells.GetLength(1) - y - 1;
-                    Cells[x, y].Position = new Vector2Int(x, actualYPos);
-                }
-            }
-        }
-
-        [VerticalGroup("MapSettings")]
-        [Button("Set Positions")]
-        private void SetPositions()
-        {
-            for (var x = 0; x < Cells.GetLength(0); x++)
-            {
-                for (int y = 0; y < Cells.GetLength(1); y++)
-                {
-                    int actualYPos = Cells.GetLength(1) - y - 1;
-                    Cells[x, y].Position = new Vector2Int(x, actualYPos);
-                }
-            }
         }
         
         [TableMatrix(DrawElementMethod = "DrawCells", SquareCells = true, HorizontalTitle = "X", VerticalTitle = "Y")]
@@ -53,7 +30,10 @@ namespace Scriptable
         [SerializeField]
         private (int X, int Y) _startTile;
         [ReadOnly]
-        public (int X, int Y) StartTile => (_startTile.X, height - 1 - _startTile.Y);
+        public (int X, int Y) StartTile => (_startTile.X, _startTile.Y);
+
+        [SerializeField] private (int X, int Y) _mainTile;
+        [ReadOnly] public (int X, int Y) MainTile => (_mainTile.X, _mainTile.Y);
         [SerializeField]
         private bool isEditable = false;
         [SerializeField]

@@ -6,7 +6,9 @@ namespace UI
 {
     public static class BuyableActions
     {
-        public static Dictionary<StructureTileType, Action<float,float>> BuildingActions =
-            new Dictionary<StructureTileType, Action<float,float>>();
+        public static readonly Dictionary<string, Action<float,float>> BuildingActions =
+            new Dictionary<string, Action<float,float>>();
+        public static readonly Dictionary<string, Action<float,float>> RemoveActions =
+            new Dictionary<string, Action<float,float>>();
     }
 }
