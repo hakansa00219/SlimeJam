@@ -1532,7 +1532,7 @@ MonoBehaviour:
       Data: 0
     - Name: ElementType
       Entry: 3
-      Data: 1
+      Data: 0
     - Name: InteractableType
       Entry: 3
       Data: 0
@@ -1892,7 +1892,7 @@ MonoBehaviour:
       Data: 0
     - Name: ElementType
       Entry: 3
-      Data: 1
+      Data: 0
     - Name: InteractableType
       Entry: 3
       Data: 0
@@ -1928,7 +1928,7 @@ MonoBehaviour:
       Data: 0
     - Name: ElementType
       Entry: 3
-      Data: 1
+      Data: 0
     - Name: InteractableType
       Entry: 3
       Data: 0
@@ -2252,7 +2252,7 @@ MonoBehaviour:
       Data: 0
     - Name: ElementType
       Entry: 3
-      Data: 1
+      Data: 0
     - Name: InteractableType
       Entry: 3
       Data: 0
@@ -2270,7 +2270,7 @@ MonoBehaviour:
       Data: 0
     - Name: ElementType
       Entry: 3
-      Data: 1
+      Data: 0
     - Name: InteractableType
       Entry: 3
       Data: 0
@@ -2288,7 +2288,7 @@ MonoBehaviour:
       Data: 0
     - Name: ElementType
       Entry: 3
-      Data: 1
+      Data: 0
     - Name: InteractableType
       Entry: 3
       Data: 0
@@ -3667,5 +3667,5 @@ MonoBehaviour:
   isEditable: 0
   editType: 1
   selectedBaseTileType: 1
-  selectedElementTileType: 1
+  selectedElementTileType: 0
   selectedInteractableTileType: 5

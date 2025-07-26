@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Entity.Entities;
+using Entity.Entities.Flag;
 using Structure;
 using UnityEngine;
 using Utility;
@@ -24,6 +25,11 @@ namespace Entity
             {
                 EntityContainer.Gatherables.TryAdd(gridPosition, gatherable);
                 gatherable.Initialize(this, x, y);
+            }
+            IConvertable convertable = spawnedObj.GetComponent<IConvertable>();
+            if (convertable != null)
+            {
+                EntityContainer.Convertables.TryAdd(gridPosition, convertable);
             }
             IDepositable depositable = spawnedObj.GetComponent<IDepositable>();
             if (depositable != null)

@@ -30,7 +30,8 @@ namespace Entity.Entities.Worker.Actions
             if (_worker.GridPositionX == _startTilePosition.x && _worker.GridPositionY == _startTilePosition.y)
             {
                 _worker.LoopReset();
-                _direction = Vector2Int.left;
+                if(_direction == Vector2Int.zero)
+                    _direction = Vector2Int.left;
 
             }
             Vector3Int nextTilePosition = new Vector3Int(-1,-1,-1);
@@ -52,12 +53,12 @@ namespace Entity.Entities.Worker.Actions
 
             if (nextTilePosition == new Vector3Int(-1, -1, -1))
             {
-                Debug.LogWarning("No valid tile to move to. Backing up to last tile.");
-                // Go back once
-                _worker.transform.position = GridUtilities.GridPositionToWorldPosition(new Vector2Int(_lastTilePosition.x, _lastTilePosition.y));
-                _worker.GridPositionX = _lastTilePosition.x;
-                _worker.GridPositionY = _lastTilePosition.y;
-                return;
+                // Debug.LogWarning("No valid tile to move to. Backing up to last tile.");
+                // // Go back once
+                // _worker.transform.position = GridUtilities.GridPositionToWorldPosition(new Vector2Int(_lastTilePosition.x, _lastTilePosition.y));
+                // _worker.GridPositionX = _lastTilePosition.x;
+                // _worker.GridPositionY = _lastTilePosition.y;
+                // return;
             }
            
             _lastTilePosition = new Vector3Int(_worker.GridPositionX, _worker.GridPositionY, 0);

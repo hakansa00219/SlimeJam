@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Cysharp.Threading.Tasks;
 using Engine;
+using Entity.Entities.Flag;
 using Entity.Entities.Worker.Actions;
 using Map.Tiles;
 using Structure;
@@ -36,6 +37,7 @@ namespace Entity.Entities.Worker
             // Action logic is done. Check other tiles except roads for resources or tasks.
             Queue<IGatherable> gatherActionQueue = new Queue<IGatherable>();
             Queue<IMaterial> pickActionQueue = new Queue<IMaterial>();
+            Queue<IConvertable> convertableActionQueue = new Queue<IConvertable>();
             
             Vector3Int rightTilePosition = new Vector3Int(GridPositionX + 1, GridPositionY, 0);
             Vector3Int downTilePosition = new Vector3Int(GridPositionX, GridPositionY - 1, 0);
@@ -57,6 +59,14 @@ namespace Entity.Entities.Worker
             CheckPickables(ref pickActionQueue, upTilePosition);
             if (pickActionQueue.Count > 0)
                 await PickingActions(pickActionQueue);
+            
+            //Then pick up materials
+            CheckFlag(ref convertableActionQueue, rightTilePosition);
+            CheckFlag(ref convertableActionQueue, downTilePosition);
+            CheckFlag(ref convertableActionQueue, leftTilePosition);
+            CheckFlag(ref convertableActionQueue, upTilePosition);
+            if (convertableActionQueue.Count > 0)
+                await ConvertingActions(convertableActionQueue);
             
             
             movement.isActive = true;
@@ -85,6 +95,21 @@ namespace Entity.Entities.Worker
             {
                 var action = pickActionQueue.Dequeue();
                 PickingUp actionBehaviour = (PickingUp)action.PickingUpBehaviour();
+                actionBehaviour.isActive = true;
+                await UniTask.WaitUntil(() => actionBehaviour.isActionDone);
+                actionBehaviour.isActive = false;
+                actionBehaviour.isActionDone = false;
+                await UniTask.Yield();
+            }
+        }
+        
+        private async UniTask ConvertingActions(Queue<IConvertable> convertActionQueue)
+        {
+            await UniTask.SwitchToMainThread();
+            while (convertActionQueue.Count > 0)
+            {
+                var action = convertActionQueue.Dequeue();
+                TickActionBehaviour actionBehaviour = action.ConvertingBehaviour();
                 actionBehaviour.isActive = true;
                 await UniTask.WaitUntil(() => actionBehaviour.isActionDone);
                 actionBehaviour.isActive = false;
@@ -127,6 +152,16 @@ namespace Entity.Entities.Worker
             {
                 pickActionQueue.Enqueue(material);
             }
+        }
+        
+        private void CheckFlag(ref Queue<IConvertable> flagActionQueue, Vector3Int tilePosition)
+        {
+            Vector2Int gridPosition = new Vector2Int(tilePosition.x, tilePosition.y);
+            if (!EntityContainer.Convertables.TryGetValue(gridPosition, out IConvertable convertable)) return;
+            
+            if (!convertable.IsConverted)
+                flagActionQueue.Enqueue(convertable);
+            
         }
         
         private void CheckStructures(ref Queue<IDepositable> depositActionQueue, Vector3Int tilePosition)
