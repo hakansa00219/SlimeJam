@@ -16,27 +16,28 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 5826461082133596139, guid: 8e146c2805529754592c429f99611ed4, type: 3}
-    - {fileID: 9207027613144928217, guid: 27be497bb499a2746a0f1536aa9782cb, type: 3}
     - {fileID: 6684178589876063377, guid: 93452961706b75c40ab725f62b156e36, type: 3}
+    - {fileID: 9207027613144928217, guid: 27be497bb499a2746a0f1536aa9782cb, type: 3}
+    - {fileID: 5826461082133596139, guid: 8e146c2805529754592c429f99611ed4, type: 3}
     - {fileID: 1210155108596305757, guid: 32cfdecea1accbd4f8eee6062e2bb1de, type: 3}
     - {fileID: 5491811431037087768, guid: 400bd90b4f03be341925bf99e37e439c, type: 3}
-    - {fileID: 904463331479442015, guid: b86d1062b8153f74891a9e4dd8837062, type: 3}
+    - {fileID: 8618022989679200262, guid: f8d715bc68f766341a0e9f211765ce81, type: 3}
     - {fileID: 6496230005310335201, guid: f090ceac41ca8f04f92c0235df0ded93, type: 3}
     - {fileID: 6455049667346902864, guid: e0b5da5955681db46b82a2b35c81aa55, type: 3}
     - {fileID: 3264466136046227683, guid: 2e5df6d58fe1d9048ba03dfbeadef4ba, type: 3}
+    - {fileID: 904463331479442015, guid: b86d1062b8153f74891a9e4dd8837062, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
-    - Name: interactableEntities
+    - Name: elementEntities
       Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[Map.Tiles.InteractableTileType,
+      Data: 0|System.Collections.Generic.Dictionary`2[[Map.Tiles.TileElementType,
         Assembly-CSharp],[UnityEngine.Transform, UnityEngine.CoreModule]], mscorlib
     - Name: comparer
       Entry: 7
-      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[Map.Tiles.InteractableTileType,
+      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[Map.Tiles.TileElementType,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
@@ -55,19 +56,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 3
-      Data: 0
-    - Name: $v
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 1
+      Data: 5
     - Name: $v
       Entry: 10
       Data: 0
@@ -79,7 +68,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 3
-      Data: 2
+      Data: 4
     - Name: $v
       Entry: 10
       Data: 1
@@ -103,7 +92,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 3
-      Data: 4
+      Data: 6
     - Name: $v
       Entry: 10
       Data: 3
@@ -115,10 +104,22 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 3
-      Data: 5
+      Data: 7
     - Name: $v
       Entry: 10
       Data: 4
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 12
+    - Name: $v
+      Entry: 10
+      Data: 5
     - Name: 
       Entry: 8
       Data: 
@@ -128,13 +129,13 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-    - Name: materialsEntities
+    - Name: materialEntities
       Entry: 7
-      Data: 2|System.Collections.Generic.Dictionary`2[[Map.Tiles.InteractableTileType,
+      Data: 2|System.Collections.Generic.Dictionary`2[[Map.Tiles.TileElementType,
         Assembly-CSharp],[UnityEngine.Transform, UnityEngine.CoreModule]], mscorlib
     - Name: comparer
       Entry: 7
-      Data: 3|System.Collections.Generic.EnumEqualityComparer`1[[Map.Tiles.InteractableTileType,
+      Data: 3|System.Collections.Generic.EnumEqualityComparer`1[[Map.Tiles.TileElementType,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
@@ -153,19 +154,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 3
-      Data: 4
-    - Name: $v
-      Entry: 10
-      Data: 5
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 1
+      Data: 3
     - Name: $v
       Entry: 10
       Data: 6
@@ -177,7 +166,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 3
-      Data: 2
+      Data: 4
     - Name: $v
       Entry: 10
       Data: 7
@@ -189,10 +178,22 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 3
-      Data: 3
+      Data: 5
     - Name: $v
       Entry: 10
       Data: 8
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 6
+    - Name: $v
+      Entry: 10
+      Data: 9
     - Name: 
       Entry: 8
       Data: 

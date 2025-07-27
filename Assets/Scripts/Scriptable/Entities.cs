@@ -8,8 +8,8 @@ namespace Scriptable
     [CreateAssetMenu(fileName = "Entities", menuName = "Scriptable/Entities")]
     public class Entities : SerializedScriptableObject
     {
-        public Dictionary<InteractableTileType, Transform> interactableEntities = new Dictionary<InteractableTileType, Transform>();
-        public Dictionary<InteractableTileType, Transform> materialsEntities = new Dictionary<InteractableTileType, Transform>();
+        public Dictionary<TileElementType, Transform> elementEntities = new Dictionary<TileElementType, Transform>();
+        public Dictionary<TileElementType, Transform> materialEntities = new Dictionary<TileElementType, Transform>();
         public Transform workerEntity;
     }
 }

@@ -20,7 +20,7 @@ namespace Entity.Entities.Metal
         public bool IsPickedUp { get; set; } = false;
         public Queue<IMaterial> SpawnedMaterials { get; set; } = new Queue<IMaterial>();
 
-        public InteractableTileType Type { get; } = InteractableTileType.Metal;
+        public TileElementType Type { get; } = TileElementType.Metal;
 
         public void Initialize(EntitySpawner spawner, int x, int y)
         {

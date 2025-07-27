@@ -43,7 +43,7 @@ namespace Worker.Actions
             
             var winner = possibleSpawnPositions[Random.Range(0, possibleSpawnPositions.Length)];
             Debug.Log("Slime Gathered! " + System.DateTime.Now.ToString("HH:mm:ss.fff"));
-            Transform spawnedObj = _spawner.Spawn(_entities.materialsEntities[InteractableTileType.Slime], winner.x, winner.y);
+            Transform spawnedObj = _spawner.Spawn(_entities.materialEntities[TileElementType.Slime], winner.x, winner.y);
             
             if (spawnedObj != null && spawnedObj.TryGetComponent<IMaterial>(out var spawnedMaterial))
             {

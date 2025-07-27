@@ -7,7 +7,5 @@ namespace Grid
     {
         public BaseTileType Type;
         public TileElementType ElementType;
-        public InteractableTileType InteractableType;
-        public StructureTileType StructureType;
     }
 }

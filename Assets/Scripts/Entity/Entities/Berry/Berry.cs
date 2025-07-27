@@ -20,7 +20,7 @@ namespace Entity.Entities.Berry
 
         public bool IsGathered { get; set; } = false;
         public bool IsPickedUp { get; set; } = false;
-        public InteractableTileType Type => InteractableTileType.Berry;
+        public TileElementType Type => TileElementType.Berry;
 
         public void Initialize(EntitySpawner spawner, int x, int y)
         {

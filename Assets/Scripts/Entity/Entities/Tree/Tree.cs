@@ -22,7 +22,7 @@ namespace Entity.Entities.Tree
         public bool IsPickedUp { get; set; } = false;
         public Queue<IMaterial> SpawnedMaterials { get; set; } = new Queue<IMaterial>();
 
-        public InteractableTileType Type { get; } = InteractableTileType.Wood;
+        public TileElementType Type { get; } = TileElementType.Wood;
 
         public void Initialize(EntitySpawner spawner, int x, int y)
         {

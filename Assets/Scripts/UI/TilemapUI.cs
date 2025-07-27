@@ -1,9 +1,12 @@
 using System;
 using System.Collections.Generic;
+using Entity.Entities;
 using Map.Tiles;
 using Scriptable;
+using Structure;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 using UnityEngine.Tilemaps;
 using Utility;
 using Random = UnityEngine.Random;
@@ -14,7 +17,7 @@ namespace UI
     {
         [SerializeField] private Camera mainCamera;
         [SerializeField] private Tilemap baseTilemap;
-        [SerializeField] private Tilemap overlayTilemap;
+        [FormerlySerializedAs("overlayTilemap")] [SerializeField] private Tilemap elementTilemap;
         [SerializeField] private BuyingPanel buyingPanel;
         [SerializeField] private TileTextures tileTextures;
         [SerializeField] private GameObject outline;
@@ -39,57 +42,81 @@ namespace UI
                 Vector2Int gridPos = GridUtilities.WorldPositionToGridPosition(worldPos);
                 Vector3 spawnPos = GridUtilities.GridPositionToWorldPosition(gridPos);
                 
-                var tile = overlayTilemap.GetTile(new Vector3Int(gridPos.x, gridPos.y, 0));
-                
                 outline.SetActive(true);
                 outline.transform.position = spawnPos;
-
-                if (tile == null)
-                {
-                    Debug.LogError("No tile found at position: " + gridPos);
-                    return;
-                }
-
-                if (tile.name is "Rock" or "Main" or "Flag")
-                {
-                    Debug.LogError("Cannot built on this tile at position: " + gridPos);
-                    return;
-                }
                 
                 List<ButtonActionElement> buildingActions = new List<ButtonActionElement>();
+                
+                TileChecks(buildingActions, gridPos, spawnPos);
+                
 
-                if (tile.name is "Road" or "Warehouse")
-                {
-                    buildingActions.Add(new ButtonActionElement()
-                    {
-                        OnClickAction = BuyableActions.RemoveActions[tile.name],
-                        ButtonIcon = tileTextures.deleteTileSprite,
-                        WorldPositionX = spawnPos.x,
-                        WorldPositionY = spawnPos.y
-                    });
-                }
-                
-                if (tile.name == "Empty")
-                {
-                    buildingActions.Add(new ButtonActionElement()
-                    {
-                        OnClickAction = BuyableActions.BuildingActions["Road"],
-                        ButtonIcon = tileTextures.overlayTiles[TileElementType.Road],
-                        WorldPositionX = spawnPos.x,
-                        WorldPositionY = spawnPos.y
-                    });
-                    buildingActions.Add(new ButtonActionElement()
-                    {
-                        OnClickAction = BuyableActions.BuildingActions["Warehouse"],
-                        ButtonIcon = tileTextures.structureTiles[StructureTileType.Warehouse],
-                        WorldPositionX = spawnPos.x,
-                        WorldPositionY = spawnPos.y
-                    });
-                }
-                
+                if (buildingActions.Count == 0)
+                    return;
                 buyingPanel.Initialize(new Vector2(spawnPos.x, spawnPos.y + 0.5f), buildingActions.ToArray());
                 buyingPanel.Show();
 
+            }
+        }
+
+        private void TileChecks(List<ButtonActionElement> buildingActions, Vector2Int gridPos, Vector3 spawnPos)
+        {
+            EntityContainer.Depositables.TryGetValue(gridPos, out var depositable);
+            var elementTile = elementTilemap.GetTile(new Vector3Int(gridPos.x, gridPos.y, 0));
+            var baseTile = baseTilemap.GetTile(new Vector3Int(gridPos.x, gridPos.y, 0));
+
+            if (depositable is Warehouse)
+            {
+                buildingActions.Add(new ButtonActionElement()
+                {
+                    OnClickAction = BuyableActions.RemoveActions["Warehouse"],
+                    ButtonIcon = tileTextures.deleteTileSprite,
+                    WorldPositionX = spawnPos.x,
+                    WorldPositionY = spawnPos.y
+                });
+                return;
+            }
+
+            if (elementTile is null || baseTile is null)
+            {
+                buildingActions.Clear();
+                Debug.LogError("No tile found at position: " + gridPos);
+                return;
+            }
+
+            if (elementTile.name is "Rock" or "Main" or "Flag" || baseTile.name is "Water")
+            {
+                Debug.LogError("Cannot built on this tile at position: " + gridPos);
+                return;
+            }
+
+            if (elementTile.name is "Road" or "House" or "Barracks" or "Blacksmith" or "Gym" or "Warehouse")
+            {
+                buildingActions.Add(new ButtonActionElement()
+                {
+                    OnClickAction = BuyableActions.RemoveActions[elementTile.name],
+                    ButtonIcon = tileTextures.deleteTileSprite,
+                    WorldPositionX = spawnPos.x,
+                    WorldPositionY = spawnPos.y
+                });
+                return;
+            }
+
+            if (elementTile.name is "Empty")
+            {
+                buildingActions.Add(new ButtonActionElement()
+                {
+                    OnClickAction = BuyableActions.BuildingActions["Road"],
+                    ButtonIcon = tileTextures.elementTiles[TileElementType.Road],
+                    WorldPositionX = spawnPos.x,
+                    WorldPositionY = spawnPos.y
+                });
+                buildingActions.Add(new ButtonActionElement()
+                {
+                    OnClickAction = BuyableActions.BuildingActions["Warehouse"],
+                    ButtonIcon = tileTextures.elementTiles[TileElementType.Warehouse],
+                    WorldPositionX = spawnPos.x,
+                    WorldPositionY = spawnPos.y
+                });
             }
         }
     }

@@ -23,7 +23,7 @@ namespace Entity.Entities.Slime
         public bool IsPickedUp { get; set; } = false;
         public Queue<IMaterial> SpawnedMaterials { get; set; } = new Queue<IMaterial>();
 
-        public InteractableTileType Type { get; } = InteractableTileType.Slime;
+        public TileElementType Type { get; } = TileElementType.Slime;
 
         public void Initialize(EntitySpawner spawner, int x, int y)
         {

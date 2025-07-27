@@ -24,16 +24,16 @@ namespace Entity.Entities.Worker.Actions
 
             switch (_gatherable.Type)
             {
-                case InteractableTileType.Wood:
+                case TileElementType.Wood:
                     info.Wood += 1;
                     break;
-                case InteractableTileType.Metal:
+                case TileElementType.Metal:
                     info.Metal += 1;
                     break;
-                case InteractableTileType.Berry:
+                case TileElementType.Berry:
                     info.Berry += 1;
                     break;
-                case InteractableTileType.Slime:
+                case TileElementType.Slime:
                     info.Slime += 1;
                     break;
                 default:

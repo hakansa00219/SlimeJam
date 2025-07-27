@@ -45,10 +45,7 @@ namespace Scriptable
         [SerializeField]
         [ShowIf("@isEditable == true && editType == EditType.ElementTile")]
         private TileElementType selectedElementTileType;
-        [SerializeField]
-        [ShowIf("@isEditable == true && editType == EditType.InteractableTile")]
-        private InteractableTileType selectedInteractableTileType;
-        
+  
         private static CellData DrawCells(Rect rect, CellData value, int x, int y, GridMap map, CellData[,] cells)
         {
             CellData currentCell = value;
@@ -61,19 +58,11 @@ namespace Scriptable
                 {
                     currentCell.Type = map.selectedBaseTileType;
                     currentCell.ElementType = currentCell.ElementType; // Keep the existing element type
-                    currentCell.InteractableType = currentCell.InteractableType; // Keep the existing interactable type
                 }
                 else if (map.editType == EditType.ElementTile)
                 {
                     currentCell.Type = currentCell.Type; // Keep the existing base tile type
                     currentCell.ElementType = map.selectedElementTileType;
-                    currentCell.InteractableType = currentCell.InteractableType; 
-                }
-                else if (map.editType == EditType.InteractableTile)
-                {
-                    currentCell.Type = currentCell.Type; // Keep the existing base tile type
-                    currentCell.ElementType = currentCell.ElementType; // Keep the existing element type
-                    currentCell.InteractableType = map.selectedInteractableTileType;
                 }
                 else
                 {
@@ -95,22 +84,22 @@ namespace Scriptable
                 TileElementType.Empty => "O",
                 TileElementType.Road => "Road",
                 TileElementType.Rock => "Rock",
-                TileElementType.Main => "Base",
-                _ => throw new ArgumentOutOfRangeException()
-            };
-            string text2 = currentCell.InteractableType switch
-            {
-                InteractableTileType.Empty => "O",
-                InteractableTileType.Wood => "Wood",
-                InteractableTileType.Metal => "Metal",
-                InteractableTileType.Berry => "Berry",
-                InteractableTileType.Slime => "Slime",
-                InteractableTileType.Flag => "Flag",
+                TileElementType.Wood => "Wood",
+                TileElementType.Metal => "Metal",
+                TileElementType.Berry => "Berry",
+                TileElementType.Slime => "Slime",
+                TileElementType.House => "House",
+                TileElementType.Barracks => "Barracks",
+                TileElementType.Blacksmith => "Blacksmith",
+                TileElementType.Gym => "Gym",
+                TileElementType.Warehouse => "Warehouse",
+                TileElementType.Flag => "Flag",
+                TileElementType.Base => "Base",
                 _ => throw new ArgumentOutOfRangeException()
             };
 #if UNITY_EDITOR
             EditorGUI.DrawRect(rect.Padding(1), renderColor);
-            EditorGUI.TextArea(rect.Padding(4), text + "\n" + text2);
+            EditorGUI.TextField(rect.Padding(4), text);
 #endif
 
             cells[x, y] = currentCell;
@@ -123,7 +112,6 @@ namespace Scriptable
         {
             BaseTile = 0,
             ElementTile = 1,
-            InteractableTile = 2,
         }
         
     }

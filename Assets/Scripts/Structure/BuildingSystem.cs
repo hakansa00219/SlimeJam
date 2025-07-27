@@ -1,11 +1,13 @@
 using System;
 using Entity;
+using Entity.Entities;
 using Grid;
 using Map.Tiles;
 using Sirenix.OdinInspector;
 using UI;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Utility;
 
 namespace Structure
 {
@@ -19,6 +21,23 @@ namespace Structure
         {
             BuyableActions.BuildingActions.TryAdd("Warehouse", BuildWarehouse);
             BuyableActions.BuildingActions.TryAdd("Road", BuildRoad);
+            BuyableActions.RemoveActions.TryAdd("Warehouse",
+                (x, y) =>
+                {
+                    Vector2Int position = GridUtilities.WorldPositionToGridPosition(new Vector3(x, y));
+
+                    if (EntityContainer.Depositables.TryGetValue(position, out IDepositable structure))
+                    {
+                        if (structure is Warehouse warehouse)
+                            Destroy(warehouse.gameObject);
+                        EntityContainer.Depositables.Remove(position);
+                    }
+                    else
+                    {
+                        Debug.LogError($"No structure found at position {position}");
+                    }
+                });
+            BuyableActions.RemoveActions.TryAdd("Road", gridManager.RemoveRoad);
         }
 
         [Button]

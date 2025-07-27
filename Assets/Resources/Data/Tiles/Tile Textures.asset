@@ -20,14 +20,18 @@ MonoBehaviour:
     - {fileID: 21300000, guid: c589df5a5cd56a142b35b6fbe25558ca, type: 3}
     - {fileID: 21300000, guid: dc02d902cfd2e554bb647c207a955950, type: 3}
     - {fileID: 21300000, guid: cce5b1dd9fb26b540a983297fcb0f91a, type: 3}
-    - {fileID: 21300000, guid: ea8981732ca62114493fcf5a22bfd99b, type: 3}
     - {fileID: 21300000, guid: 68b3542339462aa4fb0494e342dc28d1, type: 3}
-    - {fileID: 21300000, guid: 57c5973f866fdd2469dfc6206af2b3f4, type: 3}
     - {fileID: 21300000, guid: 97ecdb5107bbd744981af1ed5b021e5d, type: 3}
+    - {fileID: 21300000, guid: f438aa0d5ae72714b9ad4af8bcee4d77, type: 3}
+    - {fileID: 21300000, guid: bdde9baa2b624c0428f231e16ff9bbb9, type: 3}
+    - {fileID: 21300000, guid: d9dd3cce7c6d2a84d8a89a3407494da9, type: 3}
+    - {fileID: 21300000, guid: 9e330f7458ed99b4d99a05df7efb681e, type: 3}
+    - {fileID: 21300000, guid: 32c84ceb3eee4014a81cd6ecac250ef7, type: 3}
     - {fileID: 21300000, guid: daa9ca4ac8be4bb4f81aa1f6c0170f9f, type: 3}
     - {fileID: 21300000, guid: fa2e7b7dbcd322c419983468fccf03d3, type: 3}
     - {fileID: 21300000, guid: 2ec75ceb7f7bab54e85f3f7566c7bc4e, type: 3}
     - {fileID: 21300000, guid: dbee586340665914bbfdbb866fe4c18a, type: 3}
+    - {fileID: 21300000, guid: 57c5973f866fdd2469dfc6206af2b3f4, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -107,7 +111,7 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-    - Name: overlayTiles
+    - Name: elementTiles
       Entry: 7
       Data: 2|System.Collections.Generic.Dictionary`2[[Map.Tiles.TileElementType,
         Assembly-CSharp],[UnityEngine.Sprite, UnityEngine.CoreModule]], mscorlib
@@ -126,7 +130,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 4
+      Data: 14
     - Name: 
       Entry: 7
       Data: 
@@ -134,8 +138,8 @@ MonoBehaviour:
       Entry: 3
       Data: 0
     - Name: $v
-      Entry: 10
-      Data: 4
+      Entry: 6
+      Data: 
     - Name: 
       Entry: 8
       Data: 
@@ -147,6 +151,18 @@ MonoBehaviour:
       Data: 1
     - Name: $v
       Entry: 10
+      Data: 4
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 2
+    - Name: $v
+      Entry: 10
       Data: 5
     - Name: 
       Entry: 8
@@ -156,7 +172,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 3
-      Data: 255
+      Data: 3
     - Name: $v
       Entry: 10
       Data: 6
@@ -168,7 +184,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 3
-      Data: 2
+      Data: 4
     - Name: $v
       Entry: 10
       Data: 7
@@ -176,49 +192,11 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: structureTiles
       Entry: 7
-      Data: 4|System.Collections.Generic.Dictionary`2[[Map.Tiles.StructureTileType,
-        Assembly-CSharp],[UnityEngine.Sprite, UnityEngine.CoreModule]], mscorlib
-    - Name: comparer
-      Entry: 7
-      Data: 5|System.Collections.Generic.EnumEqualityComparer`1[[Map.Tiles.StructureTileType,
-        Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
       Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 12
+    - Name: $k
+      Entry: 3
       Data: 5
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 0
-    - Name: $v
-      Entry: 10
-      Data: 4
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 1
     - Name: $v
       Entry: 10
       Data: 8
@@ -230,7 +208,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 3
-      Data: 2
+      Data: 6
     - Name: $v
       Entry: 10
       Data: 9
@@ -242,7 +220,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 3
-      Data: 5
+      Data: 7
     - Name: $v
       Entry: 10
       Data: 10
@@ -254,10 +232,70 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 3
-      Data: 4
+      Data: 8
     - Name: $v
       Entry: 10
       Data: 11
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 9
+    - Name: $v
+      Entry: 10
+      Data: 12
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 10
+    - Name: $v
+      Entry: 10
+      Data: 13
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 11
+    - Name: $v
+      Entry: 10
+      Data: 14
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 12
+    - Name: $v
+      Entry: 10
+      Data: 13
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 255
+    - Name: $v
+      Entry: 10
+      Data: 15
     - Name: 
       Entry: 8
       Data: 
@@ -267,3 +305,4 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+  deleteTileSprite: {fileID: 21300000, guid: 4193ea5b0c5c54047ab0c7268ac8fa13, type: 3}

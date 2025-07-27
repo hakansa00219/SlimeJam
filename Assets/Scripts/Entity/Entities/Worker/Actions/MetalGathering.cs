@@ -41,7 +41,7 @@ namespace Entity.Entities.Worker.Actions
             
             var winner = possibleSpawnPositions[Random.Range(0, possibleSpawnPositions.Length)];
             Debug.Log("Metal Gathered! " + System.DateTime.Now.ToString("HH:mm:ss.fff"));
-            Transform spawnedObj = _spawner.Spawn(_entities.materialsEntities[InteractableTileType.Metal], winner.x, winner.y);
+            Transform spawnedObj = _spawner.Spawn(_entities.materialEntities[TileElementType.Metal], winner.x, winner.y);
             
             if (spawnedObj != null && spawnedObj.TryGetComponent<IMaterial>(out var spawnedMaterial))
             {

@@ -70,7 +70,7 @@ namespace Grid
                 {
                     Tile tile = ScriptableObject.CreateInstance<Tile>();
                     tile.color = Color.white;
-                    tile.sprite = tileTextures.overlayTiles[_cells[x, y].ElementType];
+                    tile.sprite = tileTextures.elementTiles[_cells[x, y].ElementType];
                     tile.name = _cells[x, y].ElementType.ToString();
                     Vector3Int tilePosition = new Vector3Int(x, y, 0);
                     overlayTilemap.SetTile(tilePosition, tile);
@@ -81,7 +81,7 @@ namespace Grid
         private void CreateEntities()
         {
             CreateWorker();
-            CreateInteractables();
+            CreateElements();
         }
 
         private void CreateWorker()
@@ -91,32 +91,43 @@ namespace Grid
             //Spawn the worker at the start tile position
             entitySpawner.Spawn(entities.workerEntity, workerStartTile.x, workerStartTile.y);
         }
-        private void CreateInteractables()
+        private void CreateElements()
         {
             for (var x = 0; x < _cells.GetLength(0); x++)
                 for (var y = 0; y < _cells.GetLength(1); y++)
                 {
                     var cellData = _cells[x, y];
-                    if (cellData.InteractableType is InteractableTileType.Empty) continue;
+                    if (cellData.ElementType is TileElementType.Empty or TileElementType.Rock
+                                             or TileElementType.Road or TileElementType.Base)
+                        continue;
                     // Spawn interactable entities based on the cell data
-                    entitySpawner.Spawn(entities.interactableEntities[cellData.InteractableType], x, y);
+                    entitySpawner.Spawn(entities.elementEntities[cellData.ElementType], x, y);
                 }
         }
 
         public void CreateRoad(float x, float y)
+        {
+            TileElementUpdate(x, y, TileElementType.Road);
+        }
+        
+        public void RemoveRoad(float x, float y)
+        {
+            TileElementUpdate(x, y, TileElementType.Empty);
+        }
+        
+        public void TileElementUpdate(float x, float y, TileElementType elementType)
         {
             Vector2Int gridPosition = GridUtilities.WorldPositionToGridPosition(new Vector3(x, y, 0));
             CellData cell = _cells[gridPosition.x, gridPosition.y];
             int gridX = gridPosition.x;
             int gridY = gridPosition.y;
             Vector3Int tilePosition = new Vector3Int(gridX, gridY, 0);
-            cell.ElementType = TileElementType.Road;
+            cell.ElementType = elementType;
             var tile = ScriptableObject.CreateInstance<Tile>();
             tile.color = Color.white;
-            tile.sprite = tileTextures.overlayTiles[cell.ElementType];
+            tile.sprite = tileTextures.elementTiles[cell.ElementType];
             tile.name = cell.ElementType.ToString();
             overlayTilemap.SetTile(tilePosition, tile);
-            
-        }
+        } 
     }
 }
