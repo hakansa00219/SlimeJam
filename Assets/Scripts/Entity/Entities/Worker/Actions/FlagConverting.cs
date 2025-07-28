@@ -10,22 +10,13 @@ namespace Entity.Entities.Worker.Actions
         protected override int TickDelay { get; } = 20;
 
         private IConvertable _convertable;
-        private IPurchasable.Cost _givenMaterials;
-        private bool _isConfirmed = false;
-        public void Initialize(IConvertable convertable, IPurchasable.Cost givenMaterials)
+        public void Initialize(IConvertable convertable)
         {
             _convertable = convertable;
-            _givenMaterials = givenMaterials;
         }
         protected override void OnTick()
         {
-            if (!_isConfirmed)
-            {
-                _isConfirmed = true;
-                return;
-            }
-            
-            _convertable.Convert(_givenMaterials);
+            _convertable.Convert();
 
             if (EntityContainer.CheckWinCondition())
             {

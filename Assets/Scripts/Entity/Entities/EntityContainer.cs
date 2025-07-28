@@ -10,6 +10,7 @@ namespace Entity.Entities
         public static readonly Dictionary<Vector2Int, IGatherable> Gatherables = new Dictionary<Vector2Int, IGatherable>(); 
         public static readonly Dictionary<Vector2Int, IDepositable> Depositables = new Dictionary<Vector2Int, IDepositable>();
         public static readonly Dictionary<Vector2Int, IConvertable> Convertables = new Dictionary<Vector2Int, IConvertable>();
+        public static readonly Dictionary<Vector2Int, IPurchasable> Purchasables = new Dictionary<Vector2Int, IPurchasable>();
 
         public static bool CheckWinCondition()
         {

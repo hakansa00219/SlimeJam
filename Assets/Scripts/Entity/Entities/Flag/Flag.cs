@@ -7,29 +7,47 @@ using UnityEngine;
 namespace Entity.Entities.Flag
 {
     [RequireComponent(typeof(SpriteRenderer))]
+    [RequireComponent(typeof(FlagConverting))]
+    [RequireComponent(typeof(Transferring))]
     public class Flag : MonoBehaviour , IConvertable, IPurchasable
     {
         [SerializeField] private Sprite convertedSprite;
         [SerializeField] private Sprite unconvertedSprite;
         private FlagConverting _flagConverting;
+        private Transferring _transferring;
         private SpriteRenderer _spriteRenderer;
 
         public IPurchasable.Cost PurchaseCost { get; set; } = new(4, 4, 4, 4);
+        public bool IsPurchased { get; set; } = false;
         public bool IsConverted { get; set; } = false;
 
         public TickActionBehaviour ConvertingBehaviour() => _flagConverting;
-        public void Initialize(IPurchasable.Cost workerMaterials)
+        public TickActionBehaviour TransferringBehaviour() => _transferring;
+
+        public void Initialize(IStorage workerStorage)
         {
             _spriteRenderer = GetComponent<SpriteRenderer>();
             _flagConverting = GetComponent<FlagConverting>();
+            _transferring = GetComponent<Transferring>();
             if (_flagConverting != null)
-                _flagConverting.Initialize(this, workerMaterials);
+                _flagConverting.Initialize(this);
+            if (_transferring != null)
+                _transferring.Initialize(this, workerStorage);
         }
         
-        public void Convert(IPurchasable.Cost givenMaterials)
+        public void Convert()
         {
             if (IsConverted) return;
+            if (!IsPurchased) return;
             
+            IsConverted = true;
+            // Additional logic for converting the flag can be added here
+            _spriteRenderer.sprite = convertedSprite;
+            Debug.Log("Flag has been converted.");
+        }
+
+        public void Transfer(IPurchasable.Cost givenMaterials)
+        {
             IPurchasable.Cost requiredCost = PurchaseCost;
 
             requiredCost.Metal -= givenMaterials.Metal;
@@ -37,15 +55,10 @@ namespace Entity.Entities.Flag
             requiredCost.Slime -= givenMaterials.Slime;
             requiredCost.Berry -= givenMaterials.Berry;
 
-            if (requiredCost.TotalCost > 0)
-                return;
-            
-            IsConverted = true;
-            // Additional logic for converting the flag can be added here
-            _spriteRenderer.sprite = convertedSprite;
-            Debug.Log("Flag has been converted.");
+            if (requiredCost.TotalCost == 0)
+                IsPurchased = true;
+
         }
-        
         public void Unconvert()
         {
             if (!IsConverted) return;

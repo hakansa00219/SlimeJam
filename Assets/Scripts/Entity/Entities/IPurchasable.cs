@@ -1,8 +1,12 @@
+using Engine;
+
 namespace Entity.Entities
 {
     public interface IPurchasable
     {
         public Cost PurchaseCost { get; set; }
+        public bool IsPurchased { get; set; }
+        public TickActionBehaviour TransferringBehaviour();
 
         public class Cost
         {

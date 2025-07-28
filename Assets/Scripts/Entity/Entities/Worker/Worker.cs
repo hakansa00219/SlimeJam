@@ -14,7 +14,7 @@ namespace Entity.Entities.Worker
 {
     public class Worker : MonoBehaviour, IEntity, IStorage
     {
-        [FormerlySerializedAs("transferings")] public List<Vector2Int> transferrings = new List<Vector2Int>();
+        public List<Vector2Int> transferrings = new List<Vector2Int>();
         public int GridPositionX { get; set; }
         public int GridPositionY { get; set; }
         public Tilemap OverlayTilemap { get; private set; }
@@ -40,6 +40,7 @@ namespace Entity.Entities.Worker
             Queue<IGatherable> gatherActionQueue = new Queue<IGatherable>();
             Queue<IMaterial> pickActionQueue = new Queue<IMaterial>();
             Queue<IConvertable> convertActionQueue = new Queue<IConvertable>();
+            Queue<IPurchasable> purchaseActionQueue = new Queue<IPurchasable>();
             Queue<IDepositable> depositActionQueue = new Queue<IDepositable>();
             
             Vector3Int[] tilePositions = new Vector3Int[4]
@@ -65,7 +66,12 @@ namespace Entity.Entities.Worker
             if (convertActionQueue.Count > 0)
                 await ConvertingActions(convertActionQueue);
             
-            //Dump the materials
+            //Transfer materials
+            CheckPurchasables(ref purchaseActionQueue, tilePositions);
+            if (purchaseActionQueue.Count > 0)
+                await PurchasingActions(purchaseActionQueue);
+            
+            //Dump materials
             CheckDepositables(ref depositActionQueue, tilePositions);
             if (depositActionQueue.Count > 0)
                 await DepositActions(depositActionQueue);
@@ -112,6 +118,20 @@ namespace Entity.Entities.Worker
             {
                 var action = convertActionQueue.Dequeue();
                 TickActionBehaviour actionBehaviour = action.ConvertingBehaviour();
+                actionBehaviour.isActive = true;
+                await UniTask.WaitUntil(() => actionBehaviour.isActionDone);
+                actionBehaviour.isActive = false;
+                actionBehaviour.isActionDone = false;
+                await UniTask.Yield();
+            }
+        }
+        private async UniTask PurchasingActions(Queue<IPurchasable> purchaseActionQueue)
+        {
+            await UniTask.SwitchToMainThread();
+            while (purchaseActionQueue.Count > 0)
+            {
+                var action = purchaseActionQueue.Dequeue();
+                TickActionBehaviour actionBehaviour = action.TransferringBehaviour();
                 actionBehaviour.isActive = true;
                 await UniTask.WaitUntil(() => actionBehaviour.isActionDone);
                 actionBehaviour.isActive = false;
@@ -183,12 +203,13 @@ namespace Entity.Entities.Worker
                 Vector2Int gridPosition = new Vector2Int(t.x, t.y);
                 if (!EntityContainer.Convertables.TryGetValue(gridPosition, out IConvertable convertable)) continue;
                 
-                convertable.Initialize();
+                convertable.Initialize(this);
                 
                 if (!convertable.IsConverted)
                 {
                     transferrings.Add(gridPosition);
-                    flagActionQueue.Enqueue(convertable);
+                    if (((IPurchasable)convertable).IsPurchased)
+                        flagActionQueue.Enqueue(convertable);
                 }
                 else
                 {
@@ -196,6 +217,18 @@ namespace Entity.Entities.Worker
                 }
             }
         }
+        private void CheckPurchasables(ref Queue<IPurchasable> purchaseActionQueue, Vector3Int[] tilePosition)
+        {
+            foreach (var t in tilePosition)
+            {
+                Vector2Int gridPosition = new Vector2Int(t.x, t.y);
+                if (!EntityContainer.Purchasables.TryGetValue(gridPosition, out IPurchasable purchasable)) continue;
+ 
+                if(!purchasable.IsPurchased) 
+                    purchaseActionQueue.Enqueue(purchasable);
+            }
+        }
+
         
         private void CheckDepositables(ref Queue<IDepositable> depositActionQueue, Vector3Int[] tilePosition)
         {

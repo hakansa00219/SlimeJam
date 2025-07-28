@@ -1,5 +1,6 @@
 using System;
 using Entity;
+using Entity.Entities;
 using Map.Tiles;
 using Scriptable;
 using UnityEngine;
@@ -101,7 +102,15 @@ namespace Grid
                                              or TileElementType.Road or TileElementType.Base)
                         continue;
                     // Spawn interactable entities based on the cell data
-                    entitySpawner.Spawn(entities.elementEntities[cellData.ElementType], x, y);
+                    Transform t = entitySpawner.Spawn(entities.elementEntities[cellData.ElementType], x, y);
+
+
+                    if (cellData.ElementType is TileElementType.Flag)
+                    {
+                        IPurchasable purchasable = t.GetComponent<IPurchasable>();
+                        EntityContainer.Purchasables.TryAdd(new Vector2Int(x, y), purchasable);
+                    }
+                        
                 }
         }
 

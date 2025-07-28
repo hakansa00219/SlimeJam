@@ -7,7 +7,7 @@ namespace Entity.Entities.Flag
     {
         public bool IsConverted { get; set; }
         public TickActionBehaviour ConvertingBehaviour();
-        public void Initialize(IPurchasable.Cost workerMaterials);
-        public void Convert(IPurchasable.Cost givenMaterials);
+        public void Initialize(IStorage workerStorage);
+        public void Convert();
     }
 }

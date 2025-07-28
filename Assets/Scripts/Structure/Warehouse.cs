@@ -25,7 +25,7 @@ namespace Structure
 
         public void Initialize(IStorage workerStorage)
         {
-            _depositing.Initialize(workerStorage, this, this);
+            _depositing.Initialize(workerStorage, this, this, false);
         }
     }
 }
