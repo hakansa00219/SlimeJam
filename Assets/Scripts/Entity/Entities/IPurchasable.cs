@@ -15,6 +15,7 @@ namespace Entity.Entities
             public int Slime;
             public int Berry;
             public int TotalCost => Wood + Metal + Slime + Berry;
+            public Cost() {}
             public Cost(int wood, int metal, int slime, int berry)
             {
                 Wood = wood;

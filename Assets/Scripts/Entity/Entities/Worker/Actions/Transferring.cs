@@ -33,27 +33,29 @@ namespace Entity.Entities.Worker.Actions
             {
                 cost.Berry -= 1;
                 workerInfo.Berry += 1;
+                return;
             }
-            else if (cost.Metal > 0 && workerInfo.Metal > 0)
+            if (cost.Metal > 0 && workerInfo.Metal > 0)
             {
                 cost.Metal -= 1;
                 workerInfo.Metal += 1;
+                return;
             }
-            else if (cost.Slime > 0 && workerInfo.Slime > 0)
+            if (cost.Slime > 0 && workerInfo.Slime > 0)
             {
                 cost.Slime -= 1;
                 workerInfo.Slime += 1;
+                return;
             }
-            else if (cost.Wood > 0 && workerInfo.Wood > 0)
+            if (cost.Wood > 0 && workerInfo.Wood > 0)
             {
                 cost.Wood -= 1;
                 workerInfo.Wood += 1;
-            }
-            else
-            {
-                Debug.LogWarning("Worker has no materials to transfer or the cost is already fulfilled.");
                 return;
             }
+            
+            Debug.LogWarning("Worker has no materials to transfer or the cost is already fulfilled.");
+            return;
         }
         
     }

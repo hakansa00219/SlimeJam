@@ -1,5 +1,6 @@
 using Engine;
 using Entity;
+using Entity.Entities;
 
 namespace Structure
 {
@@ -7,7 +8,7 @@ namespace Structure
     {
         public bool IsDeposited { get; set; }
         public TickActionBehaviour DepositingBehaviour();
-        public void Initialize(IStorage workerStorage);
+        public void Initialize(IStorage workerStorage, bool isTransferring, IPurchasable.Cost needs = null);
         
     }
 }

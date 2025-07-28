@@ -1,6 +1,6 @@
-using Cysharp.Threading.Tasks;
 using Engine;
 using Entity;
+using Entity.Entities;
 using Entity.Entities.Worker.Actions;
 using UnityEngine;
 
@@ -23,9 +23,9 @@ namespace Structure
             _depositing = GetComponent<Depositing>();
         }
 
-        public void Initialize(IStorage workerStorage)
+        public void Initialize(IStorage workerStorage, bool isTransferring, IPurchasable.Cost needs = null)
         {
-            _depositing.Initialize(workerStorage, this, this, false);
+            _depositing.Initialize(workerStorage, this, this, isTransferring, needs);
         }
     }
 }

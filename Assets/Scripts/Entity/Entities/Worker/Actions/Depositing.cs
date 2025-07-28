@@ -77,7 +77,7 @@ namespace Entity.Entities.Worker.Actions
 
         private bool Transfer(ref IStorage.StorageInfo warehouseInfo, ref IStorage.StorageInfo workerInfo, IPurchasable.Cost needs)
         {
-            if (needs.Berry > 0 && warehouseInfo.Berry > 0 && workerInfo.Berry < _workerStorage.Capacity.Berry)
+            if (needs.Berry > 0 && warehouseInfo.Berry > 0 && workerInfo.Berry < _workerStorage.Capacity.Berry )
             {
                 warehouseInfo.Berry -= 1;
                 workerInfo.Berry += 1;

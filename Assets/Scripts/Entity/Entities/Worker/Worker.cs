@@ -14,7 +14,7 @@ namespace Entity.Entities.Worker
 {
     public class Worker : MonoBehaviour, IEntity, IStorage
     {
-        public List<Vector2Int> transferrings = new List<Vector2Int>();
+        public Dictionary<Vector2Int, IPurchasable.Cost> transferrings = new Dictionary<Vector2Int, IPurchasable.Cost>();
         public int GridPositionX { get; set; }
         public int GridPositionY { get; set; }
         public Tilemap OverlayTilemap { get; private set; }
@@ -205,15 +205,19 @@ namespace Entity.Entities.Worker
                 
                 convertable.Initialize(this);
                 
+                IPurchasable purchasable = convertable as IPurchasable;
+                if (purchasable == null) continue;
+                
                 if (!convertable.IsConverted)
                 {
-                    transferrings.Add(gridPosition);
-                    if (((IPurchasable)convertable).IsPurchased)
+                    transferrings.TryAdd(gridPosition, purchasable.PurchaseCost);
+                    if (purchasable is { IsPurchased: true })
                         flagActionQueue.Enqueue(convertable);
                 }
                 else
                 {
-                    transferrings.Remove(gridPosition);
+                    if(transferrings.ContainsKey(gridPosition))
+                        transferrings.Remove(gridPosition);
                 }
             }
         }
@@ -223,9 +227,19 @@ namespace Entity.Entities.Worker
             {
                 Vector2Int gridPosition = new Vector2Int(t.x, t.y);
                 if (!EntityContainer.Purchasables.TryGetValue(gridPosition, out IPurchasable purchasable)) continue;
- 
-                if(!purchasable.IsPurchased) 
-                    purchaseActionQueue.Enqueue(purchasable);
+
+                if (!purchasable.IsPurchased)
+                {
+                    int jobCount = Mathf.Min(purchasable.PurchaseCost.Metal,CurrentInfo.Metal) +
+                                   Mathf.Min(purchasable.PurchaseCost.Berry,CurrentInfo.Berry) +
+                                   Mathf.Min(purchasable.PurchaseCost.Slime,CurrentInfo.Slime) +
+                                   Mathf.Min(purchasable.PurchaseCost.Wood,CurrentInfo.Wood);
+                    for (int i = 0; i < jobCount; i++)
+                    {
+                        purchaseActionQueue.Enqueue(purchasable);
+                    }
+                    
+                }
             }
         }
 
@@ -239,8 +253,23 @@ namespace Entity.Entities.Worker
             
                 if (depositable.IsDeposited) continue;
                 if (CurrentInfo.Total <= 0) continue;
-            
-                depositable.Initialize(this);
+
+                IPurchasable.Cost cost = transferrings.Aggregate(new IPurchasable.Cost(),
+                    (curr, next) => new IPurchasable.Cost()
+                    {
+                        Berry = curr.Berry + next.Value.Berry,
+                        Metal = curr.Metal + next.Value.Metal,
+                        Slime = curr.Slime + next.Value.Slime,
+                        Wood = curr.Wood + next.Value.Wood
+                    });
+
+                bool isTransferring = transferrings.Count > 0;
+                
+                if(isTransferring && CurrentInfo.Total >= Capacity.Total)
+                    continue;
+                
+                depositable.Initialize(this, isTransferring, cost);
+                
                 for (int i = 0; i < CurrentInfo.Total; i++)
                 {
                     depositActionQueue.Enqueue(depositable);
