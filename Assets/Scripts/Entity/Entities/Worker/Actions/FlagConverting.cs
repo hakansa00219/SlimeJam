@@ -1,5 +1,6 @@
 using Engine;
 using Entity.Entities.Flag;
+using Structure;
 using UnityEngine;
 
 namespace Entity.Entities.Worker.Actions
@@ -9,13 +10,22 @@ namespace Entity.Entities.Worker.Actions
         protected override int TickDelay { get; } = 20;
 
         private IConvertable _convertable;
-        public void Initialize(IConvertable convertable)
+        private IPurchasable.Cost _givenMaterials;
+        private bool _isConfirmed = false;
+        public void Initialize(IConvertable convertable, IPurchasable.Cost givenMaterials)
         {
             _convertable = convertable;
+            _givenMaterials = givenMaterials;
         }
         protected override void OnTick()
         {
-            _convertable.Convert();
+            if (!_isConfirmed)
+            {
+                _isConfirmed = true;
+                return;
+            }
+            
+            _convertable.Convert(_givenMaterials);
 
             if (EntityContainer.CheckWinCondition())
             {

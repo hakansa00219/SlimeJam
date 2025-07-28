@@ -7,12 +7,14 @@ using Entity.Entities.Worker.Actions;
 using Map.Tiles;
 using Structure;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.Tilemaps;
 
 namespace Entity.Entities.Worker
 {
     public class Worker : MonoBehaviour, IEntity, IStorage
     {
+        [FormerlySerializedAs("transferings")] public List<Vector2Int> transferrings = new List<Vector2Int>();
         public int GridPositionX { get; set; }
         public int GridPositionY { get; set; }
         public Tilemap OverlayTilemap { get; private set; }
@@ -37,7 +39,8 @@ namespace Entity.Entities.Worker
             // Action logic is done. Check other tiles except roads for resources or tasks.
             Queue<IGatherable> gatherActionQueue = new Queue<IGatherable>();
             Queue<IMaterial> pickActionQueue = new Queue<IMaterial>();
-            Queue<IConvertable> convertableActionQueue = new Queue<IConvertable>();
+            Queue<IConvertable> convertActionQueue = new Queue<IConvertable>();
+            Queue<IDepositable> depositActionQueue = new Queue<IDepositable>();
             
             Vector3Int[] tilePositions = new Vector3Int[4]
             {
@@ -57,10 +60,15 @@ namespace Entity.Entities.Worker
             if (pickActionQueue.Count > 0)
                 await PickingActions(pickActionQueue);
             
-            //Then pick up materials
-            CheckFlag(ref convertableActionQueue, tilePositions);
-            if (convertableActionQueue.Count > 0)
-                await ConvertingActions(convertableActionQueue);
+            //Flag to convert
+            CheckFlag(ref convertActionQueue, tilePositions);
+            if (convertActionQueue.Count > 0)
+                await ConvertingActions(convertActionQueue);
+            
+            //Dump the materials
+            CheckDepositables(ref depositActionQueue, tilePositions);
+            if (depositActionQueue.Count > 0)
+                await DepositActions(depositActionQueue);
             
             
             movement.isActive = true;
@@ -104,6 +112,21 @@ namespace Entity.Entities.Worker
             {
                 var action = convertActionQueue.Dequeue();
                 TickActionBehaviour actionBehaviour = action.ConvertingBehaviour();
+                actionBehaviour.isActive = true;
+                await UniTask.WaitUntil(() => actionBehaviour.isActionDone);
+                actionBehaviour.isActive = false;
+                actionBehaviour.isActionDone = false;
+                await UniTask.Yield();
+            }
+        }
+        
+        private async UniTask DepositActions(Queue<IDepositable> depositActionQueue)
+        {
+            await UniTask.SwitchToMainThread();
+            while (depositActionQueue.Count > 0)
+            {
+                var action = depositActionQueue.Dequeue();
+                TickActionBehaviour actionBehaviour = action.DepositingBehaviour();
                 actionBehaviour.isActive = true;
                 await UniTask.WaitUntil(() => actionBehaviour.isActionDone);
                 actionBehaviour.isActive = false;
@@ -159,22 +182,39 @@ namespace Entity.Entities.Worker
             {
                 Vector2Int gridPosition = new Vector2Int(t.x, t.y);
                 if (!EntityContainer.Convertables.TryGetValue(gridPosition, out IConvertable convertable)) continue;
-            
+                
+                convertable.Initialize();
+                
                 if (!convertable.IsConverted)
+                {
+                    transferrings.Add(gridPosition);
                     flagActionQueue.Enqueue(convertable);
+                }
+                else
+                {
+                    transferrings.Remove(gridPosition);
+                }
             }
         }
         
-        private void CheckStructures(ref Queue<IDepositable> depositActionQueue, Vector3Int tilePosition)
+        private void CheckDepositables(ref Queue<IDepositable> depositActionQueue, Vector3Int[] tilePosition)
         {
-            Vector2Int gridPosition = new Vector2Int(tilePosition.x, tilePosition.y);
-            if (!EntityContainer.Depositables.TryGetValue(gridPosition, out IDepositable depositable)) return;
+            foreach (var t in tilePosition)
+            {
+                Vector2Int gridPosition = new Vector2Int(t.x, t.y);
+                if (!EntityContainer.Depositables.TryGetValue(gridPosition, out IDepositable depositable)) continue;
             
-            if (depositable.IsDeposited) return;
-            if (CurrentInfo.Total <= 0) return;
+                if (depositable.IsDeposited) continue;
+                if (CurrentInfo.Total <= 0) continue;
             
-            depositable.Initialize(this);
-            depositActionQueue.Enqueue(depositable);
+                depositable.Initialize(this);
+                for (int i = 0; i < CurrentInfo.Total; i++)
+                {
+                    depositActionQueue.Enqueue(depositable);
+                }
+                
+            }
+       
         }
 
         public void LoopReset()

@@ -1,0 +1,65 @@
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
+using Engine;
+using Entity;
+using Entity.Entities;
+using Scriptable;
+using Structure;
+using UnityEngine;
+
+namespace UI
+{
+    public class StorageUI : MonoBehaviour
+    {
+        [SerializeField] private Storage storage;
+        [SerializeField] private StorageItem[] items;
+
+        private void Start()
+        {
+            _ = UpdateStorage();
+        }
+
+        private async UniTaskVoid UpdateStorage()
+        {
+            UniTask.SwitchToMainThread();
+            while (storage != null)
+            {
+                await TickSystem.WaitForNextTickAsync();
+            
+            
+                storage.ClearAmounts();
+                foreach ((_,IDepositable value) in EntityContainer.Depositables)
+                {
+                    if (value is not Warehouse warehouse) continue;
+                
+                    if (storage.ItemElements.TryGetValue("Wood", out var wood))
+                        wood.amount += warehouse.CurrentInfo.Wood;
+                    if (storage.ItemElements.TryGetValue("Slime", out var slime))
+                        slime.amount += warehouse.CurrentInfo.Slime;
+                    if (storage.ItemElements.TryGetValue("Metal", out var metal))
+                        metal.amount += warehouse.CurrentInfo.Metal;
+                    if (storage.ItemElements.TryGetValue("Berry", out var berry))
+                        berry.amount += warehouse.CurrentInfo.Berry;
+                }
+
+                await UpdateUI();
+            }
+            
+        }
+
+        private async UniTask UpdateUI()
+        {
+            foreach (var item in items)
+            {
+                if(!storage.ItemElements.TryGetValue(item.name, out var element)) continue;
+                
+                item.SetText(element.amount.ToString());
+                item.SetIcon(element.icon);
+                item.gameObject.SetActive(element.amount > 0);
+            }   
+            await UniTask.Yield(PlayerLoopTiming.LastPostLateUpdate);
+        }
+    }
+}
