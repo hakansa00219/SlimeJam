@@ -30,33 +30,33 @@ namespace Entity.Entities.Worker.Actions
             IStorage.StorageInfo workerInfo = _workerStorage.CurrentInfo;
             Cost cost = _purchasable.PurchaseCost;
 
-            if (cost.Berry > 0 && workerInfo.Berry > 0)
+            if (cost.berry > 0 && workerInfo.Berry > 0)
             {
-                cost.Berry -= 1;
+                cost.berry -= 1;
                 workerInfo.Berry -= 1;
                 _workerStorage.CurrentInfo = workerInfo;
                 _purchasable.TransferConditionCheck();
                 return;
             }
-            if (cost.Metal > 0 && workerInfo.Metal > 0)
+            if (cost.metal > 0 && workerInfo.Metal > 0)
             {
-                cost.Metal -= 1;
+                cost.metal -= 1;
                 workerInfo.Metal -= 1;
                 _workerStorage.CurrentInfo = workerInfo;
                 _purchasable.TransferConditionCheck();
                 return;
             }
-            if (cost.Slime > 0 && workerInfo.Slime > 0)
+            if (cost.slime > 0 && workerInfo.Slime > 0)
             {
-                cost.Slime -= 1;
+                cost.slime -= 1;
                 workerInfo.Slime -= 1;
                 _workerStorage.CurrentInfo = workerInfo;
                 _purchasable.TransferConditionCheck();
                 return;
             }
-            if (cost.Wood > 0 && workerInfo.Wood > 0)
+            if (cost.wood > 0 && workerInfo.Wood > 0)
             {
-                cost.Wood -= 1;
+                cost.wood -= 1;
                 workerInfo.Wood -= 1;
                 _workerStorage.CurrentInfo = workerInfo;
                 _purchasable.TransferConditionCheck();

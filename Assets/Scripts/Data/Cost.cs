@@ -1,19 +1,23 @@
+using System;
+using UnityEngine.Serialization;
+
 namespace Data
 {
+    [Serializable]
     public class Cost
     {
-        public int Wood;
-        public int Metal; 
-        public int Slime;
-        public int Berry;
-        public int TotalCost => Wood + Metal + Slime + Berry;
+        public int wood;
+        public int metal; 
+        public int slime;
+        public int berry;
+        public int TotalCost => wood + metal + slime + berry;
         public Cost() {}
         public Cost(int wood, int metal, int slime, int berry)
         {
-            Wood = wood;
-            Metal = metal;
-            Slime = slime;
-            Berry = berry;
+            this.wood = wood;
+            this.metal = metal;
+            this.slime = slime;
+            this.berry = berry;
         }
     }
 }

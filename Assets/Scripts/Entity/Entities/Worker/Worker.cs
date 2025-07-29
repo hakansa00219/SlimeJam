@@ -234,10 +234,10 @@ namespace Entity.Entities.Worker
                 
                 if (!purchasable.IsPurchased)
                 {
-                    int jobCount = Mathf.Min(purchasable.PurchaseCost.Metal,CurrentInfo.Metal) +
-                                   Mathf.Min(purchasable.PurchaseCost.Berry,CurrentInfo.Berry) +
-                                   Mathf.Min(purchasable.PurchaseCost.Slime,CurrentInfo.Slime) +
-                                   Mathf.Min(purchasable.PurchaseCost.Wood,CurrentInfo.Wood);
+                    int jobCount = Mathf.Min(purchasable.PurchaseCost.metal,CurrentInfo.Metal) +
+                                   Mathf.Min(purchasable.PurchaseCost.berry,CurrentInfo.Berry) +
+                                   Mathf.Min(purchasable.PurchaseCost.slime,CurrentInfo.Slime) +
+                                   Mathf.Min(purchasable.PurchaseCost.wood,CurrentInfo.Wood);
                     for (int i = 0; i < jobCount; i++)
                     {
                         purchaseActionQueue.Enqueue(purchasable);
@@ -261,10 +261,10 @@ namespace Entity.Entities.Worker
                 Cost cost = transferrings.Aggregate(new Cost(),
                     (curr, next) => new Cost()
                     {
-                        Berry = curr.Berry + next.Value.Berry,
-                        Metal = curr.Metal + next.Value.Metal,
-                        Slime = curr.Slime + next.Value.Slime,
-                        Wood = curr.Wood + next.Value.Wood
+                        berry = curr.berry + next.Value.berry,
+                        metal = curr.metal + next.Value.metal,
+                        slime = curr.slime + next.Value.slime,
+                        wood = curr.wood + next.Value.wood
                     });
                 
                 depositable.Initialize(this, cost);

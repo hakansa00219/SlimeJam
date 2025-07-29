@@ -2,8 +2,10 @@ using System;
 using Data;
 using Engine;
 using Entity.Entities.Worker.Actions;
+using Scriptable;
 using Structure;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Entity.Entities.Flag
 {
@@ -14,11 +16,12 @@ namespace Entity.Entities.Flag
     {
         [SerializeField] private Sprite convertedSprite;
         [SerializeField] private Sprite unconvertedSprite;
+        [SerializeField] private Costs buildings;
         private FlagConverting _flagConverting;
         private Transferring _transferring;
         private SpriteRenderer _spriteRenderer;
-
-        public Cost PurchaseCost { get; set; } = new(4, 4, 4, 4);
+        
+        public Cost PurchaseCost { get; set; }
         public bool IsPurchased { get; set; } = false;
         public bool IsTransferred { get; set; } = false;
         public bool IsConverted { get; set; } = false;
@@ -28,6 +31,7 @@ namespace Entity.Entities.Flag
 
         public void Initialize(IStorage workerStorage)
         {
+            PurchaseCost = buildings.Clone("Flag");
             _spriteRenderer = GetComponent<SpriteRenderer>();
             _flagConverting = GetComponent<FlagConverting>();
             _transferring = GetComponent<Transferring>();

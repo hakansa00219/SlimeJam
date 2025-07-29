@@ -72,22 +72,22 @@ namespace Entity.Entities.Worker.Actions
         }
         private void Deposite(ref IStorage.StorageInfo warehouseInfo, ref IStorage.StorageInfo workerInfo, Cost needs)
         {
-            if (workerInfo.Berry > 0 && _warehouseStorage.CurrentInfo.Berry < _warehouseStorage.Capacity.Berry && needs.Berry <= 0)
+            if (workerInfo.Berry > 0 && _warehouseStorage.CurrentInfo.Berry < _warehouseStorage.Capacity.Berry && needs.berry <= 0)
             {
                 warehouseInfo.Berry += 1;
                 workerInfo.Berry -= 1;
             }
-            else if (workerInfo.Metal > 0 && _warehouseStorage.CurrentInfo.Metal < _warehouseStorage.Capacity.Metal && needs.Metal <= 0)
+            else if (workerInfo.Metal > 0 && _warehouseStorage.CurrentInfo.Metal < _warehouseStorage.Capacity.Metal && needs.metal <= 0)
             {
                 warehouseInfo.Metal += 1;
                 workerInfo.Metal -= 1;
             }
-            else if (workerInfo.Slime > 0 && _warehouseStorage.CurrentInfo.Slime < _warehouseStorage.Capacity.Slime && needs.Slime <= 0)
+            else if (workerInfo.Slime > 0 && _warehouseStorage.CurrentInfo.Slime < _warehouseStorage.Capacity.Slime && needs.slime <= 0)
             {
                 warehouseInfo.Slime += 1;
                 workerInfo.Slime -= 1;
             }
-            else if (workerInfo.Wood > 0 && _warehouseStorage.CurrentInfo.Wood < _warehouseStorage.Capacity.Wood && needs.Wood <= 0)
+            else if (workerInfo.Wood > 0 && _warehouseStorage.CurrentInfo.Wood < _warehouseStorage.Capacity.Wood && needs.wood <= 0)
             {
                 warehouseInfo.Wood += 1;
                 workerInfo.Wood -= 1;
@@ -99,22 +99,22 @@ namespace Entity.Entities.Worker.Actions
         }
         private void Transfer(ref IStorage.StorageInfo warehouseInfo, ref IStorage.StorageInfo workerInfo, Cost needs)
         {
-            if (needs.Berry > 0 && warehouseInfo.Berry > 0 && workerInfo.Berry < _workerStorage.Capacity.Berry && workerInfo.Total < _workerStorage.Capacity.Total)
+            if (needs.berry > 0 && warehouseInfo.Berry > 0 && workerInfo.Berry < _workerStorage.Capacity.Berry && workerInfo.Total < _workerStorage.Capacity.Total)
             {
                 warehouseInfo.Berry -= 1;
                 workerInfo.Berry += 1;
             }
-            else if (needs.Metal > 0 && warehouseInfo.Metal > 0 && workerInfo.Metal < _workerStorage.Capacity.Metal && workerInfo.Total < _workerStorage.Capacity.Total)
+            else if (needs.metal > 0 && warehouseInfo.Metal > 0 && workerInfo.Metal < _workerStorage.Capacity.Metal && workerInfo.Total < _workerStorage.Capacity.Total)
             {
                 warehouseInfo.Metal -= 1;
                 workerInfo.Metal += 1;
             }
-            else if (needs.Slime > 0 && warehouseInfo.Slime > 0 && workerInfo.Slime < _workerStorage.Capacity.Slime && workerInfo.Total < _workerStorage.Capacity.Total)
+            else if (needs.slime > 0 && warehouseInfo.Slime > 0 && workerInfo.Slime < _workerStorage.Capacity.Slime && workerInfo.Total < _workerStorage.Capacity.Total)
             {
                 warehouseInfo.Slime -= 1;
                 workerInfo.Slime += 1;
             }
-            else if (needs.Wood > 0 && warehouseInfo.Wood > 0 && workerInfo.Wood < _workerStorage.Capacity.Wood && workerInfo.Total < _workerStorage.Capacity.Total)
+            else if (needs.wood > 0 && warehouseInfo.Wood > 0 && workerInfo.Wood < _workerStorage.Capacity.Wood && workerInfo.Total < _workerStorage.Capacity.Total)
             {
                 warehouseInfo.Wood -= 1;
                 workerInfo.Wood += 1;
