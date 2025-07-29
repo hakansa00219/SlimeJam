@@ -6,7 +6,7 @@ namespace Entity.Entities.Worker.Actions
 {
     public class PickingUp : TickActionBehaviour
     {
-        protected override int TickDelay => 3;
+        protected override int TickDelay { get; set; } = 3;
         
         private IGatherable _gatherable;
         private IStorage _storage;

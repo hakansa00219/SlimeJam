@@ -20,11 +20,13 @@ namespace Structure
         [SerializeField] private Costs buildings;
         [SerializeField] private Storage storage;
         [VerticalGroup("Buildings"), SerializeField] private Transform warehousePrefab;
+        [VerticalGroup("Buildings"), SerializeField] private Transform gymPrefab;
 
         private void Awake()
         {
             BuyableActions.BuildingActions.TryAdd("Warehouse", BuildWarehouse);
             BuyableActions.BuildingActions.TryAdd("Road", BuildRoad);
+            BuyableActions.BuildingActions.TryAdd("Gym", BuildGym);
             BuyableActions.RemoveActions.TryAdd("Warehouse",
                 (x, y) =>
                 {
@@ -35,6 +37,22 @@ namespace Structure
                         if (structure is Warehouse warehouse)
                             Destroy(warehouse.gameObject);
                         EntityContainer.Depositables.Remove(position);
+                    }
+                    else
+                    {
+                        Debug.LogError($"No structure found at position {position}");
+                    }
+                });
+            BuyableActions.RemoveActions.TryAdd("Gym",
+                (x, y) =>
+                {
+                    Vector2Int position = GridUtilities.WorldPositionToGridPosition(new Vector3(x, y));
+
+                    if (EntityContainer.Upgraders.TryGetValue(position, out IUpgrader upgrader))
+                    {
+                        if (upgrader is Gym gym)
+                            Destroy(gym.gameObject);
+                        EntityContainer.Upgraders.Remove(position);
                     }
                     else
                     {
@@ -57,6 +75,14 @@ namespace Structure
             Cost cost = buildings.Clone("Road");
             storage.Spend(cost);
             gridManager.CreateRoad(x, y);
+        }
+
+        [Button]
+        public void BuildGym(float x, float y)
+        {
+            Cost cost = buildings.Clone("Gym");
+            storage.Spend(cost);
+            spawner.Spawn(gymPrefab, x, y);
         }
 
     }

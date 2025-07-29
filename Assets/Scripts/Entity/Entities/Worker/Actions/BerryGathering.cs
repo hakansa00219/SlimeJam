@@ -7,8 +7,8 @@ namespace Entity.Entities.Worker.Actions
 {
     public class BerryGathering : TickActionBehaviour
     {
-        protected override int TickDelay => 10;
-        
+        protected override int TickDelay { get; set; } = 10;
+
         private EntitySpawner _spawner;
         private Scriptable.Entities _entities;
         private int _berryTilePositionX;

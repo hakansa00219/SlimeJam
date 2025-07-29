@@ -9,7 +9,7 @@ namespace Worker.Actions
 {
     public class SlimeGathering : TickActionBehaviour
     {
-        protected override int TickDelay => 10;
+        protected override int TickDelay { get; set; } = 10;
 
         private EntitySpawner _spawner;
         private Entities _entities;

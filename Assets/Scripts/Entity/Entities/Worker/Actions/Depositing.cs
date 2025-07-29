@@ -7,7 +7,7 @@ namespace Entity.Entities.Worker.Actions
 {
     public class Depositing : TickActionBehaviour
     {
-        protected override int TickDelay { get; } = 2;
+        protected override int TickDelay { get; set; } = 2;
 
         private IStorage _warehouseStorage;
         private IDepositable _depositable;

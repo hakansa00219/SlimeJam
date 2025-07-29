@@ -28,6 +28,7 @@ namespace Entity.Entities.Worker
             OverlayTilemap = overlayTilemap;
             GridPositionX = x;
             GridPositionY = y;
+            EntityContainer.Worker = this;
         }
 
         public async UniTaskVoid OnMovementActionDone(WorkerMovement movement)

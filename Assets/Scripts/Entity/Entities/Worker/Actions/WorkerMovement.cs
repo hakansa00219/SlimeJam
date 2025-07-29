@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Engine;
 using Map.Tiles;
@@ -9,11 +10,10 @@ namespace Entity.Entities.Worker.Actions
     [RequireComponent(typeof(Worker))]
     public class WorkerMovement : TickActionBehaviour
     {
-        protected override int TickDelay => 3;
+        protected override int TickDelay { get; set; } = 3;
         
         private Worker _worker;
         private Vector2Int _startTilePosition;
-        private Vector3Int _lastTilePosition;
         private Vector3Int _oneTickBeforePosition;
         private Vector2Int _direction = Vector2Int.zero;
 
@@ -50,18 +50,7 @@ namespace Entity.Entities.Worker.Actions
                     break;
                 }
             }
-
-            if (nextTilePosition == new Vector3Int(-1, -1, -1))
-            {
-                // Debug.LogWarning("No valid tile to move to. Backing up to last tile.");
-                // // Go back once
-                // _worker.transform.position = GridUtilities.GridPositionToWorldPosition(new Vector2Int(_lastTilePosition.x, _lastTilePosition.y));
-                // _worker.GridPositionX = _lastTilePosition.x;
-                // _worker.GridPositionY = _lastTilePosition.y;
-                // return;
-            }
-           
-            _lastTilePosition = new Vector3Int(_worker.GridPositionX, _worker.GridPositionY, 0);
+            
             _worker.transform.position = GridUtilities.GridPositionToWorldPosition(new Vector2Int(nextTilePosition.x, nextTilePosition.y));
             _worker.GridPositionX = nextTilePosition.x;
             _worker.GridPositionY = nextTilePosition.y;
@@ -107,5 +96,6 @@ namespace Entity.Entities.Worker.Actions
 
             return checkTiles;
         }
+        
     }
 }

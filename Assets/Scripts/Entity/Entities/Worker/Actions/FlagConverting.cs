@@ -7,7 +7,7 @@ namespace Entity.Entities.Worker.Actions
 {
     public class FlagConverting : TickActionBehaviour
     {
-        protected override int TickDelay { get; } = 20;
+        protected override int TickDelay { get; set; } = 20;
 
         private IConvertable _convertable;
         public void Initialize(IConvertable convertable)

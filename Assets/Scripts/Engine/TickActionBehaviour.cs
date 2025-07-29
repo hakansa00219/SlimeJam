@@ -6,7 +6,8 @@ namespace Engine
 {
     public abstract class TickActionBehaviour : MonoBehaviour
     {
-        protected abstract int TickDelay { get; }
+        protected abstract int TickDelay { get; set; }
+        private int MinimumTickDelay { get; } = 1;
         private int TickCounter = 0;
         
         [SerializeField]
@@ -53,5 +54,14 @@ namespace Engine
         }
 
         protected abstract void OnTick();
+        
+        public void UpgradeTickDelay(int decrement)
+        {
+            if (TickDelay > MinimumTickDelay)
+                TickDelay -= decrement;
+
+            if (TickDelay < 1)
+                TickDelay = 1;
+        }
     }
 }
