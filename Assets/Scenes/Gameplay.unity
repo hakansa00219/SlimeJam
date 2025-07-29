@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 21422875}
   - component: {fileID: 21422874}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: StorageCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -926,6 +926,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawner: {fileID: 2016643634}
   gridManager: {fileID: 526637917}
+  buildings: {fileID: 11400000, guid: 246e32abda4f43a499fbd8296b7fc5d1, type: 2}
+  storage: {fileID: 11400000, guid: 08a4ad42fd118fb45bffda14f07c0159, type: 2}
   warehousePrefab: {fileID: 8618022989679200262, guid: f8d715bc68f766341a0e9f211765ce81, type: 3}
 --- !u!4 &1037501536
 Transform:
@@ -977,6 +979,8 @@ MonoBehaviour:
   buyingPanel: {fileID: 1675792733}
   tileTextures: {fileID: 11400000, guid: a28b9d8c6090cee419ae8aa24e24abef, type: 2}
   outline: {fileID: 215102644}
+  globalStorage: {fileID: 11400000, guid: 08a4ad42fd118fb45bffda14f07c0159, type: 2}
+  buildingCosts: {fileID: 11400000, guid: 246e32abda4f43a499fbd8296b7fc5d1, type: 2}
 --- !u!4 &1049763411
 Transform:
   m_ObjectHideFlags: 0
@@ -1217,7 +1221,7 @@ GameObject:
   - component: {fileID: 1461118590}
   - component: {fileID: 1461118589}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: BuyingPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

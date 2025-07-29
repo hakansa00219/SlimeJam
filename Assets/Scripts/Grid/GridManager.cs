@@ -124,7 +124,7 @@ namespace Grid
             TileElementUpdate(x, y, TileElementType.Empty);
         }
         
-        public void TileElementUpdate(float x, float y, TileElementType elementType)
+        private void TileElementUpdate(float x, float y, TileElementType elementType)
         {
             Vector2Int gridPosition = GridUtilities.WorldPositionToGridPosition(new Vector3(x, y, 0));
             CellData cell = _cells[gridPosition.x, gridPosition.y];

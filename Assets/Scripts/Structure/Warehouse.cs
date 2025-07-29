@@ -12,7 +12,7 @@ namespace Structure
         public IStorage.StorageInfo CurrentInfo { get; set; } = new IStorage.StorageInfo(0, 0, 0, 0);
 
         public IStorage.StorageCapacity Capacity { get; set; } =
-            new IStorage.StorageCapacity(int.MaxValue, 20, 20, 20, 20);
+            new IStorage.StorageCapacity(int.MaxValue, 10, 10, 10, 10);
 
         public bool IsDeposited { get; set; }
         

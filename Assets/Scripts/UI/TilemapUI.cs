@@ -21,6 +21,8 @@ namespace UI
         [SerializeField] private BuyingPanel buyingPanel;
         [SerializeField] private TileTextures tileTextures;
         [SerializeField] private GameObject outline;
+        [SerializeField] private Storage globalStorage;
+        [SerializeField] private Costs buildingCosts;
 
         private void Update()
         {
@@ -71,7 +73,8 @@ namespace UI
                     OnClickAction = BuyableActions.RemoveActions["Warehouse"],
                     ButtonIcon = tileTextures.deleteTileSprite,
                     WorldPositionX = spawnPos.x,
-                    WorldPositionY = spawnPos.y
+                    WorldPositionY = spawnPos.y,
+                    IsAffordable = true,
                 });
                 return;
             }
@@ -96,7 +99,8 @@ namespace UI
                     OnClickAction = BuyableActions.RemoveActions[elementTile.name],
                     ButtonIcon = tileTextures.deleteTileSprite,
                     WorldPositionX = spawnPos.x,
-                    WorldPositionY = spawnPos.y
+                    WorldPositionY = spawnPos.y,
+                    IsAffordable = true,
                 });
                 return;
             }
@@ -108,14 +112,16 @@ namespace UI
                     OnClickAction = BuyableActions.BuildingActions["Road"],
                     ButtonIcon = tileTextures.elementTiles[TileElementType.Road],
                     WorldPositionX = spawnPos.x,
-                    WorldPositionY = spawnPos.y
+                    WorldPositionY = spawnPos.y,
+                    IsAffordable = globalStorage.CanAfford(buildingCosts.Clone("Road"))
                 });
                 buildingActions.Add(new ButtonActionElement()
                 {
                     OnClickAction = BuyableActions.BuildingActions["Warehouse"],
                     ButtonIcon = tileTextures.elementTiles[TileElementType.Warehouse],
                     WorldPositionX = spawnPos.x,
-                    WorldPositionY = spawnPos.y
+                    WorldPositionY = spawnPos.y,
+                    IsAffordable = globalStorage.CanAfford(buildingCosts.Clone("Warehouse"))
                 });
             }
         }

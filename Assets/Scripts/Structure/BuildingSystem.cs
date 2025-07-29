@@ -1,8 +1,10 @@
 using System;
+using Data;
 using Entity;
 using Entity.Entities;
 using Grid;
 using Map.Tiles;
+using Scriptable;
 using Sirenix.OdinInspector;
 using UI;
 using UnityEngine;
@@ -15,6 +17,8 @@ namespace Structure
     {
         [SerializeField] private EntitySpawner spawner;
         [SerializeField] private GridManager gridManager;
+        [SerializeField] private Costs buildings;
+        [SerializeField] private Storage storage;
         [VerticalGroup("Buildings"), SerializeField] private Transform warehousePrefab;
 
         private void Awake()
@@ -43,11 +47,15 @@ namespace Structure
         [Button]
         public void BuildWarehouse(float x, float y)
         {
+            Cost cost = buildings.Clone("Warehouse");
+            storage.Spend(cost);
             spawner.Spawn(warehousePrefab, x, y);
         }
         [Button]
         public void BuildRoad(float x, float y)
         {
+            Cost cost = buildings.Clone("Road");
+            storage.Spend(cost);
             gridManager.CreateRoad(x, y);
         }
 

@@ -9,5 +9,6 @@ namespace UI
         public Sprite ButtonIcon;
         public float WorldPositionX;
         public float WorldPositionY;
+        public bool IsAffordable;
     }
 }

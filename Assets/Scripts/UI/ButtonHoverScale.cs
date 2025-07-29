@@ -1,9 +1,12 @@
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 namespace UI
 {
+    [RequireComponent(typeof(Button))]
     public class ButtonHoverScale : MonoBehaviour , IPointerEnterHandler, IPointerExitHandler
     {
         public float targetScaleMultiplier = 1.1f;
@@ -11,6 +14,13 @@ namespace UI
 
         private Vector3 originalScale;
         private bool isHovered = false;
+        
+        private Button button;
+
+        private void Awake()
+        {
+            button = GetComponent<Button>();
+        }
 
         void Start()
         {
@@ -19,6 +29,7 @@ namespace UI
 
         void Update()
         {
+            if (!button.interactable) return;
             Vector3 desiredScale = isHovered ? (targetScaleMultiplier * originalScale) : originalScale;
             transform.localScale = Vector3.Lerp(transform.localScale, desiredScale, Time.deltaTime * animationSpeed);
         }

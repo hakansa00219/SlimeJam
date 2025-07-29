@@ -51,6 +51,9 @@ namespace UI
                     buildingButton.anchoredPosition = new Vector2(x, y);
                 
                 Button btn = buildingButton.GetComponent<Button>();
+
+                btn.interactable = buildings[i].IsAffordable;
+                
                 var index = i;
                 btn.onClick.AddListener(() =>
                 {
