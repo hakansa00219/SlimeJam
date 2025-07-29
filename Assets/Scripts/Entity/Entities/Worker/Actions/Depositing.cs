@@ -1,3 +1,4 @@
+using Data;
 using Engine;
 using Structure;
 using UnityEngine;
@@ -11,9 +12,9 @@ namespace Entity.Entities.Worker.Actions
         private IStorage _warehouseStorage;
         private IDepositable _depositable;
         private IStorage _workerStorage;
-        private IPurchasable.Cost _needs;
+        private Cost _needs;
         
-        public void Initialize(IStorage workerStorage, IStorage warehouseStorage, IDepositable depositable, IPurchasable.Cost needs = null)
+        public void Initialize(IStorage workerStorage, IStorage warehouseStorage, IDepositable depositable, Cost needs = null)
         {
             _workerStorage = workerStorage;
             _warehouseStorage = warehouseStorage;
@@ -69,7 +70,7 @@ namespace Entity.Entities.Worker.Actions
                 Debug.LogWarning("No space in warehouse or no materials to deposit.");
             }
         }
-        private void Deposite(ref IStorage.StorageInfo warehouseInfo, ref IStorage.StorageInfo workerInfo, IPurchasable.Cost needs)
+        private void Deposite(ref IStorage.StorageInfo warehouseInfo, ref IStorage.StorageInfo workerInfo, Cost needs)
         {
             if (workerInfo.Berry > 0 && _warehouseStorage.CurrentInfo.Berry < _warehouseStorage.Capacity.Berry && needs.Berry <= 0)
             {
@@ -96,7 +97,7 @@ namespace Entity.Entities.Worker.Actions
                 Debug.LogWarning("No space in warehouse or no materials to deposit.");
             }
         }
-        private void Transfer(ref IStorage.StorageInfo warehouseInfo, ref IStorage.StorageInfo workerInfo, IPurchasable.Cost needs)
+        private void Transfer(ref IStorage.StorageInfo warehouseInfo, ref IStorage.StorageInfo workerInfo, Cost needs)
         {
             if (needs.Berry > 0 && warehouseInfo.Berry > 0 && workerInfo.Berry < _workerStorage.Capacity.Berry && workerInfo.Total < _workerStorage.Capacity.Total)
             {

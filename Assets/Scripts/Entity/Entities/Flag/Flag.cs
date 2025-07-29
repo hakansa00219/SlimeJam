@@ -1,4 +1,5 @@
 using System;
+using Data;
 using Engine;
 using Entity.Entities.Worker.Actions;
 using Structure;
@@ -17,7 +18,7 @@ namespace Entity.Entities.Flag
         private Transferring _transferring;
         private SpriteRenderer _spriteRenderer;
 
-        public IPurchasable.Cost PurchaseCost { get; set; } = new(4, 4, 4, 4);
+        public Cost PurchaseCost { get; set; } = new(4, 4, 4, 4);
         public bool IsPurchased { get; set; } = false;
         public bool IsTransferred { get; set; } = false;
         public bool IsConverted { get; set; } = false;

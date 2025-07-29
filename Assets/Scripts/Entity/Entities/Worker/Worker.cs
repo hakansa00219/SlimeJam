@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Cysharp.Threading.Tasks;
+using Data;
 using Engine;
 using Entity.Entities.Flag;
 using Entity.Entities.Worker.Actions;
@@ -14,7 +15,7 @@ namespace Entity.Entities.Worker
 {
     public class Worker : MonoBehaviour, IEntity, IStorage
     {
-        public Dictionary<Vector2Int, IPurchasable.Cost> transferrings = new Dictionary<Vector2Int, IPurchasable.Cost>();
+        public Dictionary<Vector2Int, Cost> transferrings = new Dictionary<Vector2Int, Cost>();
         public int GridPositionX { get; set; }
         public int GridPositionY { get; set; }
         public Tilemap OverlayTilemap { get; private set; }
@@ -257,8 +258,8 @@ namespace Entity.Entities.Worker
                 if (depositable.IsDeposited) continue;
                 if (CurrentInfo.Total <= 0) continue;
 
-                IPurchasable.Cost cost = transferrings.Aggregate(new IPurchasable.Cost(),
-                    (curr, next) => new IPurchasable.Cost()
+                Cost cost = transferrings.Aggregate(new Cost(),
+                    (curr, next) => new Cost()
                     {
                         Berry = curr.Berry + next.Value.Berry,
                         Metal = curr.Metal + next.Value.Metal,

@@ -1,3 +1,4 @@
+using Data;
 using Engine;
 using Structure;
 using UnityEngine;
@@ -27,7 +28,7 @@ namespace Entity.Entities.Worker.Actions
             }
             
             IStorage.StorageInfo workerInfo = _workerStorage.CurrentInfo;
-            IPurchasable.Cost cost = _purchasable.PurchaseCost;
+            Cost cost = _purchasable.PurchaseCost;
 
             if (cost.Berry > 0 && workerInfo.Berry > 0)
             {

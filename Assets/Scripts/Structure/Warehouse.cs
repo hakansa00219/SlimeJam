@@ -1,3 +1,4 @@
+using Data;
 using Engine;
 using Entity;
 using Entity.Entities;
@@ -23,7 +24,7 @@ namespace Structure
             _depositing = GetComponent<Depositing>();
         }
 
-        public void Initialize(IStorage workerStorage, IPurchasable.Cost needs = null)
+        public void Initialize(IStorage workerStorage, Cost needs = null)
         {
             _depositing.Initialize(workerStorage, this, this, needs);
         }
