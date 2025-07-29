@@ -28,5 +28,20 @@ namespace Structure
         {
             _depositing.Initialize(workerStorage, this, this, needs);
         }
+
+        public void UpgradeCapacity()
+        {
+            Capacity = new IStorage.StorageCapacity()
+            {
+                Berry = Capacity.Berry << 1,
+                Metal = Capacity.Metal << 1,
+                Slime = Capacity.Slime << 1,
+                Wood = Capacity.Wood << 1
+            };
+            
+            
+        }
+        
+        
     }
 }

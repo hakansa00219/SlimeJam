@@ -23,6 +23,7 @@ namespace UI
         [SerializeField] private GameObject outline;
         [SerializeField] private Storage globalStorage;
         [SerializeField] private Costs buildingCosts;
+        [SerializeField] private UpgradeSystem upgradeSystem;
 
         private void Update()
         {
@@ -76,6 +77,15 @@ namespace UI
                     WorldPositionY = spawnPos.y,
                     IsAffordable = true,
                 });
+                
+                buildingActions.Add(new ButtonActionElement()
+                {
+                    OnClickAction = BuyableActions.WarehouseActions["Storage"],
+                    ButtonIcon = null,
+                    WorldPositionX = spawnPos.x,
+                    WorldPositionY = spawnPos.y,
+                    IsAffordable = globalStorage.CanAfford(upgradeSystem.WarehouseStorageUpgrade),
+                });
                 return;
             }
 
@@ -102,7 +112,6 @@ namespace UI
                     WorldPositionY = spawnPos.y,
                     IsAffordable = true,
                 });
-                return;
             }
 
             if (elementTile.name is "Empty")
