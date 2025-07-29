@@ -23,9 +23,9 @@ namespace Structure
             _depositing = GetComponent<Depositing>();
         }
 
-        public void Initialize(IStorage workerStorage, bool isTransferring, IPurchasable.Cost needs = null)
+        public void Initialize(IStorage workerStorage, IPurchasable.Cost needs = null)
         {
-            _depositing.Initialize(workerStorage, this, this, isTransferring, needs);
+            _depositing.Initialize(workerStorage, this, this, needs);
         }
     }
 }

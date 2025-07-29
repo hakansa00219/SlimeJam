@@ -8,7 +8,7 @@ namespace Structure
     {
         public bool IsDeposited { get; set; }
         public TickActionBehaviour DepositingBehaviour();
-        public void Initialize(IStorage workerStorage, bool isTransferring, IPurchasable.Cost needs = null);
+        public void Initialize(IStorage workerStorage, IPurchasable.Cost needs = null);
         
     }
 }

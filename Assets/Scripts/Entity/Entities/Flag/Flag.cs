@@ -19,6 +19,7 @@ namespace Entity.Entities.Flag
 
         public IPurchasable.Cost PurchaseCost { get; set; } = new(4, 4, 4, 4);
         public bool IsPurchased { get; set; } = false;
+        public bool IsTransferred { get; set; } = false;
         public bool IsConverted { get; set; } = false;
 
         public TickActionBehaviour ConvertingBehaviour() => _flagConverting;
@@ -46,18 +47,9 @@ namespace Entity.Entities.Flag
             Debug.Log("Flag has been converted.");
         }
 
-        public void Transfer(IPurchasable.Cost givenMaterials)
+        public void TransferConditionCheck()
         {
-            IPurchasable.Cost requiredCost = PurchaseCost;
-
-            requiredCost.Metal -= givenMaterials.Metal;
-            requiredCost.Wood -= givenMaterials.Wood;
-            requiredCost.Slime -= givenMaterials.Slime;
-            requiredCost.Berry -= givenMaterials.Berry;
-
-            if (requiredCost.TotalCost == 0)
-                IsPurchased = true;
-
+            IsPurchased = PurchaseCost.TotalCost == 0;
         }
         public void Unconvert()
         {

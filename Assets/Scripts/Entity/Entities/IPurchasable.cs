@@ -6,6 +6,8 @@ namespace Entity.Entities
     {
         public Cost PurchaseCost { get; set; }
         public bool IsPurchased { get; set; }
+        public bool IsTransferred { get; set; }
+        public void TransferConditionCheck();
         public TickActionBehaviour TransferringBehaviour();
 
         public class Cost

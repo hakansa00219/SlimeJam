@@ -136,6 +136,7 @@ namespace Entity.Entities.Worker
                 await UniTask.WaitUntil(() => actionBehaviour.isActionDone);
                 actionBehaviour.isActive = false;
                 actionBehaviour.isActionDone = false;
+                action.IsTransferred = true;
                 await UniTask.Yield();
             }
         }
@@ -228,6 +229,8 @@ namespace Entity.Entities.Worker
                 Vector2Int gridPosition = new Vector2Int(t.x, t.y);
                 if (!EntityContainer.Purchasables.TryGetValue(gridPosition, out IPurchasable purchasable)) continue;
 
+                if(purchasable.IsTransferred) continue;
+                
                 if (!purchasable.IsPurchased)
                 {
                     int jobCount = Mathf.Min(purchasable.PurchaseCost.Metal,CurrentInfo.Metal) +
@@ -262,13 +265,8 @@ namespace Entity.Entities.Worker
                         Slime = curr.Slime + next.Value.Slime,
                         Wood = curr.Wood + next.Value.Wood
                     });
-
-                bool isTransferring = transferrings.Count > 0;
                 
-                if(isTransferring && CurrentInfo.Total >= Capacity.Total)
-                    continue;
-                
-                depositable.Initialize(this, isTransferring, cost);
+                depositable.Initialize(this, cost);
                 
                 for (int i = 0; i < CurrentInfo.Total; i++)
                 {
@@ -290,6 +288,11 @@ namespace Entity.Entities.Worker
             foreach (var (_, value) in EntityContainer.Depositables)
             {
                 value.IsDeposited = false;
+            }
+            
+            foreach (var (_, value) in EntityContainer.Purchasables)
+            {
+                value.IsTransferred = false;
             }
         }
         
