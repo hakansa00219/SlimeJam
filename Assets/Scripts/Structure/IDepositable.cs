@@ -1,7 +1,6 @@
 using Data;
 using Engine;
 using Entity;
-using Entity.Entities;
 
 namespace Structure
 {

@@ -1,7 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Map.Tiles;
-using Structure;
 
 namespace UI
 {

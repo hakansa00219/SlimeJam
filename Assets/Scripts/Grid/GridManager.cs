@@ -1,10 +1,8 @@
-using System;
 using Entity;
 using Entity.Entities;
 using Map.Tiles;
 using Scriptable;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.Tilemaps;
 using Utility;
 

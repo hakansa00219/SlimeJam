@@ -8,7 +8,6 @@ using Entity.Entities.Worker.Actions;
 using Map.Tiles;
 using Structure;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.Tilemaps;
 
 namespace Entity.Entities.Worker

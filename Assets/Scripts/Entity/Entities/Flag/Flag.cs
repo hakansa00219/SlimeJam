@@ -1,11 +1,8 @@
-using System;
 using Data;
 using Engine;
 using Entity.Entities.Worker.Actions;
 using Scriptable;
-using Structure;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Entity.Entities.Flag
 {

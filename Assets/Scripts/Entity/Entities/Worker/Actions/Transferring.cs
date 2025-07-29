@@ -1,6 +1,5 @@
 using Data;
 using Engine;
-using Structure;
 using UnityEngine;
 
 namespace Entity.Entities.Worker.Actions

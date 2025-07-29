@@ -9,7 +9,7 @@ using Tree = Entity.Entities.Tree.Tree;
 
 namespace Structure
 {
-    public class Gym : MonoBehaviour , IUpgrader
+    public class Gym : MonoBehaviour , IUpgrader, IStructure
     {
         private Entity.Entities.Worker.Worker _worker;
         private WorkerMovement _movement;

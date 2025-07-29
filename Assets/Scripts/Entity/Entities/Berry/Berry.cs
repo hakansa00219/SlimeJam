@@ -3,7 +3,6 @@ using Engine;
 using Entity.Entities.Worker.Actions;
 using Map.Tiles;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Entity.Entities.Berry
 {

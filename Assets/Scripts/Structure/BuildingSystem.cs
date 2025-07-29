@@ -1,14 +1,11 @@
-using System;
 using Data;
 using Entity;
 using Entity.Entities;
 using Grid;
-using Map.Tiles;
 using Scriptable;
 using Sirenix.OdinInspector;
 using UI;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Utility;
 
 namespace Structure

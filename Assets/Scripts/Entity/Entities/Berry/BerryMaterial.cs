@@ -1,8 +1,6 @@
-using System;
 using Engine;
 using Entity.Entities.Worker.Actions;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Entity.Entities.Berry
 {

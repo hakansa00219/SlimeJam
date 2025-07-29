@@ -1,7 +1,6 @@
 using Data;
 using Engine;
 using Entity;
-using Entity.Entities;
 using Entity.Entities.Worker.Actions;
 using UnityEngine;
 
@@ -38,10 +37,6 @@ namespace Structure
                 Slime = Capacity.Slime << 1,
                 Wood = Capacity.Wood << 1
             };
-            
-            
         }
-        
-        
     }
 }

@@ -1,6 +1,5 @@
 using Engine;
 using Entity.Entities.Flag;
-using Structure;
 using UnityEngine;
 
 namespace Entity.Entities.Worker.Actions

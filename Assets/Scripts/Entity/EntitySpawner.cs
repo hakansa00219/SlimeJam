@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Entity.Entities;
 using Entity.Entities.Flag;
 using Structure;

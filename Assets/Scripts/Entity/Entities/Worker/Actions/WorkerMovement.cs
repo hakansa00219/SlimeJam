@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using Engine;
 using Map.Tiles;
 using UnityEngine;

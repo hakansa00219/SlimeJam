@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Entity.Entities;
 using Map.Tiles;
@@ -9,7 +8,6 @@ using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
 using UnityEngine.Tilemaps;
 using Utility;
-using Random = UnityEngine.Random;
 
 namespace UI
 {
