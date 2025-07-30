@@ -11,6 +11,7 @@ namespace Scriptable
         public Dictionary<BaseTileType , Sprite> baseTiles = new Dictionary<BaseTileType, Sprite>();
         public Dictionary<TileElementType , Sprite> elementTiles = new Dictionary<TileElementType, Sprite>();
         public Sprite deleteTileSprite;
+        public Sprite capacityTileSprite;
         
     }
 

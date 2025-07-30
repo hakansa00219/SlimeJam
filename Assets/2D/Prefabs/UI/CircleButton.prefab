@@ -138,7 +138,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 4b30bc16b0a91194a8998e84c4871d3d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -252,5 +252,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 270f92f87b0d4f6cb3b2fbea289800ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tooltipPanel: {fileID: 9201808533169757748, guid: 0849d4702d56ba14790c4b4602e1c4f0, type: 3}
   delay: 0.5

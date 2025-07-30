@@ -84,7 +84,7 @@ namespace UI
                 buildingActions.Add(new ButtonActionElement()
                 {
                     OnClickAction = BuyableActions.WarehouseActions["Storage"],
-                    ButtonIcon = null,
+                    ButtonIcon = tileTextures.capacityTileSprite,
                     WorldPositionX = spawnPos.x,
                     WorldPositionY = spawnPos.y,
                     Description = "Capacity Upgrade",
@@ -109,7 +109,7 @@ namespace UI
                 buildingActions.Add(new ButtonActionElement()
                 {
                     OnClickAction = BuyableActions.GymActions["Storage"],
-                    ButtonIcon = tileTextures.elementTiles[TileElementType.Warehouse],
+                    ButtonIcon = tileTextures.capacityTileSprite,
                     WorldPositionX = spawnPos.x,
                     WorldPositionY = spawnPos.y,
                     Description = "Worker Capacity Upgrade",
