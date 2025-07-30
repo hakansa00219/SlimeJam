@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Data;
 using Entity.Entities;
 using Map.Tiles;
@@ -75,6 +76,8 @@ namespace UI
                     ButtonIcon = tileTextures.deleteTileSprite,
                     WorldPositionX = spawnPos.x,
                     WorldPositionY = spawnPos.y,
+                    Description = "Remove",
+                    Cost = new Cost(0,0,0,0),
                     IsAffordable = true,
                 });
                 
@@ -84,6 +87,8 @@ namespace UI
                     ButtonIcon = null,
                     WorldPositionX = spawnPos.x,
                     WorldPositionY = spawnPos.y,
+                    Description = "Capacity Upgrade",
+                    Cost = upgradeSystem.WarehouseStorageUpgrade,
                     IsAffordable = globalStorage.CanAfford(upgradeSystem.WarehouseStorageUpgrade),
                 });
                 return;
@@ -97,6 +102,8 @@ namespace UI
                     ButtonIcon = tileTextures.deleteTileSprite,
                     WorldPositionX = spawnPos.x,
                     WorldPositionY = spawnPos.y,
+                    Description = "Remove",
+                    Cost = new Cost(0,0,0,0),
                     IsAffordable = true,
                 });
                 buildingActions.Add(new ButtonActionElement()
@@ -105,6 +112,8 @@ namespace UI
                     ButtonIcon = tileTextures.elementTiles[TileElementType.Warehouse],
                     WorldPositionX = spawnPos.x,
                     WorldPositionY = spawnPos.y,
+                    Description = "Worker Capacity Upgrade",
+                    Cost = upgradeSystem.GymWorkerStorageUpgrade,
                     IsAffordable = globalStorage.CanAfford(upgradeSystem.GymWorkerStorageUpgrade),
                 });
                 buildingActions.Add(new ButtonActionElement()
@@ -113,6 +122,8 @@ namespace UI
                     ButtonIcon = tileTextures.elementTiles[TileElementType.Road],
                     WorldPositionX = spawnPos.x,
                     WorldPositionY = spawnPos.y,
+                    Description = "Worker Movespeed Upgrade",
+                    Cost = upgradeSystem.GymMovespeedUpgrade,
                     IsAffordable = globalStorage.CanAfford(upgradeSystem.GymMovespeedUpgrade),
                 });
                 buildingActions.Add(new ButtonActionElement()
@@ -121,6 +132,8 @@ namespace UI
                     ButtonIcon = tileTextures.elementTiles[TileElementType.Berry],
                     WorldPositionX = spawnPos.x,
                     WorldPositionY = spawnPos.y,
+                    Description = "Berry Gather Speed Upgrade",
+                    Cost = upgradeSystem.GymBerryGatherSpeedUpgrade,
                     IsAffordable = globalStorage.CanAfford(upgradeSystem.GymBerryGatherSpeedUpgrade),
                 });
                 buildingActions.Add(new ButtonActionElement()
@@ -129,6 +142,8 @@ namespace UI
                     ButtonIcon = tileTextures.elementTiles[TileElementType.Metal],
                     WorldPositionX = spawnPos.x,
                     WorldPositionY = spawnPos.y,
+                    Description = "Metal Gather Speed Upgrade",
+                    Cost = upgradeSystem.GymMetalGatherSpeedUpgrade,
                     IsAffordable = globalStorage.CanAfford(upgradeSystem.GymMetalGatherSpeedUpgrade),
                 });
                 buildingActions.Add(new ButtonActionElement()
@@ -137,6 +152,8 @@ namespace UI
                     ButtonIcon = tileTextures.elementTiles[TileElementType.Slime],
                     WorldPositionX = spawnPos.x,
                     WorldPositionY = spawnPos.y,
+                    Description = "Slime Gather Speed Upgrade",
+                    Cost = upgradeSystem.GymSlimeGatherSpeedUpgrade,
                     IsAffordable = globalStorage.CanAfford(upgradeSystem.GymSlimeGatherSpeedUpgrade),
                 });
                 buildingActions.Add(new ButtonActionElement()
@@ -145,6 +162,8 @@ namespace UI
                     ButtonIcon = tileTextures.elementTiles[TileElementType.Wood],
                     WorldPositionX = spawnPos.x,
                     WorldPositionY = spawnPos.y,
+                    Description = "Wood Gather Speed Upgrade",
+                    Cost = upgradeSystem.GymWoodGatherSpeedUpgrade,
                     IsAffordable = globalStorage.CanAfford(upgradeSystem.GymWoodGatherSpeedUpgrade),
                 });
                 return;
@@ -171,6 +190,7 @@ namespace UI
                     WorldPositionX = spawnPos.x,
                     WorldPositionY = spawnPos.y,
                     Description = "Remove",
+                    Cost = new Cost(0,0,0,0),
                     IsAffordable = true,
                 });
             }
@@ -184,7 +204,7 @@ namespace UI
                     WorldPositionX = spawnPos.x,
                     WorldPositionY = spawnPos.y,
                     Cost = buildingCosts.Clone("Road"),
-                    Description = $"Road",
+                    Description = "Road",
                     IsAffordable = globalStorage.CanAfford(buildingCosts.Clone("Road"))
                 });
                 buildingActions.Add(new ButtonActionElement()
@@ -193,16 +213,21 @@ namespace UI
                     ButtonIcon = tileTextures.elementTiles[TileElementType.Warehouse],
                     WorldPositionX = spawnPos.x,
                     WorldPositionY = spawnPos.y,
+                    Cost = buildingCosts.Clone("Warehouse"),
+                    Description = "Warehouse",
                     IsAffordable = globalStorage.CanAfford(buildingCosts.Clone("Warehouse"))
                 });
-                buildingActions.Add(new ButtonActionElement()
-                {
-                    OnClickAction = BuyableActions.BuildingActions["Gym"],
-                    ButtonIcon = tileTextures.elementTiles[TileElementType.Gym],
-                    WorldPositionX = spawnPos.x,
-                    WorldPositionY = spawnPos.y,
-                    IsAffordable = globalStorage.CanAfford(buildingCosts.Clone("Gym"))
-                });
+                if (EntityContainer.Upgraders.Count(x => x.Value is Gym) == 0)
+                    buildingActions.Add(new ButtonActionElement()
+                    {
+                        OnClickAction = BuyableActions.BuildingActions["Gym"],
+                        ButtonIcon = tileTextures.elementTiles[TileElementType.Gym],
+                        WorldPositionX = spawnPos.x,
+                        WorldPositionY = spawnPos.y,
+                        Cost = buildingCosts.Clone("Gym"),
+                        Description = "Gym",
+                        IsAffordable = globalStorage.CanAfford(buildingCosts.Clone("Gym"))
+                    });
             }
         }
     }
