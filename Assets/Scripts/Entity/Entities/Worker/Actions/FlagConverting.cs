@@ -9,9 +9,11 @@ namespace Entity.Entities.Worker.Actions
         protected override int TickDelay { get; set; } = 20;
 
         private IConvertable _convertable;
-        public void Initialize(IConvertable convertable)
+        private GameObject _endPanel;
+        public void Initialize(IConvertable convertable, GameObject endPanel)
         {
             _convertable = convertable;
+            _endPanel = endPanel;
         }
         protected override void OnTick()
         {
@@ -21,7 +23,7 @@ namespace Entity.Entities.Worker.Actions
             {
                 Debug.Log("All flags converted! You win!");
                 // Pause the game
-                Time.timeScale = 0f;
+                _endPanel.SetActive(true);
             }
         }
     }
