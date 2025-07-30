@@ -1,3 +1,5 @@
+using Map.Tiles;
+
 namespace Entity
 {
     public interface IStorage
@@ -20,6 +22,17 @@ namespace Entity
                 Slime = slime;
                 Berry = berry;
             }
+
+            public int GetCurrentType(TileElementType materialType)
+            {
+                return materialType switch
+                {
+                    TileElementType.Berry => Berry,
+                    TileElementType.Wood => Wood,
+                    TileElementType.Metal => Metal,
+                    TileElementType.Slime => Slime
+                };
+            }
             
         }
         
@@ -38,6 +51,17 @@ namespace Entity
                 Metal = metal;
                 Slime = slime;
                 Berry = berry;
+            }
+            
+            public int GetCurrentType(TileElementType materialType)
+            {
+                return materialType switch
+                {
+                    TileElementType.Berry => Berry,
+                    TileElementType.Wood => Wood,
+                    TileElementType.Metal => Metal,
+                    TileElementType.Slime => Slime
+                };
             }
         }
     }

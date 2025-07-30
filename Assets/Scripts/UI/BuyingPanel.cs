@@ -9,6 +9,9 @@ namespace UI
         private float radius = 100f;
         [SerializeField]
         private RectTransform buttonPrefab;
+
+        [SerializeField] private GameObject tooltipPanel;
+        [SerializeField] private StorageUI storageUI;
         public override void Initialize(Vector2 worldPosition, params ButtonActionElement[] buildings)
         {
             Panel = GetComponent<RectTransform>();
@@ -44,6 +47,13 @@ namespace UI
                 CircleButton circleButton = buildingButton.GetComponent<CircleButton>();
                 if(circleButton != null)
                     circleButton.Initialize(buildings[i].ButtonIcon);
+                TooltipHandler tooltipHandler = circleButton.GetComponent<TooltipHandler>();
+                if (tooltipHandler != null)
+                {
+                    tooltipHandler.Initialize(tooltipPanel, storageUI, buildings[i].Description, buildings[i].Cost,
+                        buildings[i].WorldPositionX, buildings[i].WorldPositionY);
+                }
+                    
                 
                 if(buildingButton != null)
                     buildingButton.anchoredPosition = new Vector2(x, y);
@@ -56,6 +66,8 @@ namespace UI
                 btn.onClick.AddListener(() =>
                 {
                     buildings[index].OnClickAction(buildings[index].WorldPositionX, buildings[index].WorldPositionY);
+                    tooltipPanel.gameObject.SetActive(false);
+                    storageUI.DecreasingTextsDisable();
                     Hide();
                 });
 

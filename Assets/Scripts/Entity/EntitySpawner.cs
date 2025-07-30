@@ -41,6 +41,11 @@ namespace Entity
             {
                 EntityContainer.Depositables.TryAdd(gridPosition, depositable);
             }
+            IUpgrader upgrader = spawnedObj.GetComponent<IUpgrader>();
+            if (upgrader != null)
+            {
+                EntityContainer.Upgraders.TryAdd(gridPosition, upgrader);
+            }
         }
 
         public Transform Spawn(Transform prefab, float x, float y)

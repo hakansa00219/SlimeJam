@@ -1,4 +1,5 @@
 using System;
+using Data;
 using UnityEngine;
 
 namespace UI
@@ -9,6 +10,8 @@ namespace UI
         public Sprite ButtonIcon;
         public float WorldPositionX;
         public float WorldPositionY;
+        public string Description;
+        public Cost Cost;
         public bool IsAffordable;
     }
 }

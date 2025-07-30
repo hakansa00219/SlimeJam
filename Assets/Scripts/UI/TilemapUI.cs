@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Data;
 using Entity.Entities;
 using Map.Tiles;
 using Scriptable;
@@ -169,6 +170,7 @@ namespace UI
                     ButtonIcon = tileTextures.deleteTileSprite,
                     WorldPositionX = spawnPos.x,
                     WorldPositionY = spawnPos.y,
+                    Description = "Remove",
                     IsAffordable = true,
                 });
             }
@@ -181,6 +183,8 @@ namespace UI
                     ButtonIcon = tileTextures.elementTiles[TileElementType.Road],
                     WorldPositionX = spawnPos.x,
                     WorldPositionY = spawnPos.y,
+                    Cost = buildingCosts.Clone("Road"),
+                    Description = $"Road",
                     IsAffordable = globalStorage.CanAfford(buildingCosts.Clone("Road"))
                 });
                 buildingActions.Add(new ButtonActionElement()
@@ -190,6 +194,14 @@ namespace UI
                     WorldPositionX = spawnPos.x,
                     WorldPositionY = spawnPos.y,
                     IsAffordable = globalStorage.CanAfford(buildingCosts.Clone("Warehouse"))
+                });
+                buildingActions.Add(new ButtonActionElement()
+                {
+                    OnClickAction = BuyableActions.BuildingActions["Gym"],
+                    ButtonIcon = tileTextures.elementTiles[TileElementType.Gym],
+                    WorldPositionX = spawnPos.x,
+                    WorldPositionY = spawnPos.y,
+                    IsAffordable = globalStorage.CanAfford(buildingCosts.Clone("Gym"))
                 });
             }
         }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Cysharp.Threading.Tasks;
@@ -179,22 +180,57 @@ namespace Entity.Entities.Worker
                 if (gatherable.IsPickedUp) continue;
                 if (gatherable.SpawnedMaterials.Count <= 0) continue;
                 if (CurrentInfo.Total >= Capacity.Total) continue;
+                
+                
 
                 var type = gatherable.Type;
-                var material = gatherable.SpawnedMaterials.First();
-            
-                if (material.PickingUpBehaviour() is PickingUp pickingUp)
-                    pickingUp.Initialize(gatherable, this);
-
-                bool CanPick(TileElementType t, int current, int capacity) => type == t && current < capacity;
-            
-                if(CanPick(TileElementType.Berry, CurrentInfo.Berry, Capacity.Berry) ||
-                   CanPick(TileElementType.Metal, CurrentInfo.Metal, Capacity.Metal) ||
-                   CanPick(TileElementType.Slime, CurrentInfo.Slime, Capacity.Slime) ||
-                   CanPick(TileElementType.Wood, CurrentInfo.Wood, Capacity.Wood))
+                var warehouses = EntityContainer.Depositables.Values.Select(x => (Warehouse)x);
+                
+                //If gathering material is already full in all warehouses dont pick it.
+                int pickupCount = 0;
+                switch (type)
                 {
-                    pickActionQueue.Enqueue(material);
+                    case TileElementType.Metal:
+                        pickupCount = Math.Min(gatherable.SpawnedMaterials.Count, Math.Min(Capacity.Metal - CurrentInfo.Metal, Capacity.Total - CurrentInfo.Total));
+                        if (warehouses.All(w => w.IsMetalFull()))
+                            continue;
+                        break;
+                    case TileElementType.Wood:
+                        pickupCount = Math.Min(gatherable.SpawnedMaterials.Count, Math.Min(Capacity.Wood - CurrentInfo.Wood, Capacity.Total - CurrentInfo.Total));
+                        if (warehouses.All(w => w.IsWoodFull()))
+                            continue;
+                        break;
+                    case TileElementType.Berry:
+                        pickupCount = Math.Min(gatherable.SpawnedMaterials.Count, Math.Min(Capacity.Berry - CurrentInfo.Berry, Capacity.Total - CurrentInfo.Total));
+                        if (warehouses.All(w => w.IsBerryFull()))
+                            continue;
+                        break;
+                    case TileElementType.Slime:
+                        pickupCount = Math.Min(gatherable.SpawnedMaterials.Count, Math.Min(Capacity.Slime - CurrentInfo.Slime, Capacity.Total - CurrentInfo.Total));
+                        if (warehouses.All(w => w.IsSlimeFull()))
+                            continue;
+                        break;
                 }
+
+                Queue<IMaterial> materialsCopy = new Queue<IMaterial>();
+                foreach (var gatherableSpawnedMaterial in gatherable.SpawnedMaterials)
+                {
+                    materialsCopy.Enqueue(gatherableSpawnedMaterial);
+                }
+                for (var i = 0; i < pickupCount; i++)
+                {
+                    var materialCopy = materialsCopy.Dequeue();
+                
+                    if (materialCopy.PickingUpBehaviour() is PickingUp pickingUp)
+                        pickingUp.Initialize(gatherable, this);
+                    
+                    if(CanPick(type, CurrentInfo.GetCurrentType(type), Capacity.GetCurrentType(type)))
+                    {
+                        pickActionQueue.Enqueue(materialCopy);
+                    }
+                }
+                bool CanPick(TileElementType t, int current, int capacity) => type == t && current < capacity;
+                
             }
         }
         

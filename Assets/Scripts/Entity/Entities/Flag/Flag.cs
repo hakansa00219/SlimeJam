@@ -1,3 +1,4 @@
+using System;
 using Data;
 using Engine;
 using Entity.Entities.Worker.Actions;
@@ -26,9 +27,13 @@ namespace Entity.Entities.Flag
         public TickActionBehaviour ConvertingBehaviour() => _flagConverting;
         public TickActionBehaviour TransferringBehaviour() => _transferring;
 
-        public void Initialize(IStorage workerStorage)
+        private void Awake()
         {
             PurchaseCost = buildings.Clone("Flag");
+        }
+
+        public void Initialize(IStorage workerStorage)
+        {
             _spriteRenderer = GetComponent<SpriteRenderer>();
             _flagConverting = GetComponent<FlagConverting>();
             _transferring = GetComponent<Transferring>();

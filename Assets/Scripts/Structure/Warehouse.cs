@@ -17,6 +17,12 @@ namespace Structure
         
         private Depositing _depositing;
         public TickActionBehaviour DepositingBehaviour() => _depositing;
+
+        public bool IsMetalFull() => CurrentInfo.Metal == Capacity.Metal;
+        public bool IsBerryFull() => CurrentInfo.Berry == Capacity.Berry;
+        public bool IsWoodFull() => CurrentInfo.Wood == Capacity.Wood;
+        public bool IsSlimeFull() => CurrentInfo.Slime == Capacity.Slime;
+        
         
         private void Awake()
         {

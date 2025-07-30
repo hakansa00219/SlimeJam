@@ -1,4 +1,5 @@
 using Cysharp.Threading.Tasks;
+using Data;
 using Engine;
 using Entity.Entities;
 using Scriptable;
@@ -45,6 +46,35 @@ namespace UI
             
         }
 
+        public void DecreasingTexts(Cost costs)
+        {
+            foreach (var storageItem in items)
+            {
+                switch (storageItem.name)
+                {
+                    case "Wood":
+                        storageItem.DecreasingText(costs.wood.ToString());
+                        break;
+                    case "Slime":
+                        storageItem.DecreasingText(costs.slime.ToString());
+                        break;
+                    case "Metal":
+                        storageItem.DecreasingText(costs.metal.ToString());
+                        break;
+                    case "Berry":
+                        storageItem.DecreasingText(costs.berry.ToString());
+                        break;
+                }
+            }
+        }
+        public void DecreasingTextsDisable()
+        {
+            foreach (var storageItem in items)
+            {
+                storageItem.DecreasingTextDisable();
+            }
+        }
+
         private async UniTask UpdateUI()
         {
             foreach (var item in items)
@@ -53,7 +83,7 @@ namespace UI
                 
                 item.SetText(element.amount.ToString());
                 item.SetIcon(element.icon);
-                item.gameObject.SetActive(element.amount > 0);
+                // item.gameObject.SetActive(element.amount > 0);
             }   
             await UniTask.Yield(PlayerLoopTiming.LastPostLateUpdate);
         }

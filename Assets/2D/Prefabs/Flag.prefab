@@ -105,7 +105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   convertedSprite: {fileID: 21300000, guid: 76aaec2634d0d5345b48006d12b91b51, type: 3}
   unconvertedSprite: {fileID: 21300000, guid: 32c84ceb3eee4014a81cd6ecac250ef7, type: 3}
-  buildingCosts: {fileID: 11400000, guid: 246e32abda4f43a499fbd8296b7fc5d1, type: 2}
+  buildings: {fileID: 11400000, guid: 246e32abda4f43a499fbd8296b7fc5d1, type: 2}
 --- !u!114 &6460083829250877526
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 936246066871263600}
   - component: {fileID: 8335666435436127353}
   - component: {fileID: 2144792074336373437}
+  - component: {fileID: 9033815337482019536}
   m_Layer: 5
   m_Name: CircleButton
   m_TagString: Untagged
@@ -220,7 +221,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4071120399873769042}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
   m_Name: 
@@ -239,3 +240,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   iconImage: {fileID: 7662794104608113001}
+--- !u!114 &9033815337482019536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4071120399873769042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 270f92f87b0d4f6cb3b2fbea289800ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltipPanel: {fileID: 9201808533169757748, guid: 0849d4702d56ba14790c4b4602e1c4f0, type: 3}
+  delay: 0.5
