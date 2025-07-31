@@ -1,10 +1,22 @@
 fileFormatVersion: 2
-guid: 092fe4652ba5eb04880785d99e809340
+guid: 3ed78b5ec4ce0ce45b7f5e316c525a1c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3980168229369012863
-    second: start_0
+      213: -6897402425688008845
+    second: startButton_0
+  - first:
+      213: 3586403842335056353
+    second: startButton_1
+  - first:
+      213: 5429143176043402892
+    second: startButton_2
+  - first:
+      213: 2825989312445519732
+    second: startButton_3
+  - first:
+      213: -8215164965831157362
+    second: startButton_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -48,7 +60,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 1
   spriteExtrude: 0
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -72,10 +84,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 1024
+    maxTextureSize: 256
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -139,13 +151,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: start_0
+      name: startButton_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 960
-        height: 540
+        x: 25
+        y: 36
+        width: 24
+        height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +166,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f72e5d1bae56c3730800000000000000
-      internalID: 3980168229369012863
+      spriteID: 377d2ffa9018740a0800000000000000
+      internalID: -6897402425688008845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: startButton_1
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 36
+        width: 29
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e12a730b4775c130800000000000000
+      internalID: 3586403842335056353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: startButton_2
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 36
+        width: 29
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c869dca24f0385b40800000000000000
+      internalID: 5429143176043402892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: startButton_3
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 36
+        width: 24
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4779d539e4ee73720800000000000000
+      internalID: 2825989312445519732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: startButton_4
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 36
+        width: 29
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8956684dfeddfd80800000000000000
+      internalID: -8215164965831157362
       vertices: []
       indices: 
       edges: []
@@ -174,7 +274,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      start_0: 3980168229369012863
+      startButton_0: -6897402425688008845
+      startButton_1: 3586403842335056353
+      startButton_2: 5429143176043402892
+      startButton_3: 2825989312445519732
+      startButton_4: -8215164965831157362
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

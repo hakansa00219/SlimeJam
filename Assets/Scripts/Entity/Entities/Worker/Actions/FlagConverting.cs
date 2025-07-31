@@ -1,5 +1,6 @@
 using Engine;
 using Entity.Entities.Flag;
+using Scene;
 using UnityEngine;
 
 namespace Entity.Entities.Worker.Actions
@@ -10,10 +11,15 @@ namespace Entity.Entities.Worker.Actions
 
         private IConvertable _convertable;
         private GameObject _endPanel;
-        public void Initialize(IConvertable convertable, GameObject endPanel)
+        public void Initialize(IConvertable convertable)
         {
             _convertable = convertable;
-            _endPanel = endPanel;
+            _endPanel = Ending.Instance.EndPanel;
+
+            if (_endPanel == null)
+            {
+                Debug.LogError("No end panel");
+            }
         }
         protected override void OnTick()
         {

@@ -15,6 +15,7 @@ namespace Entity.Entities.Flag
         [SerializeField] private Sprite convertedSprite;
         [SerializeField] private Sprite unconvertedSprite;
         [SerializeField] private Costs buildings;
+        
         private FlagConverting _flagConverting;
         private Transferring _transferring;
         private SpriteRenderer _spriteRenderer;

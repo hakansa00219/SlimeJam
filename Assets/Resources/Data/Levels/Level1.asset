@@ -170,7 +170,7 @@ MonoBehaviour:
       Data: 3
     - Name: ElementType
       Entry: 3
-      Data: 7
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -1670,7 +1670,7 @@ MonoBehaviour:
       Data: 3
     - Name: ElementType
       Entry: 3
-      Data: 7
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -1874,7 +1874,7 @@ MonoBehaviour:
       Data: 3
     - Name: ElementType
       Entry: 3
-      Data: 7
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -2464,7 +2464,7 @@ MonoBehaviour:
       Data: 
   width: 10
   height: 20
-  isEditable: 0
+  isEditable: 1
   editType: 1
   selectedBaseTileType: 1
   selectedElementTileType: 0
