@@ -46,16 +46,16 @@ MonoBehaviour:
       Data: 2|Data.Cost, Assembly-CSharp
     - Name: wood
       Entry: 3
-      Data: 10
+      Data: 6
     - Name: metal
       Entry: 3
-      Data: 10
+      Data: 6
     - Name: slime
       Entry: 3
-      Data: 10
+      Data: 6
     - Name: berry
       Entry: 3
-      Data: 10
+      Data: 6
     - Name: 
       Entry: 8
       Data: 

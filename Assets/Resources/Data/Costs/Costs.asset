@@ -73,10 +73,10 @@ MonoBehaviour:
       Data: 3|Data.Cost, Assembly-CSharp
     - Name: wood
       Entry: 3
-      Data: 4
+      Data: 2
     - Name: metal
       Entry: 3
-      Data: 4
+      Data: 2
     - Name: slime
       Entry: 3
       Data: 0
@@ -100,16 +100,16 @@ MonoBehaviour:
       Data: 4|Data.Cost, Assembly-CSharp
     - Name: wood
       Entry: 3
-      Data: 10
+      Data: 6
     - Name: metal
       Entry: 3
-      Data: 5
+      Data: 3
     - Name: slime
       Entry: 3
-      Data: 4
+      Data: 2
     - Name: berry
       Entry: 3
-      Data: 8
+      Data: 4
     - Name: 
       Entry: 8
       Data: 
@@ -127,16 +127,16 @@ MonoBehaviour:
       Data: 5|Data.Cost, Assembly-CSharp
     - Name: wood
       Entry: 3
-      Data: 5
+      Data: 3
     - Name: metal
       Entry: 3
-      Data: 5
+      Data: 3
     - Name: slime
       Entry: 3
-      Data: 10
+      Data: 6
     - Name: berry
       Entry: 3
-      Data: 5
+      Data: 3
     - Name: 
       Entry: 8
       Data: 
